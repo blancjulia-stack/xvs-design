@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Art | XVS Design</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">XVS Design</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="digital-page">
+        <!-- Back Button -->
+        <div style="padding: 2rem 0 0 0;">
+            <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
+                &larr; Back to Portfolio
+            </a>
+        </div>
+        
+        <!-- Top Section divided into two halves -->
+        <div class="split-container">
+            
+            <!-- LEFT HALF: DARK FANTASY -->
+            <section class="split-half dark-fantasy-zone">
+                <div class="zone-header">
+                    <h2>Dark Fantasy</h2>
+                    <p>Dark universes, mythical creatures, and atmospheric environments.</p>
+                </div>
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/dark_fantasy-002.jpg" alt="Dark Fantasy 002" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/dark_fantasy-003.jpg" alt="Dark Fantasy 003" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/dark_fantasy-004.jpg" alt="Dark Fantasy 004" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/dark_fantasy-006.jpg" alt="Dark Fantasy 006" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT HALF: SWEET FANTASY -->
+            <section class="split-half sweet-fantasy-zone">
+                <div class="zone-header">
+                    <h2>Sweet Fantasy</h2>
+                    <p>Warm atmospheres, fairy tales, and gentle storytelling scenes.</p>
+                </div>
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/sweet_fantasy-002.jpg" alt="Sweet Fantasy 002" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/sweet_fantasy_003.jpg" alt="Sweet Fantasy 003" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/sweet_fantasy_004.jpg" alt="Sweet Fantasy 004" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/sweet_fantasy-005.jpg" alt="Sweet Fantasy 005" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/digital/sweet_fantasy-007.jpg" alt="Sweet Fantasy 007" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- BOTTOM SECTION: FANTASY (Full width) -->
+        <section class="full-zone fantasy-zone">
+            <div class="zone-header">
+                <h2>Fantasy</h2>
+                <p>Classic fantasy creations, heroic characters, and epic landscapes.</p>
+            </div>
+            <div class="digital-grid-large">
+                <div class="artwork-item">
+                    <img src="asset/digital/fantasy-001.jpg" alt="Fantasy 001" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/digital/fantasy-002.jpg" alt="Fantasy 002" class="zoomable">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LIGHTBOX MODAL (For fullscreen view) -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalTargetImg">
+        <div id="modalCaption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 — All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

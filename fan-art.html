@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Art | XVS Design</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">XVS Design</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="digital-page">
+        <!-- Back Button -->
+        <div style="padding: 2rem 0 0 0;">
+            <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
+                &larr; Back to Portfolio
+            </a>
+        </div>
+        
+        <!-- Top Section divided into two balanced halves -->
+        <div class="split-container">
+            
+            <!-- LEFT HALF: HEROES & CHARACTERS (3 artworks) -->
+            <section class="split-half fanart-zone-1">
+                <div class="zone-header">
+                    <h2>Heroes & Characters</h2>
+                    <p>Reinterpretations and portraits of iconic characters.</p>
+                </div>
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/fan-art/image.jpg" alt="Fan Art - Portrait" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/fan-art/imageffdfsdf.jpg" alt="Fan Art - Illustration" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/fan-art/imageooooo.jpg" alt="Fan Art - Scene" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT HALF: CULT UNIVERSES (2 artworks) -->
+            <section class="split-half fanart-zone-2">
+                <div class="zone-header">
+                    <h2>Cult Universes</h2>
+                    <p>Visual tributes to my favorite designs and pop culture franchises.</p>
+                </div>
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/fan-art/imageooou.jpg" alt="Fan Art - Concept" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/fan-art/imagertsry.jpg" alt="Fan Art - Research" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- BOTTOM SECTION: EPIC ILLUSTRATIONS (Full width - 2 artworks) -->
+        <section class="full-zone fanart-full-zone">
+            <div class="zone-header">
+                <h2>Epic Illustrations</h2>
+                <p>Complete compositions and backgrounds from fantastic worlds.</p>
+            </div>
+            <div class="digital-grid-large">
+                <div class="artwork-item">
+                    <img src="asset/fan-art/ooo.jpg" alt="Epic Fan Art I" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/fan-art/pppp.jpg" alt="Epic Fan Art II" class="zoomable">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX MODAL (For fullscreen view) -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalTargetImg" alt="Fullscreen preview">
+        <div id="modalCaption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 — All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

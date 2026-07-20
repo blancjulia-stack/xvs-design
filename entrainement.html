@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training & Sketches | XVS Design</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">XVS Design</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="digital-page">
+        <!-- Back Button -->
+        <div style="padding: 2rem 0 0 0;">
+            <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
+                &larr; Back to Portfolio
+            </a>
+        </div>
+        
+        <!-- Top Section divided into two balanced halves -->
+        <div class="split-container">
+            
+            <!-- LEFT HALF: ANIMAL STUDIES (3 artworks) -->
+            <section class="split-half animal-zone">
+                <div class="zone-header">
+                    <h2>Animal Studies</h2>
+                    <p>Sketches, fur textures, and animal anatomy.</p>
+                </div>
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/animal-001.png" alt="Animal Study 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/animal-002.jpg" alt="Animal Study 002" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/animal-003.png" alt="Animal Study 003" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT HALF: STILL LIFE (2 artworks) -->
+            <section class="split-half nature-morte-zone">
+                <div class="zone-header">
+                    <h2>Still Life</h2>
+                    <p>Studies on volume, lighting, and material rendering.</p>
+                </div>
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/nature_morte-001.png" alt="Still Life 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/nature_morte-002.jpg" alt="Still Life 002" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- BOTTOM SECTION: LANDSCAPES & ANATOMY (Full width - 4 artworks in total) -->
+        <section class="full-zone landscape-character-zone">
+            <div class="zone-header">
+                <h2>Landscapes & Anatomy</h2>
+                <p>Immersive environments and character studies.</p>
+            </div>
+            <div class="digital-grid-large">
+                <div class="artwork-item">
+                    <img src="asset/entrainement/paysage-001.jpg" alt="Landscape 001" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/paysage-002.jpg" alt="Landscape 002" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/paysage-003.png" alt="Landscape 003" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/personnage-001.jpg" alt="Character Study 001" class="zoomable">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX MODAL (For fullscreen view) -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalTargetImg" alt="Fullscreen preview">
+        <div id="modalCaption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 — All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
