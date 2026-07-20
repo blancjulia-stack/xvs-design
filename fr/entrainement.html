@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Études & Croquis | XVS Design</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7Q9HM3F5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JVK4541R7F');
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">XVS Design</div>
+          <nav>
+            <a href="index.html">Accueil</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html">Contact</a>
+            <a href="/index.html">EN</a>
+        </nav>
+    </header>
+
+    <main class="digital-page">
+
+        <!-- Bouton retour -->
+        <div style="padding: 2rem 0 0 0;">
+            <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
+                &larr; Retour au portfolio
+            </a>
+        </div>
+
+        <!-- Partie supérieure -->
+        <div class="split-container">
+
+            <!-- ÉTUDES ANIMALES -->
+            <section class="split-half animal-zone">
+                <div class="zone-header">
+                    <h2>Études animalières</h2>
+                    <p>Études des textures de fourrure et de l'anatomie animale.</p>
+                </div>
+
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="/asset/entrainement/animal-001.jpg" alt="Étude animalière 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="/asset/entrainement/animal-002.jpg" alt="Étude animalière 002" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="/asset/entrainement/animal-003.jpg" alt="Étude animalière 003" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+            <!-- NATURE MORTE -->
+            <section class="split-half nature-morte-zone">
+                <div class="zone-header">
+                    <h2>Natures mortes</h2>
+                    <p>Études du volume, de la lumière et du rendu des matériaux.</p>
+                </div>
+
+                <div class="digital-grid">
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/nature_morte-001.jpg" alt="Nature morte 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item">
+                        <img src="asset/entrainement/nature_morte-002.jpg" alt="Nature morte 002" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- PAYSAGES & ANATOMIE -->
+        <section class="full-zone landscape-character-zone">
+            <div class="zone-header">
+                <h2>Paysages & Anatomie</h2>
+                <p>Études d'environnements immersifs et de personnages.</p>
+            </div>
+
+            <div class="digital-grid-large">
+                <div class="artwork-item">
+                    <img src="asset/entrainement/paysage-001.jpg" alt="Paysage 001" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/paysage-002.jpg" alt="Paysage 002" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/paysage-003.jpg" alt="Paysage 003" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/personnage-001.jpg" alt="Étude de personnage 001" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/digital/fantasy-001.jpg" alt="Étude de personnage 002" class="zoomable">
+                </div>
+            </div>
+        </section>
+
+        <!-- DIRECTION ARTISTIQUE -->
+        <section class="split-half animal-zone">
+            <div class="zone-header">
+                <h2>Direction artistique</h2>
+                <p>Exercices réalisés à partir d'un brief afin de répondre à une demande artistique précise.</p>
+            </div>
+
+            <div class="digital-grid">
+                <div class="artwork-item">
+                    <img src="asset/entrainement/DA-001.jpg" alt="Brief de direction artistique 001" class="zoomable">
+                </div>
+                <div class="artwork-item">
+                    <img src="asset/entrainement/DA-002.jpg" alt="Brief de direction artistique 002" class="zoomable">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Fenêtre d'affichage en plein écran -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalTargetImg" alt="Aperçu en plein écran">
+        <div id="modalCaption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 — Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

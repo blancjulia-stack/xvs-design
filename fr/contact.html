@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | XVS Design</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JVK4541R7F');
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">XVS Design</div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-header">
+                <h1>Travaillons ensemble&nbsp;!</h1>
+                <p>Vous avez un projet, souhaitez commander une illustration ou simplement me dire bonjour ? Envoyez-moi un message ci-dessous !</p>
+            </div>
+
+            <!-- Formulaire de contact -->
+            <div class="form-container visible">
+                <form action="https://formspree.io/f/xpqvrdbg" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Type de projet</label>
+                        <select id="subject" name="subject">
+                            <option value="TCG-card game">Illustration pour jeu de cartes (TCG)</option>
+                            <option value="book-cover">Illustration personnalisée de couverture de livre</option>
+                            <option value="dark-fantasy">Concept ou scène de Dark Fantasy</option>
+                            <option value="landscape">Illustration d'environnement et de paysage</option>
+                            <option value="other">Autre projet créatif</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Parlez-moi de votre projet, de vos idées, du délai souhaité et de votre budget..." required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Nouveau message depuis XVS Design">
+                    <input type="hidden" name="_next" value="https://xvs-design.fr/contact.html?success=true">
+
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
+            </div>
+
+            <!-- Réseaux sociaux -->
+            <div class="social-box">
+                <p>Ou retrouvez-moi directement sur mes réseaux :</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/xv_s_design/" target="_blank">Instagram</a>
+                    <a href="https://x.com/BlancJulia" target="_blank">X (Twitter)</a>
+                    <a href="https://www.artstation.com/juliablanchard9" target="_blank">ArtStation</a>
+                    <a href="mailto:blanc.julia@gmail.com">M'envoyer un e-mail</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 — Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
