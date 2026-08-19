@@ -29,7 +29,7 @@
 
     header {
       max-width: 1000px;
-      margin: 0 auto 3rem auto;
+      margin: 0 auto 2.5rem auto;
       text-align: center;
     }
 
@@ -45,7 +45,24 @@
       font-size: 1.2rem;
       font-weight: 600;
       color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-email {
       margin-bottom: 1.5rem;
+    }
+
+    .contact-email a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-email a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
     }
 
     .services-container {
@@ -79,7 +96,36 @@
       color: var(--accent-color);
     }
 
-    /* Layout Masonry : préserve le ratio naturel des images */
+    /* Filtres */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .filter-btn {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid #282838;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--accent-color);
+      color: #000;
+      border-color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    /* Layout Masonry */
     .portfolio-grid {
       max-width: 1400px;
       margin: 0 auto;
@@ -89,6 +135,7 @@
     }
 
     .card {
+      position: relative;
       background-color: var(--card-bg);
       border-radius: 8px;
       overflow: hidden;
@@ -97,6 +144,10 @@
       break-inside: avoid;
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card.hide {
+      display: none;
     }
 
     .card:hover {
@@ -110,18 +161,33 @@
       display: block;
     }
 
+    .card-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(13, 13, 17, 0.85);
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
     .card-info {
       padding: 1.2rem;
       text-align: center;
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #fff;
       font-weight: 500;
     }
 
-    /* Lightbox / Vue en grand */
+    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
@@ -192,9 +258,9 @@
   <header>
     <h1>XVS Design</h1>
     <p class="subtitle">Freelance Digital Illustrator</p>
-   <p class="contact-email">
-  <a href="mailto:Fblanc.julia@gmail.com">blanc.julia@gmail.com</a>
-</p>
+    <p class="contact-email">
+      <a href="mailto:Fblanc.julia@gmail.com">Fblanc.julia@gmail.com</a>
+    </p>
     
     <div class="services-container">
       <div class="services-column">
@@ -210,104 +276,221 @@
         <ul>
           <li>Role-Playing Games</li>
           <li>Trading Card Games</li>
-          <li>Board Games</li>
+          <li>Book Covers</li>
         </ul>
       </div>
     </div>
   </header>
 
+  <!-- Filtres par catégorie -->
+  <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">All Work</button>
+    <button class="filter-btn" data-filter="card">Card Mockups</button>
+    <button class="filter-btn" data-filter="book">Book Covers</button>
+    <button class="filter-btn" data-filter="digital">Digital Artworks</button>
+  </div>
+
   <main class="portfolio-grid">
-    <div class="card">
+    <!-- MOCKUPS : TRADING CARDS -->
+    <div class="card" data-category="card">
+      <span class="card-tag">Card Mockup</span>
+      <img src="asset/illustrations/carte-mix-en.jpg" alt="Trading Cards Collection">
+      <div class="card-info">
+        <h2 class="card-title">TCG Card Set</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="card">
+      <span class="card-tag">Card Mockup</span>
+      <img src="asset/illustrations/carte-food-en.jpg" alt="Let's Eat TCG Card">
+      <div class="card-info">
+        <h2 class="card-title">Let's Eat! — Card Mockup</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="card">
+      <span class="card-tag">Card Mockup</span>
+      <img src="asset/illustrations/carte-ours.jpg" alt="Armored Bear TCG Card">
+      <div class="card-info">
+        <h2 class="card-title">Armored Bear — Card Mockup</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="card">
+      <span class="card-tag">Card Mockup</span>
+      <img src="asset/illustrations/carte-serpent.jpg" alt="Giant Serpent TCG Card">
+      <div class="card-info">
+        <h2 class="card-title">Giant Serpent — Card Mockup</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="card">
+      <span class="card-tag">Card Mockup</span>
+      <img src="asset/illustrations/carte-vers.jpg" alt="Sandworm TCG Card">
+      <div class="card-info">
+        <h2 class="card-title">Sandworm — Card Mockup</h2>
+      </div>
+    </div>
+
+    <!-- MOCKUPS : BOOK COVERS -->
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Cover</span>
+      <img src="asset/illustrations/livre-mix.jpg" alt="Book Covers Collection">
+      <div class="card-info">
+        <h2 class="card-title">Book Covers Showcase</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Cover</span>
+      <img src="asset/illustrations/livre ours.jpg" alt="Armored Bear Book Cover">
+      <div class="card-info">
+        <h2 class="card-title">Armored Bear — Novel Cover</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Cover</span>
+      <img src="asset/illustrations/livre-satyr.jpg" alt="The Gilded Satyr Book Cover">
+      <div class="card-info">
+        <h2 class="card-title">The Gilded Satyr — Novel Cover</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Cover</span>
+      <img src="asset/illustrations/livre-serpent.jpg" alt="Serpent Book Cover">
+      <div class="card-info">
+        <h2 class="card-title">Giant Serpent — Novel Cover</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Cover</span>
+      <img src="asset/illustrations/livre-shoebill.jpg" alt="Shoebill Book Cover">
+      <div class="card-info">
+        <h2 class="card-title">Shoebill Guardian — Novel Cover</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Cover</span>
+      <img src="asset/illustrations/livre-vers.jpg" alt="Sandworm Book Cover">
+      <div class="card-info">
+        <h2 class="card-title">Sandworm — Novel Cover</h2>
+      </div>
+    </div>
+
+    <!-- DIGITAL ARTWORKS -->
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/test-.jpg" alt="Orc Shaman">
       <div class="card-info">
         <h2 class="card-title">Orc Shaman</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/serpent.jpg" alt="Giant Coiled Serpent">
       <div class="card-info">
         <h2 class="card-title">Giant Coiled Serpent</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/vers.jpg" alt="Sandworm">
       <div class="card-info">
         <h2 class="card-title">Sandworm</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/bear.jpg" alt="Armored Bear Mount">
       <div class="card-info">
         <h2 class="card-title">Armored Bear Mount</h2>
       </div>
     </div>
-   
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy_003.jpg" alt="The Gilded Satyr">
       <div class="card-info">
         <h2 class="card-title">The Gilded Satyr</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/food.jpg" alt="Let's eat!">
       <div class="card-info">
-        <h2 class="card-title">Let's eat!</h2>
+        <h2 class="card-title">Let's Eat!</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy_004.jpg" alt="Ocean Leviathan">
       <div class="card-info">
         <h2 class="card-title">Ocean Leviathan</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy-001.jpg" alt="Cauldron Brew">
       <div class="card-info">
         <h2 class="card-title">Cauldron Brew</h2>
       </div>
     </div>
-    
-    <div class="card">
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/444.png" alt="Hidden Mantis">
       <div class="card-info">
         <h2 class="card-title">Hidden Mantis</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy-002.jpg" alt="Water Lily Terrarium">
       <div class="card-info">
         <h2 class="card-title">Water Lily Terrarium</h2>
       </div>
     </div>
 
-    
-
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy-006.jpg" alt="Red Frog Pool">
       <div class="card-info">
         <h2 class="card-title">Red Frog Pool</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy-007.jpg" alt="Goblin - It Was Worth It">
       <div class="card-info">
         <h2 class="card-title">Goblin - It Was Worth It</h2>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
       <img src="asset/digital/dark_fantasy-001.jpg" alt="Titan's Rise">
       <div class="card-info">
         <h2 class="card-title">Titan's Rise</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="asset/illustrations/dark_fantasy-005.jpg" alt="Dark Creature">
+      <div class="card-info">
+        <h2 class="card-title">Shadow Stalker</h2>
       </div>
     </div>
   </main>
@@ -324,6 +507,7 @@
   </footer>
 
   <script>
+    // System Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -349,6 +533,27 @@
       if (e.target === lightbox) {
         lightbox.style.display = 'none';
       }
+    });
+
+    // Système de Filtre
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
     });
   </script>
 
