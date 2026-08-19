@@ -20,7 +20,6 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">XVS Design</a>
         <nav>
             <a href="index.html">Home</a>
             <a href="digital.html" class="active">Portfolio</a>
@@ -28,82 +27,90 @@
             <a href="contact.html">Contact</a>
             <a href="fr/index-fr.html">FR</a>
         </nav>
+
+        <h1>Fan Art</h1>
+        <p class="subtitle">Reinterpretations, Cult Universes & Visual Tributes</p>
+        
+        <div class="contact-email">
+            <a href="portfolio.html">&larr; Back to Main Portfolio</a>
+        </div>
     </header>
 
-    <main class="digital-page">
-        <!-- Back Button -->
-        <div class="back-link-container">
-            <a href="portfolio.html" class="cta-button back-button">
-                &larr; Back to Portfolio
-            </a>
-        </div>
-        
-        <!-- Top Section divided into two balanced halves -->
-        <div class="split-container">
-            
-            <!-- LEFT HALF: HEROES & CHARACTERS (3 artworks) -->
-            <section class="split-half fanart-zone-1">
-                <div class="zone-header">
-                    <h2>Heroes & Characters</h2>
-                    <p>Reinterpretations and portraits of iconic characters.</p>
-                </div>
-                <div class="digital-grid">
-                    <div class="artwork-item">
-                        <img src="asset/fan-art/image.jpg" alt="Fan Art - Portrait" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/fan-art/imageffdfsdf.jpg" alt="Fan Art - Illustration" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/fan-art/imageooooo.jpg" alt="Fan Art - Scene" class="zoomable">
-                    </div>
-                </div>
-            </section>
+    <main>
+        <!-- Grille Masonry avec la classe .portfolio-grid du CSS -->
+        <section class="portfolio-grid">
 
-            <!-- RIGHT HALF: CULT UNIVERSES (2 artworks) -->
-            <section class="split-half fanart-zone-2">
-                <div class="zone-header">
-                    <h2>Cult Universes</h2>
-                    <p>Visual tributes to my favorite designs and pop culture franchises.</p>
-                </div>
-                <div class="digital-grid">
-                    <div class="artwork-item">
-                        <img src="asset/fan-art/imageooou.jpg" alt="Fan Art - Concept" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/fan-art/imagertsry.jpg" alt="Fan Art - Research" class="zoomable">
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <!-- BOTTOM SECTION: EPIC ILLUSTRATIONS (Full width - 2 artworks) -->
-        <section class="full-zone fanart-full-zone">
-            <div class="zone-header">
-                <h2>Epic Illustrations</h2>
-                <p>Complete compositions and backgrounds from fantastic worlds.</p>
-            </div>
-            <div class="digital-grid-large">
-                <div class="artwork-item">
-                    <img src="asset/fan-art/ooo.jpg" alt="Epic Fan Art I" class="zoomable">
-                </div>
-                <div class="artwork-item">
-                    <img src="asset/fan-art/pppp.jpg" alt="Epic Fan Art II" class="zoomable">
+            <!-- Category: Heroes & Characters -->
+            <div class="card">
+                <span class="card-tag">Heroes</span>
+                <img src="asset/fan-art/image.jpg" alt="Fan Art - Portrait">
+                <div class="card-info">
+                    <div class="card-title">Character Portrait</div>
                 </div>
             </div>
+
+            <div class="card">
+                <span class="card-tag">Heroes</span>
+                <img src="asset/fan-art/imageffdfsdf.jpg" alt="Fan Art - Illustration">
+                <div class="card-info">
+                    <div class="card-title">Character Design</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Heroes</span>
+                <img src="asset/fan-art/imageooooo.jpg" alt="Fan Art - Scene">
+                <div class="card-info">
+                    <div class="card-title">Hero Scene</div>
+                </div>
+            </div>
+
+            <!-- Category: Cult Universes -->
+            <div class="card">
+                <span class="card-tag">Universes</span>
+                <img src="asset/fan-art/imageooou.jpg" alt="Fan Art - Concept">
+                <div class="card-info">
+                    <div class="card-title">Universe Concept</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Universes</span>
+                <img src="asset/fan-art/imagertsry.jpg" alt="Fan Art - Research">
+                <div class="card-info">
+                    <div class="card-title">Visual Research</div>
+                </div>
+            </div>
+
+            <!-- Category: Epic Illustrations -->
+            <div class="card">
+                <span class="card-tag">Epic</span>
+                <img src="asset/fan-art/ooo.jpg" alt="Epic Fan Art I">
+                <div class="card-info">
+                    <div class="card-title">Epic Composition I</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Epic</span>
+                <img src="asset/fan-art/pppp.jpg" alt="Epic Fan Art II">
+                <div class="card-info">
+                    <div class="card-title">Epic Composition II</div>
+                </div>
+            </div>
+
         </section>
     </main>
 
-    <!-- LIGHTBOX MODAL (For fullscreen preview) -->
-    <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalTargetImg" alt="Fullscreen preview">
-        <div id="modalCaption"></div>
+    <!-- Lightbox Modal configurée selon la classe CSS .lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
     <footer>
-        <p>&copy; 2026 — All rights reserved.</p>
+        <p>&copy; 2026 XVS Design — All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
