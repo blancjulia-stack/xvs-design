@@ -3,88 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact XVS Design for freelance commissions, book cover artwork, TCG card illustrations, and dark fantasy concepts.">
     <title>Contact | XVS Design</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7Q9HM3F5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-JVK4541R7F');
-</script>
+      gtag('config', 'G-JVK4541R7F');
+    </script>
 </head>
 <body>
 
     <header>
-        <div class="logo">XVS Design</div>
-          <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="digital.html">Portfolio</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
             <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-           
+            <a href="contact.html" class="active">Contact</a>
+            <a href="fr/index-fr.html">FR</a>
         </nav>
+
+        <h1>XVS Design</h1>
+        <p class="subtitle">Let's Work Together!</p>
+        
+        <div class="contact-email">
+            <p style="color: var(--text-color); font-size: 0.95rem;">
+                Have a project in mind, need a commission, or just want to say hello? Drop a message below!
+            </p>
+        </div>
     </header>
 
     <main>
-        <section class="contact-section">
-            <div class="contact-header">
-                <h1>Let's work together!</h1>
-                <p>Have a project in mind, need a commission, or just want to say hello? Drop a message below!</p>
-            </div>
+        <!-- Formulaire inséré dans le conteneur stylisé du CSS -->
+        <section class="services-container" style="display: block; max-width: 650px;">
+            <form action="https://formspree.io/f/xpqvrdbg" method="POST" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="name" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;">
+                </div>
 
-            <!-- Contact Form -->
-            <div class="form-container visible">
-                <form action="https://formspree.io/f/xpqvrdbg" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                    </div>
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="email" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;">
+                </div>
 
-                    <div class="form-group">
-                        <label for="subject">Project Type</label>
-                        <select id="subject" name="subject">
-                            <option value="TCG-card game">TCG/ card game  Illustration</option>
-                            <option value="book-cover">Custom Book Cover Illustration</option>
-                            <option value="dark-fantasy">Dark Fantasy Concept / Scene</option>
-                            <option value="landscape">Environment & Landscape Art</option>
-                            <option value="other">Other Creative Project</option>
-                        </select>
-                    </div>
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="subject" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Project Type</label>
+                    <select id="subject" name="subject" style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;">
+                        <option value="TCG-card game">TCG / Card Game Illustration</option>
+                        <option value="book-cover">Custom Book Cover Illustration</option>
+                        <option value="dark-fantasy">Dark Fantasy Concept / Scene</option>
+                        <option value="landscape">Environment & Landscape Art</option>
+                        <option value="other">Other Creative Project</option>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project ideas, timeline, and budget..." required></textarea>
-                    </div>
-                    <input type="hidden" name="_subject" value="New message from XVS Design">
-<input type="hidden" name="_next" value="https://xvs-design.fr/contact.html?success=true">
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="message" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Tell me about your project ideas, timeline, and budget..." required style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+                <input type="hidden" name="_subject" value="New message from XVS Design">
+                <input type="hidden" name="_next" value="https://xvs-design.fr/contact.html?success=true">
 
-            <!-- Social Links / Alternatives -->
-            <div class="social-box">
-                <p>Or find me directly on my social networks:</p>
-                <div class="social-links">
+                <button type="submit" class="filter-btn active" style="margin-top: 0.5rem; width: 100%; font-size: 1rem; padding: 0.75rem; border-radius: 6px; cursor: pointer;">
+                    Send Message
+                </button>
+            </form>
+
+            <!-- Réseaux Sociaux & Contact Direct -->
+            <div style="margin-top: 2.5rem; text-align: center; border-top: 1px solid #282838; padding-top: 1.5rem;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Or connect with me directly:</p>
+                <div class="contact-email" style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0;">
                     <a href="https://www.instagram.com/xv_s_design/" target="_blank">Instagram</a>
-                    <a href="https://x.com/BlancJulia" target="_blank">X/Twitter</a>
-                    <a href="https://www.artstation.com/juliablanchard9" target="_blank">Art Station</a>
-                    <a href="mailto:blanc.julia@gmail.com">E-Mail me!</a>
+                    <a href="https://x.com/BlancJulia" target="_blank">X / Twitter</a>
+                    <a href="https://www.artstation.com/juliablanchard9" target="_blank">ArtStation</a>
+                    <a href="mailto:blanc.julia@gmail.com">Direct Email</a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 — All rights reserved.</p>
+        <p>&copy; 2026 XVS Design — All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
