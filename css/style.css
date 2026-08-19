@@ -1,62 +1,93 @@
 /* ==========================================================================
-   🌌 1. VARIABLES & PALETTE DARK FANTASY
+   🌌 1. VARIABLES UNIFIÉES & PALETTE DARK FANTASY
    ========================================================================== */
 :root {
-  --bg-color: #0b090c;        /* Noir d'encre profond */
-  --card-bg: #141117;         /* Anthracite / violet très sombre */
-  --text-color: #f3f0f5;      /* Blanc cassé soyeux */
-  --accent-color: #dfb76c;    /* Or ancien */
-  --accent-glow: #ffdf9e;     /* Or brillant pour les effets lumineux */
+  --bg-dark: #0b090c;         /* Noir d'encre profond */
+  --bg-card: #141117;         /* Anthracite / violet très sombre */
+  --text-light: #f3f0f5;      /* Blanc cassé soyeux */
   --text-muted: #a39fa8;      /* Gris lavande */
+  --gold: #dfb76c;            /* Or ancien */
+  --gold-glow: #ffdf9e;       /* Or brillant */
   --border-color: rgba(223, 183, 108, 0.15);
+
+  /* Alias de compatibilité */
+  --bg-color: var(--bg-dark);
+  --card-bg: var(--bg-card);
+  --text-color: var(--text-light);
+  --accent-color: var(--gold);
 }
 
 /* ==========================================================================
-   🖋️ 2. STYLE GLOBAL & BASE
+   🖋️ 2. RESET & STYLE GLOBAL
    ========================================================================== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--bg-dark);
   background-image: radial-gradient(circle at 50% 50%, #1a1523 0%, #0b090c 100%);
-  color: var(--text-color);
+  color: var(--text-light);
   font-family: 'Cinzel', 'Didot', 'Garamond', Georgia, serif;
   line-height: 1.6;
   letter-spacing: 0.05em;
-  padding: 2rem 1rem;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-bottom: 4rem;
 }
 
 /* ==========================================================================
-   👑 3. BARRE DE NAVIGATION & ENTÊTE
+   👑 3. NAVIGATION & EN-TÊTE UNIFIÉ
    ========================================================================== */
 header {
-  max-width: 1100px;
-  margin: 0 auto 2.5rem auto;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 8%;
+  border-bottom: 1px solid var(--border-color);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* Navigation */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 10px rgba(223, 183, 108, 0.3);
+  text-decoration: none;
+}
+
 nav {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
 nav a {
-  color: var(--text-muted);
   text-decoration: none;
-  font-weight: 500;
+  color: var(--text-muted);
   font-size: 0.9rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   border: 1px solid transparent;
   transition: all 0.4s ease;
@@ -65,116 +96,102 @@ nav a {
 
 nav a:hover, 
 nav a.active {
-  color: var(--accent-color);
-  background-color: var(--card-bg);
+  color: var(--gold);
+  background-color: var(--bg-card);
   border-color: var(--border-color);
-  text-shadow: 0 0 8px rgba(255, 223, 158, 0.4);
+  text-shadow: 0 0 8px rgba(255, 223, 158, 0.5);
 }
 
-/* Titres Principaux */
-h1 {
-  color: var(--accent-color);
-  font-size: 2.8rem;
-  letter-spacing: 0.15em;
+/* Boutons CTA */
+.cta-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 2.5rem;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 0 12px rgba(223, 183, 108, 0.25);
-  background: linear-gradient(135deg, #ffffff 30%, var(--accent-color) 100%);
+  letter-spacing: 0.2em;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.cta-button:hover {
+  color: var(--bg-dark);
+  background-color: var(--gold);
+  box-shadow: 0 0 20px rgba(223, 183, 108, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   🏠 4. ACCUEIL (HERO & FEATURED ARTWORK)
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: 4rem 10% 2rem 10%;
+}
+
+.hero h1, h1 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 30%, var(--gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.subtitle {
+.hero p, .section-subtitle, .subtitle {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.08em;
-}
-
-.contact-email {
-  margin-bottom: 2rem;
-}
-
-.contact-email a {
-  color: var(--accent-color);
-  text-decoration: none;
   font-size: 1rem;
-  font-family: 'Inter', system-ui, sans-serif;
-  letter-spacing: 0.05em;
-  transition: opacity 0.3s ease, text-shadow 0.3s ease;
-}
-
-.contact-email a:hover {
-  opacity: 0.85;
-  text-shadow: 0 0 8px rgba(223, 183, 108, 0.4);
-}
-
-/* Encadré des Services / Spécialités */
-.services-container {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  background-color: var(--card-bg);
-  padding: 1.8rem 2.5rem;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  border-left: 3px solid var(--accent-color);
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.services-column h3 {
-  color: var(--accent-color);
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.8rem;
-}
-
-.services-column ul {
-  list-style: none;
-  text-align: left;
-}
-
-.services-column li {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.95rem;
   color: var(--text-muted);
-  margin-bottom: 0.4rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
 }
 
-.services-column li::before {
-  content: "♦ ";
-  color: var(--accent-color);
-  font-size: 0.8rem;
-  margin-right: 0.3rem;
+.featured-artwork {
+  max-width: 750px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 5%;
+}
+
+.featured-artwork img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
 }
 
 /* ==========================================================================
-   🎯 4. FILTRES PAR CATÉGORIE
+   🎯 5. FILTRES DE CATÉGORIES
    ========================================================================== */
 .filter-container {
   display: flex;
   justify-content: center;
   gap: 0.8rem;
   flex-wrap: wrap;
-  max-width: 1400px;
-  margin: 0 auto 2.5rem auto;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  padding: 0 1rem;
 }
 
 .filter-btn {
-  background-color: var(--card-bg);
+  background-color: var(--bg-card);
   color: var(--text-muted);
   border: 1px solid var(--border-color);
-  padding: 0.6rem 1.4rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 20px;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: all 0.3s ease;
@@ -182,35 +199,36 @@ h1 {
 
 .filter-btn:hover, 
 .filter-btn.active {
-  background-color: var(--accent-color);
-  color: var(--bg-color);
-  border-color: var(--accent-color);
+  background-color: var(--gold);
+  color: var(--bg-dark);
+  border-color: var(--gold);
   font-weight: 600;
   box-shadow: 0 0 15px rgba(223, 183, 108, 0.3);
 }
 
 /* ==========================================================================
-   🖼️ 5. GRILLE PORTFOLIO (MASONRY LAYOUT & CARTES)
+   🖼️ 6. GRILLES D'IMAGES ET CARTES PORTFOLIO (TAILLES MAÎTRISÉES)
    ========================================================================== */
+/* Layout 1 : Grille Masonry / Portfolio Filtrable */
 .portfolio-grid {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   column-count: 3;
-  column-gap: 1.8rem;
-  padding: 0.5rem 0;
+  column-gap: 1.5rem;
+  padding: 0 5%;
 }
 
 .card {
   position: relative;
-  background-color: var(--card-bg);
+  background-color: var(--bg-card);
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
   break-inside: avoid;
   cursor: pointer;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card.hide {
@@ -218,17 +236,17 @@ h1 {
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-color);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(223, 183, 108, 0.2);
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(223, 183, 108, 0.2);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  display: block;
+  max-height: 380px; /* Limite la hauteur excessive */
+  object-fit: cover;
   filter: brightness(0.9) contrast(1.05);
-  transition: transform 0.6s ease, filter 0.6s ease;
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .card:hover img {
@@ -236,49 +254,385 @@ h1 {
   filter: brightness(1.02) contrast(1.08);
 }
 
-/* Tag sur les cartes */
 .card-tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   background-color: rgba(11, 9, 12, 0.85);
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  font-size: 0.7rem;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  font-size: 0.68rem;
   font-weight: 600;
-  padding: 0.25rem 0.6rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 2px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   backdrop-filter: blur(4px);
   z-index: 2;
 }
 
 .card-info {
-  padding: 1.2rem;
+  padding: 1rem;
   text-align: center;
   background: linear-gradient(to top, rgba(20, 17, 23, 0.95), rgba(20, 17, 23, 0.75));
 }
 
 .card-title {
-  font-size: 1rem;
-  color: var(--text-color);
+  font-size: 0.95rem;
+  color: var(--text-light);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
+/* Layout 2 : Grille Classique (Pages Internes Digital / Fanart / Entraînement) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 8%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item, .artwork-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item img, .artwork-item img {
+  width: 100%;
+  height: 280px; /* Taille uniforme fixée */
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.88) contrast(1.05);
+}
+
+.gallery-item:hover img, .artwork-item:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+/* Overlays au survol */
+.overlay {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 50%;
+  background: linear-gradient(to top, rgba(11, 9, 12, 0.95) 0%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Layout 3 : Sections Divisées (Split Half & Full Zone) */
+.digital-page {
+  padding: 0 5%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.split-container {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.split-half, .full-zone {
+  flex: 1;
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.zone-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.8rem;
+}
+
+.zone-header h2 {
+  font-size: 1.5rem;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.digital-grid, .digital-grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Mini Galerie (Accueil) */
+.mini-gallery-section {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 10px;
+  background: var(--bg-card);
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.mini-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.mini-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.mini-item img:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
 /* ==========================================================================
-   🔍 6. MODALE / LIGHTBOX (ZOOM D'IMAGE)
+   🌌 7. EFFET PARALLAX
    ========================================================================== */
-.lightbox {
+.parallax-section {
+  position: relative;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bg-digital {
+  background-image: linear-gradient(rgba(11, 9, 12, 0.6), rgba(11, 9, 12, 0.6)), url('../asset/digital/dark_fantasy-002.jpg');
+}
+
+.bg-fanart {
+  background-image: linear-gradient(rgba(11, 9, 12, 0.6), rgba(11, 9, 12, 0.6)), url('../asset/fan-art/imageffdfsdf.jpg'); 
+}
+
+.bg-entrainement {
+  background-image: linear-gradient(rgba(11, 9, 12, 0.6), rgba(11, 9, 12, 0.6)), url('../asset/entrainment/paysage-002.jpg');
+}
+
+.parallax-content {
+  background: rgba(20, 17, 23, 0.85);
+  padding: 2rem 3rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(6px);
+  max-width: 550px;
+  width: 90%;
+}
+
+.parallax-content h2 {
+  font-size: 2rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   📝 8. PAGE À PROPOS (ABOUT)
+   ========================================================================== */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  max-width: 1050px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 380px;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.about-text {
+  flex: 1.2;
+}
+
+.about-text p {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.services, .services-container {
+  margin-top: 2rem;
+  padding: 1.8rem;
+  background-color: var(--bg-card);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--gold);
+}
+
+.services h3 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.services ul {
+  list-style: none;
+}
+
+.services ul li {
+  font-family: 'Inter', system-ui, sans-serif;
+  margin-bottom: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.services ul li::before {
+  content: "♦ ";
+  color: var(--gold);
+  margin-right: 0.4rem;
+}
+
+/* ==========================================================================
+   ✉️ 9. PAGE CONTACT
+   ========================================================================== */
+.contact-section {
+  padding: 3rem 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.form-container {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 550px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  background-color: rgba(11, 9, 12, 0.6);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(223, 183, 108, 0.2);
+  background-color: rgba(11, 9, 12, 0.9);
+}
+
+.submit-btn {
+  background-color: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.submit-btn:hover {
+  color: var(--bg-dark);
+  background-color: var(--gold);
+  box-shadow: 0 0 15px rgba(223, 183, 108, 0.3);
+}
+
+/* ==========================================================================
+   🔍 10. MODALE / LIGHTBOX
+   ========================================================================== */
+.modal, .lightbox {
   display: none;
   position: fixed;
   z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background-color: rgba(11, 9, 12, 0.95);
   backdrop-filter: blur(8px);
   justify-content: center;
@@ -287,14 +641,13 @@ h1 {
   padding: 20px;
 }
 
-.lightbox-img {
+.modal-content, .lightbox-img {
   max-width: 85%;
   max-height: 80vh;
   object-fit: contain;
-  border-radius: 2px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
-  animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  animation: zoomIn 0.3s ease;
 }
 
 @keyframes zoomIn {
@@ -302,63 +655,49 @@ h1 {
   to { transform: scale(1); opacity: 1; }
 }
 
-.lightbox-caption {
-  margin-top: 1.2rem;
-  color: var(--accent-color);
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-.lightbox .close {
+.modal-close, .lightbox .close {
   position: absolute;
-  top: 20px;
-  right: 35px;
+  top: 20px; right: 35px;
   color: var(--text-muted);
-  font-size: 40px;
-  font-weight: 300;
+  font-size: 38px;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
-.lightbox .close:hover {
-  color: var(--accent-color);
+.modal-close:hover, .lightbox .close:hover {
+  color: var(--gold);
 }
 
-/* ==========================================================================
-   🖤 7. PIED DE PAGE (FOOTER)
-   ========================================================================== */
-footer {
-  text-align: center;
-  margin-top: 5rem;
-  padding: 2.5rem 0 1rem 0;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border-color);
+#modalCaption, .lightbox-caption {
+  margin-top: 1rem;
+  color: var(--gold);
+  font-size: 1rem;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
 /* ==========================================================================
-   📱 8. RESPONSIVE DESIGN
+   🖤 11. PIED DE PAGE & RESPONSIVE
    ========================================================================== */
+footer {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  letter-spacing: 0.1em;
+}
+
 @media (max-width: 900px) {
-  .portfolio-grid {
-    column-count: 2;
-  }
+  .portfolio-grid { column-count: 2; }
+  .split-container { flex-direction: column; }
+  .about-container { flex-direction: column; text-align: center; }
 }
 
 @media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .portfolio-grid {
-    column-count: 1;
-  }
-
-  .services-container {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.2rem;
-  }
+  header { flex-direction: column; gap: 1rem; text-align: center; }
+  nav { justify-content: center; }
+  .portfolio-grid { column-count: 1; }
+  .gallery { grid-template-columns: 1fr; }
+  .hero h1, h1 { font-size: 2rem; }
 }
