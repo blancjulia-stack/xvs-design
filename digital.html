@@ -1,149 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Art | XVS Design</title>
-    <link rel="stylesheet" href="css/style.css">
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XVS Design — Freelance Digital Illustrator</title>
+  <style>
+    :root {
+      --bg-color: #0d0d11;
+      --card-bg: #16161e;
+      --text-color: #e0e0e0;
+      --accent-color: #d4af37; /* Or métallique */
+      --text-muted: #a0a0b0;
+    }
 
-  gtag('config', 'G-JVK4541R7F');
-</script>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      max-width: 1000px;
+      margin: 0 auto 3rem auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #282838;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .services-column h3 {
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .services-column ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .services-column li::before {
+      content: "• ";
+      color: var(--accent-color);
+    }
+
+    .portfolio-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #242432;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-color);
+    }
+
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-info {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">XVS Design</div>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="/fr/index-fr.html">FR</a>
-        </nav>
-    </header>
+  <header>
+    <h1>XVS Design</h1>
+    <p class="subtitle">Freelance Digital Illustrator</p>
+    
+    <div class="services-container">
+      <div class="services-column">
+        <h3>Specialities</h3>
+        <ul>
+          <li>Fantasy Creatures</li>
+          <li>Monsters</li>
+          <li>Environments</li>
+        </ul>
+      </div>
+      <div class="services-column">
+        <h3>Available For</h3>
+        <ul>
+          <li>Role-Playing Games</li>
+          <li>Trading Card Games</li>
+          <li>Board Games</li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-    <main class="digital-page">
-        <!-- Back Button -->
-        <div style="padding: 2rem 0 0 0;">
-            <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
-                &larr; Back to Portfolio
-            </a>
-        </div>
-        
-        <!-- Top Section divided into two halves -->
-        <div class="split-container">
-             <section class="full-zone fantasy-zone">
-            <div class="zone-header">
-                <h2>Fantasy</h2>
-                <p>Classic fantasy creations, heroic characters, and epic landscapes.</p>
-            </div>
-            <div class="digital-grid-large">
-                 <div class="artwork-item">
-                    <img src="asset/digital/test-.jpg" alt="a mix between a Magali Villeneuve Draw and an ogre from WOW" class="zoomable">
-                </div>
-                <div class="artwork-item">
-                    <img src="asset/digital/bear.jpg" alt="bear" class="zoomable">
-                </div>
-                 <div class="artwork-item">
-                        <img src="asset/digital/DA64FB4A-FAF0-4FD0-99ED-5C46926002A9.jpeg" alt="Fantasy 001" class="zoomable">
-                    </div>
-                 <div class="artwork-item">
-                        <img src="asset/digital/serpent.jpg" alt=" Serpent" class="zoomable">
-                    </div>
-                <div class="artwork-item">
-                    <img src="asset/digital/fantasy-001.jpg" alt="Fantasy 003" class="zoomable">
-                </div>
-                <div class="artwork-item">
-                    <img src="asset/digital/fantasy-002.jpg" alt="Fantasy 004" class="zoomable">
-                </div>
-                 
-            </div>
-        </section>
-            <!-- LEFT HALF: DARK FANTASY -->
-            <section class="split-half dark-fantasy-zone">
-                <div class="zone-header">
-                    <h2>Dark Fantasy</h2>
-                    <p>Dark universes, mythical creatures, and atmospheric environments.</p>
-                </div>
-                <div class="digital-grid">
-                     <div class="artwork-item">
-                        <img src="asset/digital/vers.jpg" alt="Dark Fantasy 001" class="zoomable">
-                    </div>
-                     <div class="artwork-item">
-                        <img src="asset/digital/444.png" alt="Dark Fantasy 002" class="zoomable">
-                    </div>
-                    
-                    <div class="artwork-item">
-                        <img src="asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 005" class="zoomable">
-                    </div>
-                   
-                    <div class="artwork-item">
-                        <img src="asset/digital/dark_fantasy-006.jpg" alt="Dark Fantasy 006" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/dark_fantasy-003.jpg" alt="Dark Fantasy 007" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/dark_fantasy-004.jpg" alt="Dark Fantasy 008" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/dark_fantasy-005.jpg" alt="Dark Fantasy 09" class="zoomable">
-                    </div>
-                </div>
-            </section>
-
-            <!-- RIGHT HALF: SWEET FANTASY -->
-            <section class="split-half sweet-fantasy-zone">
-                <div class="zone-header">
-                    <h2>Sweet Fantasy</h2>
-                    <p>Warm atmospheres, fairy tales, and gentle storytelling scenes.</p>
-                </div>
-                <div class="digital-grid">
-                    <div class="artwork-item">
-                        <img src="asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/sweet_fantasy-002.jpg" alt="Sweet Fantasy 002" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/sweet_fantasy_003.jpg" alt="Sweet Fantasy 003" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/sweet_fantasy_004.jpg" alt="Sweet Fantasy 004" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/sweet_fantasy-005.jpg" alt="Sweet Fantasy 005" class="zoomable">
-                    </div>
-                    <div class="artwork-item">
-                        <img src="asset/digital/gnome.jpg" alt="Sweet Fantasy 007" class="zoomable">
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <!-- BOTTOM SECTION: FANTASY (Full width) -->
-       
-
-    </main>
-
-    <!-- LIGHTBOX MODAL (For fullscreen view) -->
-    <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalTargetImg">
-        <div id="modalCaption"></div>
+  <main class="portfolio-grid">
+    <div class="card">
+      <img src="sweet_fantasy_003.jpg" alt="The Gilded Satyr">
+      <div class="card-info">
+        <h2 class="card-title">The Gilded Satyr</h2>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 — All rights reserved.</p>
-    </footer>
+    <div class="card">
+      <img src="sweet_fantasy-005.jpg" alt="The Chrono-Elephant">
+      <div class="card-info">
+        <h2 class="card-title">The Chrono-Elephant</h2>
+      </div>
+    </div>
 
-    <script src="js/script.js"></script>
+    <div class="card">
+      <img src="sweet_fantasy_004.jpg" alt="Ocean Leviathan">
+      <div class="card-info">
+        <h2 class="card-title">Ocean Leviathan</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="sweet_fantasy-002.jpg" alt="Water Lily Terrarium">
+      <div class="card-info">
+        <h2 class="card-title">Water Lily Terrarium</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="test-.jpg" alt="Orc Shaman">
+      <div class="card-info">
+        <h2 class="card-title">Orc Shaman</h2>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 XVS Design. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
