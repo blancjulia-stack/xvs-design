@@ -20,7 +20,6 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">XVS Design</a>
         <nav>
             <a href="index.html" class="active">Home</a>
             <a href="digital.html">Portfolio</a>
@@ -28,49 +27,122 @@
             <a href="contact.html">Contact</a>
             <a href="fr/index-fr.html">FR</a>
         </nav>
+        
+        <h1>XVS Design</h1>
+        <p class="subtitle">Immersive Dark Fantasy & Visual Storytelling</p>
+        
+        <div class="contact-email">
+            <p>Hi, I am a freelance illustrator creating deep, detailed, and vibrant character concepts and book covers.</p>
+            <br>
+            <a href="portfolio.html">Enter Full Portfolio &rarr;</a>
+        </div>
     </header>
 
     <main>
-        <!-- 1. Hero Section -->
-        <section class="hero">
-            <h1>Immersive Dark Fantasy & Visual Storytelling</h1>
-            <p>Hi, I am a freelance illustrator creating deep, detailed, and vibrant character concepts and book covers.</p>
-            <a href="portfolio.html" class="cta-button">Enter Portfolio</a>
-        </section>
+        <header>
+            <p class="subtitle">Quick Overview</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Click on any card to explore the section</p>
+        </header>
 
-        <!-- 2. Aperçu rapide (Mini Galerie) -->
-        <section class="mini-gallery-section">
-            <h2>Quick Overview</h2>
-            <p class="section-subtitle">A glimpse into my latest illustrations, fan arts, and sketches</p>
+        <!-- Grille Portfolio Masonry alignée sur le CSS -->
+        <section class="portfolio-grid">
             
-            <div class="mini-grid">
-                <!-- Digital Art -->
-                <a href="digital.html" class="mini-item"><img src="asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001"></a>
-                <a href="digital.html" class="mini-item"><img src="asset/digital/fantasy-001.jpg" alt="Fantasy 001"></a>
-                <a href="digital.html" class="mini-item"><img src="asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001"></a>
-
-                <!-- Fan Art -->
-                <a href="fan-art.html" class="mini-item"><img src="asset/fan-art/image.jpg" alt="Fan Art 001"></a>
-                <a href="fan-art.html" class="mini-item"><img src="asset/fan-art/imageffdfsdf.jpg" alt="Fan Art 002"></a>
-                <a href="fan-art.html" class="mini-item"><img src="asset/fan-art/imageooooo.jpg" alt="Fan Art 003"></a>
-
-                <!-- Training & Sketches -->
-                <a href="entrainement.html" class="mini-item"><img src="asset/entrainement/animal-001.jpg" alt="Animal Study 001"></a>
-                <a href="entrainement.html" class="mini-item"><img src="asset/entrainement/nature_morte-001.jpg" alt="Still Life 001"></a>
-                <a href="entrainement.html" class="mini-item"><img src="asset/entrainement/paysage-002.jpg" alt="Landscape 002"></a>
+            <!-- Featured Item -->
+            <div class="card" onclick="location.href='digital.html';">
+                <span class="card-tag">Featured</span>
+                <img src="asset/digital/dark_fantasy-002.jpg" alt="Featured Dark Fantasy Artwork">
+                <div class="card-info">
+                    <div class="card-title">Featured Artwork</div>
+                </div>
             </div>
 
-            <p class="section-subtitle">Click on the pictures to see more in the portfolio!</p>
-        </section>
+            <!-- Digital Art -->
+            <div class="card" onclick="location.href='digital.html';">
+                <span class="card-tag">Digital</span>
+                <img src="asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001">
+                <div class="card-info">
+                    <div class="card-title">Dark Fantasy 001</div>
+                </div>
+            </div>
 
-        <!-- 3. Artwork à la une -->
-        <section class="featured-artwork">
-            <img src="asset/digital/dark_fantasy-002.jpg" alt="Featured Dark Fantasy Artwork">
+            <div class="card" onclick="location.href='digital.html';">
+                <span class="card-tag">Digital</span>
+                <img src="asset/digital/fantasy-001.jpg" alt="Fantasy 001">
+                <div class="card-info">
+                    <div class="card-title">Fantasy 001</div>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='digital.html';">
+                <span class="card-tag">Digital</span>
+                <img src="asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001">
+                <div class="card-info">
+                    <div class="card-title">Sweet Fantasy 001</div>
+                </div>
+            </div>
+
+            <!-- Fan Art -->
+            <div class="card" onclick="location.href='fan-art.html';">
+                <span class="card-tag">Fan Art</span>
+                <img src="asset/fan-art/image.jpg" alt="Fan Art 001">
+                <div class="card-info">
+                    <div class="card-title">Fan Art 001</div>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='fan-art.html';">
+                <span class="card-tag">Fan Art</span>
+                <img src="asset/fan-art/imageffdfsdf.jpg" alt="Fan Art 002">
+                <div class="card-info">
+                    <div class="card-title">Fan Art 002</div>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='fan-art.html';">
+                <span class="card-tag">Fan Art</span>
+                <img src="asset/fan-art/imageooooo.jpg" alt="Fan Art 003">
+                <div class="card-info">
+                    <div class="card-title">Fan Art 003</div>
+                </div>
+            </div>
+
+            <!-- Training & Sketches -->
+            <div class="card" onclick="location.href='entrainement.html';">
+                <span class="card-tag">Sketches</span>
+                <img src="asset/entrainement/animal-001.jpg" alt="Animal Study 001">
+                <div class="card-info">
+                    <div class="card-title">Animal Study 001</div>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='entrainement.html';">
+                <span class="card-tag">Sketches</span>
+                <img src="asset/entrainement/nature_morte-001.jpg" alt="Still Life 001">
+                <div class="card-info">
+                    <div class="card-title">Still Life 001</div>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='entrainement.html';">
+                <span class="card-tag">Sketches</span>
+                <img src="asset/entrainement/paysage-002.jpg" alt="Landscape 002">
+                <div class="card-info">
+                    <div class="card-title">Landscape 002</div>
+                </div>
+            </div>
+
         </section>
     </main>
 
+    <!-- Modal Lightbox configurée dans le CSS -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 — All rights reserved.</p>
+        <p>&copy; 2026 XVS Design — All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
