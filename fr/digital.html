@@ -15,118 +15,234 @@
 
       gtag('config', 'G-JVK4541R7F');
     </script>
+
+    <style>
+      /* Styles spécifiques pour l'intégration des filtres et badges */
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin: 2rem auto;
+        max-width: 1200px;
+      }
+
+      .filter-btn {
+        background-color: var(--card-bg, #16161e);
+        color: var(--text-color, #e0e0e0);
+        border: 1px solid #282838;
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .filter-btn:hover, .filter-btn.active {
+        background-color: var(--accent-color, #d4af37);
+        color: #000;
+        border-color: var(--accent-color, #d4af37);
+        font-weight: 600;
+      }
+
+      .artwork-item {
+        position: relative;
+      }
+
+      .artwork-item.hide {
+        display: none !important;
+      }
+
+      .artwork-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(13, 13, 17, 0.85);
+        color: var(--accent-color, #d4af37);
+        border: 1px solid var(--accent-color, #d4af37);
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        pointer-events: none;
+      }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="logo">XVS Design</div>
-          <nav>
-            <a href="index-fr.html" class="active">Accueil</a>
-            <a href="portfolio.html">Portfolio</a>
+        <nav>
+            <a href="index-fr.html">Accueil</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
             <a href="about.html">À propos</a>
             <a href="contact.html">Contact</a>
             <a href="../index.html">EN</a>
         </nav>
     </header>
 
-     <main class="digital-page">
+    <main class="digital-page">
         <!-- Back Button -->
         <div style="padding: 2rem 0 0 0;">
             <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
-                &larr; Back to Portfolio
+                &larr; Retour au Portfolio
             </a>
         </div>
-        
-        <!-- Top Section divided into two halves -->
-        <div class="split-container">
-              <!-- BOTTOM SECTION: FANTASY (Full width) -->
-        <section class="full-zone fantasy-zone">
+
+        <!-- Filtres par catégorie -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Tous les travaux</button>
+            <button class="filter-btn" data-filter="carte">Maquettes Cartes (TCG)</button>
+            <button class="filter-btn" data-filter="livre">Couvertures de Livres</button>
+            <button class="filter-btn" data-filter="digital">Illustrations Digitales</button>
+        </div>
+
+        <!-- MOCKUPS : CARTES TCG -->
+        <section class="full-zone mockups-zone">
             <div class="zone-header">
-                <h2>Fantasy</h2>
-                <p>Paysages, heros et autres.</p>
+                <h2>Mises en situation (Mockups)</h2>
+                <p>Aperçu du rendu final pour cartes à collectionner et couvertures de romans.</p>
             </div>
+            
             <div class="digital-grid-large">
-                 <div class="artwork-item">
-                        <img src="/asset/digital/DA64FB4A-FAF0-4FD0-99ED-5C46926002A9.jpeg" alt="oiseau" class="zoomable">
-                    </div>
-                 <div class="artwork-item">
-                        <img src="/asset/digital/serpent.jpg" alt="Serpent" class="zoomable">
-                    </div>
-                <div class="artwork-item">
-                    <img src="/asset/digital/fantasy-001.jpg" alt="Fantasy 001" class="zoomable">
+                <!-- Cartes -->
+                <div class="artwork-item" data-category="carte">
+                    <span class="artwork-badge">Maquette Carte</span>
+                    <img src="/asset/illustrations/carte-mix-en.jpg" alt="Collection de cartes TCG" class="zoomable">
                 </div>
-                <div class="artwork-item">
-                    <img src="/asset/digital/fantasy-002.jpg" alt="Fantasy 002" class="zoomable">
+                <div class="artwork-item" data-category="carte">
+                    <span class="artwork-badge">Maquette Carte</span>
+                    <img src="/asset/illustrations/carte-food-en.jpg" alt="Carte TCG Let's Eat" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="carte">
+                    <span class="artwork-badge">Maquette Carte</span>
+                    <img src="/asset/illustrations/carte-ours.jpg" alt="Carte TCG Ours Armuré" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="carte">
+                    <span class="artwork-badge">Maquette Carte</span>
+                    <img src="/asset/illustrations/carte-serpent.jpg" alt="Carte TCG Serpent Géant" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="carte">
+                    <span class="artwork-badge">Maquette Carte</span>
+                    <img src="/asset/illustrations/carte-vers.jpg" alt="Carte TCG Ver des sables" class="zoomable">
+                </div>
+
+                <!-- Couvertures -->
+                <div class="artwork-item" data-category="livre">
+                    <span class="artwork-badge">Couverture Livre</span>
+                    <img src="/asset/illustrations/livre-mix.jpg" alt="Collection de couvertures de livre" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="livre">
+                    <span class="artwork-badge">Couverture Livre</span>
+                    <img src="/asset/illustrations/livre ours.jpg" alt="Couverture de roman Ours Armuré" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="livre">
+                    <span class="artwork-badge">Couverture Livre</span>
+                    <img src="/asset/illustrations/livre-satyr.jpg" alt="Couverture Le Satyre Doré" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="livre">
+                    <span class="artwork-badge">Couverture Livre</span>
+                    <img src="/asset/illustrations/livre-serpent.jpg" alt="Couverture Serpent Géant" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="livre">
+                    <span class="artwork-badge">Couverture Livre</span>
+                    <img src="/asset/illustrations/livre-shoebill.jpg" alt="Couverture Gardien Bec-en-sabot" class="zoomable">
+                </div>
+                <div class="artwork-item" data-category="livre">
+                    <span class="artwork-badge">Couverture Livre</span>
+                    <img src="/asset/illustrations/livre-vers.jpg" alt="Couverture Ver des sables" class="zoomable">
                 </div>
             </div>
         </section>
 
-            
-            <!-- LEFT HALF: DARK FANTASY -->
-            <section class="split-half dark-fantasy-zone">
+        <!-- SECTIONS DIGITAL ART -->
+        <div class="split-container">
+            <!-- FANTASY -->
+            <section class="full-zone fantasy-zone" data-category="digital">
+                <div class="zone-header">
+                    <h2>Fantasy</h2>
+                    <p>Paysages, héros et créatures.</p>
+                </div>
+                <div class="digital-grid-large">
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/DA64FB4A-FAF0-4FD0-99ED-5C46926002A9.jpeg" alt="Oiseau" class="zoomable">
+                    </div>
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/serpent.jpg" alt="Serpent" class="zoomable">
+                    </div>
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/fantasy-001.jpg" alt="Fantasy 001" class="zoomable">
+                    </div>
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/fantasy-002.jpg" alt="Fantasy 002" class="zoomable">
+                    </div>
+                </div>
+            </section>
+
+            <!-- DARK FANTASY -->
+            <section class="split-half dark-fantasy-zone" data-category="digital">
                 <div class="zone-header">
                     <h2>Dark Fantasy</h2>
-                    <p>univers sombre, demoniaque et rude.</p>
+                    <p>Univers sombre, démoniaque et rude.</p>
                 </div>
                 <div class="digital-grid">
-                     <div class="artwork-item">
-                        <img src="/asset/digital/vers.jpg" alt="Dark Fantasy 222" class="zoomable">
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/vers.jpg" alt="Ver des sables" class="zoomable">
                     </div>
-                     <div class="artwork-item">
-                        <img src="/asset/digital/444.png" alt="Dark Fantasy 444" class="zoomable">
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/444.png" alt="Créature Mante" class="zoomable">
                     </div>
-                   
-                    <div class="artwork-item">
-                        <img src="/asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001-2" class="zoomable">
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001" class="zoomable">
                     </div>
-                   
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/dark_fantasy-006.jpg" alt="Dark Fantasy 006" class="zoomable">
                     </div>
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/dark_fantasy-003.jpg" alt="Dark Fantasy 003" class="zoomable">
                     </div>
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/dark_fantasy-004.jpg" alt="Dark Fantasy 004" class="zoomable">
                     </div>
-                    <div class="artwork-item">
-                        <img src="/asset/dark_fantasy-005.jpg" alt="Dark Fantasy 005" class="zoomable">
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/illustrations/dark_fantasy-005.jpg" alt="Dark Fantasy 005" class="zoomable">
                     </div>
                 </div>
             </section>
 
-            <!-- RIGHT HALF: SWEET FANTASY -->
-            <section class="split-half sweet-fantasy-zone">
+            <!-- SWEET FANTASY -->
+            <section class="split-half sweet-fantasy-zone" data-category="digital">
                 <div class="zone-header">
                     <h2>Sweet Fantasy</h2>
-                    <p>Bonne ambiance, douceurs et mignoneries.</p>
+                    <p>Bonne ambiance, douceurs et mignonneries.</p>
                 </div>
                 <div class="digital-grid">
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001" class="zoomable">
                     </div>
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/sweet_fantasy-002.jpg" alt="Sweet Fantasy 002" class="zoomable">
                     </div>
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/sweet_fantasy_003.jpg" alt="Sweet Fantasy 003" class="zoomable">
                     </div>
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/sweet_fantasy_004.jpg" alt="Sweet Fantasy 004" class="zoomable">
                     </div>
-                    <div class="artwork-item">
+                    <div class="artwork-item" data-category="digital">
                         <img src="/asset/digital/sweet_fantasy-005.jpg" alt="Sweet Fantasy 005" class="zoomable">
                     </div>
-                    <div class="artwork-item">
-                        <img src="/asset/digital/gnome.jpg" alt="Sweet Fantasy 007" class="zoomable">
+                    <div class="artwork-item" data-category="digital">
+                        <img src="/asset/digital/gnome.jpg" alt="Gnome" class="zoomable">
                     </div>
                 </div>
             </section>
-
         </div>
-
-      
     </main>
+
     <!-- Fenêtre d'affichage en plein écran -->
     <div id="imageModal" class="modal">
         <span class="modal-close">&times;</span>
@@ -139,5 +255,30 @@
     </footer>
 
     <script src="/js/script.js"></script>
+
+    <!-- Script de filtrage des catégories -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.artwork-item');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            items.forEach(item => {
+              if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.classList.remove('hide');
+              } else {
+                item.classList.add('hide');
+              }
+            });
+          });
+        });
+      });
+    </script>
 </body>
 </html>
