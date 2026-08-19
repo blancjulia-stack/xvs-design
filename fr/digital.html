@@ -1,284 +1,582 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art numérique | XVS Design</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XVS Design — Illustrateur Digital Freelance</title>
+  <style>
+    :root {
+      --bg-color: #0d0d11;
+      --card-bg: #16161e;
+      --text-color: #e0e0e0;
+      --accent-color: #d4af37;
+      --text-muted: #a0a0b0;
+    }
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      gtag('config', 'G-JVK4541R7F');
-    </script>
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
 
-    <style>
-      /* Styles spécifiques pour l'intégration des filtres et badges */
-      .filter-container {
-        display: flex;
-        justify-content: center;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        margin: 2rem auto;
-        max-width: 1200px;
+    header {
+      max-width: 1000px;
+      margin: 0 auto 2.5rem auto;
+      text-align: center;
+    }
+
+    /* Menu de navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent-color);
+      background-color: var(--card-bg);
+      border-color: #282838;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-email {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-email a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-email a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #282838;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .services-column h3 {
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .services-column ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .services-column li::before {
+      content: "• ";
+      color: var(--accent-color);
+    }
+
+    /* Filtres */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .filter-btn {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid #282838;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--accent-color);
+      color: #000;
+      border-color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    /* Layout Masonry */
+    .portfolio-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      column-count: 3;
+      column-gap: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .card {
+      position: relative;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #242432;
+      margin-bottom: 1.5rem;
+      break-inside: avoid;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card.hide {
+      display: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-color);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(13, 13, 17, 0.85);
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-info {
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-caption {
+      margin-top: 1rem;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .lightbox .close:hover {
+      color: var(--accent-color);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        column-count: 2;
       }
+    }
 
-      .filter-btn {
-        background-color: var(--card-bg, #16161e);
-        color: var(--text-color, #e0e0e0);
-        border: 1px solid #282838;
-        padding: 0.5rem 1.2rem;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        column-count: 1;
       }
-
-      .filter-btn:hover, .filter-btn.active {
-        background-color: var(--accent-color, #d4af37);
-        color: #000;
-        border-color: var(--accent-color, #d4af37);
-        font-weight: 600;
-      }
-
-      .artwork-item {
-        position: relative;
-      }
-
-      .artwork-item.hide {
-        display: none !important;
-      }
-
-      .artwork-badge {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background-color: rgba(13, 13, 17, 0.85);
-        color: var(--accent-color, #d4af37);
-        border: 1px solid var(--accent-color, #d4af37);
-        font-size: 0.7rem;
-        font-weight: 600;
-        padding: 0.2rem 0.5rem;
-        border-radius: 4px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        pointer-events: none;
-      }
-    </style>
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">XVS Design</div>
-        <nav>
-            <a href="index-fr.html">Accueil</a>
-            <a href="portfolio.html" class="active">Portfolio</a>
-            <a href="about.html">À propos</a>
-            <a href="contact.html">Contact</a>
-            <a href="../index.html">EN</a>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <a href="digital.html" class="active">Art Digital</a>
+      <a href="fan-art.html">Fan Art</a>
+      <a href="entrainement.html">Entraînement</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-    <main class="digital-page">
-        <!-- Back Button -->
-        <div style="padding: 2rem 0 0 0;">
-            <a href="portfolio.html" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.8rem;">
-                &larr; Retour au Portfolio
-            </a>
-        </div>
+    <h1>XVS Design</h1>
+    <p class="subtitle">Illustrateur Digital Freelance</p>
+    <p class="contact-email">
+      <a href="mailto:Fblanc.julia@gmail.com">Fblanc.julia@gmail.com</a>
+    </p>
+    
+    <div class="services-container">
+      <div class="services-column">
+        <h3>Spécialités</h3>
+        <ul>
+          <li>Créatures fantastiques</li>
+          <li>Monstres</li>
+          <li>Environnements</li>
+        </ul>
+      </div>
+      <div class="services-column">
+        <h3>Pour</h3>
+        <ul>
+          <li>Jeux de rôle</li>
+          <li>Jeux de cartes à collectionner</li>
+          <li>Illustrations de pages de livre</li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-        <!-- Filtres par catégorie -->
-        <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">Tous les travaux</button>
-            <button class="filter-btn" data-filter="carte">Maquettes Cartes (TCG)</button>
-            <button class="filter-btn" data-filter="livre">Couvertures de Livres</button>
-            <button class="filter-btn" data-filter="digital">Illustrations Digitales</button>
-        </div>
+  <!-- Filtres par catégorie -->
+  <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">Tous les travaux</button>
+    <button class="filter-btn" data-filter="card">Maquettes de cartes</button>
+    <button class="filter-btn" data-filter="book">Illustrations de livre</button>
+    <button class="filter-btn" data-filter="digital">Œuvres digitales</button>
+  </div>
 
-        <!-- MOCKUPS : CARTES TCG -->
-        <section class="full-zone mockups-zone">
-            <div class="zone-header">
-                <h2>Mises en situation (Mockups)</h2>
-                <p>Aperçu du rendu final pour cartes à collectionner et couvertures de romans.</p>
-            </div>
-            
-            <div class="digital-grid-large">
-                <!-- Cartes -->
-                <div class="artwork-item" data-category="carte">
-                    <span class="artwork-badge">Maquette Carte</span>
-                    <img src="/asset/illustrations/carte-mix-en.jpg" alt="Collection de cartes TCG" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="carte">
-                    <span class="artwork-badge">Maquette Carte</span>
-                    <img src="/asset/illustrations/carte-food-en.jpg" alt="Carte TCG Let's Eat" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="carte">
-                    <span class="artwork-badge">Maquette Carte</span>
-                    <img src="/asset/illustrations/carte-ours.jpg" alt="Carte TCG Ours Armuré" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="carte">
-                    <span class="artwork-badge">Maquette Carte</span>
-                    <img src="/asset/illustrations/carte-serpent.jpg" alt="Carte TCG Serpent Géant" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="carte">
-                    <span class="artwork-badge">Maquette Carte</span>
-                    <img src="/asset/illustrations/carte-vers.jpg" alt="Carte TCG Ver des sables" class="zoomable">
-                </div>
-
-                <!-- Couvertures -->
-                <div class="artwork-item" data-category="livre">
-                    <span class="artwork-badge">Couverture Livre</span>
-                    <img src="/asset/illustrations/livre-mix.jpg" alt="Collection de couvertures de livre" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="livre">
-                    <span class="artwork-badge">Couverture Livre</span>
-                    <img src="/asset/illustrations/livre ours.jpg" alt="Couverture de roman Ours Armuré" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="livre">
-                    <span class="artwork-badge">Couverture Livre</span>
-                    <img src="/asset/illustrations/livre-satyr.jpg" alt="Couverture Le Satyre Doré" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="livre">
-                    <span class="artwork-badge">Couverture Livre</span>
-                    <img src="/asset/illustrations/livre-serpent.jpg" alt="Couverture Serpent Géant" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="livre">
-                    <span class="artwork-badge">Couverture Livre</span>
-                    <img src="/asset/illustrations/livre-shoebill.jpg" alt="Couverture Gardien Bec-en-sabot" class="zoomable">
-                </div>
-                <div class="artwork-item" data-category="livre">
-                    <span class="artwork-badge">Couverture Livre</span>
-                    <img src="/asset/illustrations/livre-vers.jpg" alt="Couverture Ver des sables" class="zoomable">
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTIONS DIGITAL ART -->
-        <div class="split-container">
-            <!-- FANTASY -->
-            <section class="full-zone fantasy-zone" data-category="digital">
-                <div class="zone-header">
-                    <h2>Fantasy</h2>
-                    <p>Paysages, héros et créatures.</p>
-                </div>
-                <div class="digital-grid-large">
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/DA64FB4A-FAF0-4FD0-99ED-5C46926002A9.jpeg" alt="Oiseau" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/serpent.jpg" alt="Serpent" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/fantasy-001.jpg" alt="Fantasy 001" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/fantasy-002.jpg" alt="Fantasy 002" class="zoomable">
-                    </div>
-                </div>
-            </section>
-
-            <!-- DARK FANTASY -->
-            <section class="split-half dark-fantasy-zone" data-category="digital">
-                <div class="zone-header">
-                    <h2>Dark Fantasy</h2>
-                    <p>Univers sombre, démoniaque et rude.</p>
-                </div>
-                <div class="digital-grid">
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/vers.jpg" alt="Ver des sables" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/444.png" alt="Créature Mante" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/dark_fantasy-006.jpg" alt="Dark Fantasy 006" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/dark_fantasy-003.jpg" alt="Dark Fantasy 003" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/dark_fantasy-004.jpg" alt="Dark Fantasy 004" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/illustrations/dark_fantasy-005.jpg" alt="Dark Fantasy 005" class="zoomable">
-                    </div>
-                </div>
-            </section>
-
-            <!-- SWEET FANTASY -->
-            <section class="split-half sweet-fantasy-zone" data-category="digital">
-                <div class="zone-header">
-                    <h2>Sweet Fantasy</h2>
-                    <p>Bonne ambiance, douceurs et mignonneries.</p>
-                </div>
-                <div class="digital-grid">
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/sweet_fantasy-002.jpg" alt="Sweet Fantasy 002" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/sweet_fantasy_003.jpg" alt="Sweet Fantasy 003" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/sweet_fantasy_004.jpg" alt="Sweet Fantasy 004" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/sweet_fantasy-005.jpg" alt="Sweet Fantasy 005" class="zoomable">
-                    </div>
-                    <div class="artwork-item" data-category="digital">
-                        <img src="/asset/digital/gnome.jpg" alt="Gnome" class="zoomable">
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Fenêtre d'affichage en plein écran -->
-    <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalTargetImg">
-        <div id="modalCaption"></div>
+  <main class="portfolio-grid">
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/test-.jpg" alt="Chaman Orc">
+      <div class="card-info">
+        <h2 class="card-title">Chaman Orc</h2>
+      </div>
+    </div>
+    <div class="card" data-category="card">
+      <span class="card-tag">Maquette de carte</span>
+      <img src="/asset/illustrations/carte-mix-en.jpg" alt="Collection de cartes JCC">
+      <div class="card-info">
+        <h2 class="card-title">Set de cartes JCC</h2>
+      </div>
+    </div>
+    <div class="card" data-category="book">
+      <span class="card-tag">Illustration de livre</span>
+      <img src="/asset/illustrations/livre-mix.jpg" alt="Collection d'illustrations de pages de livre">
+      <div class="card-info">
+        <h2 class="card-title">Présentation de pages de livre</h2>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 — Tous droits réservés.</p>
-    </footer>
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/food.jpg" alt="À table !">
+      <div class="card-info">
+        <h2 class="card-title">À table !</h2>
+      </div>
+    </div>
+    <div class="card" data-category="card">
+      <span class="card-tag">Maquette de carte</span>
+      <img src="/asset/illustrations/carte-food-en.jpg" alt="Carte JCC À table !">
+      <div class="card-info">
+        <h2 class="card-title">À table ! — Maquette de carte</h2>
+      </div>
+    </div>
 
-    <script src="/js/script.js"></script>
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/bear.jpg" alt="Monture Ours Armuré">
+      <div class="card-info">
+        <h2 class="card-title">Monture Ours Armuré</h2>
+      </div>
+    </div>
+    <div class="card" data-category="card">
+      <span class="card-tag">Maquette de carte</span>
+      <img src="/asset/illustrations/carte-ours.jpg" alt="Carte JCC Ours Armuré">
+      <div class="card-info">
+        <h2 class="card-title">Ours Armuré — Maquette de carte</h2>
+      </div>
+    </div>
+    <div class="card" data-category="book">
+      <span class="card-tag">Illustration de livre</span>
+      <img src="/asset/illustrations/livre ours.jpg" alt="Illustration de livre Ours Armuré">
+      <div class="card-info">
+        <h2 class="card-title">Ours Armuré — Page de livre</h2>
+      </div>
+    </div>
 
-    <!-- Script de filtrage des catégories -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const items = document.querySelectorAll('.artwork-item');
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/sweet_fantasy_003.jpg" alt="Le Satyre Doré">
+      <div class="card-info">
+        <h2 class="card-title">Le Satyrique Doré</h2>
+      </div>
+    </div>
+    <div class="card" data-category="book">
+      <span class="card-tag">Illustration de livre</span>
+      <img src="/asset/illustrations/livre-satyr.jpg" alt="Illustration de livre Le Satyrique Doré">
+      <div class="card-info">
+        <h2 class="card-title">Le Satyrique Doré — Page de livre</h2>
+      </div>
+    </div>
 
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/serpent.jpg" alt="Serpent Géant Enroulé">
+      <div class="card-info">
+        <h2 class="card-title">Serpent Géant Enroulé</h2>
+      </div>
+    </div>
+    <div class="card" data-category="card">
+      <span class="card-tag">Maquette de carte</span>
+      <img src="/asset/illustrations/carte-serpent.jpg" alt="Carte JCC Serpent Géant">
+      <div class="card-info">
+        <h2 class="card-title">Serpent Géant — Maquette de carte</h2>
+      </div>
+    </div>
+    <div class="card" data-category="book">
+      <span class="card-tag">Illustration de livre</span>
+      <img src="/asset/illustrations/livre-serpent.jpg" alt="Illustration de livre Serpent Géant">
+      <div class="card-info">
+        <h2 class="card-title">Serpent Géant — Page de livre</h2>
+      </div>
+    </div>
 
-            const filterValue = btn.getAttribute('data-filter');
+    <div class="card" data-category="book">
+      <span class="card-tag">Illustration de livre</span>
+      <img src="/asset/illustrations/livre-shoebill.jpg" alt="Illustration de livre Gardien Bec-en-sabot">
+      <div class="card-info">
+        <h2 class="card-title">Gardien Bec-en-sabot — Page de livre</h2>
+      </div>
+    </div>
 
-            items.forEach(item => {
-              if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.classList.remove('hide');
-              } else {
-                item.classList.add('hide');
-              }
-            });
-          });
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/vers.jpg" alt="Ver des Sables">
+      <div class="card-info">
+        <h2 class="card-title">Ver des Sables</h2>
+      </div>
+    </div>
+    <div class="card" data-category="card">
+      <span class="card-tag">Maquette de carte</span>
+      <img src="/asset/illustrations/carte-vers.jpg" alt="Carte JCC Ver des Sables">
+      <div class="card-info">
+        <h2 class="card-title">Ver des Sables — Maquette de carte</h2>
+      </div>
+    </div>
+    <div class="card" data-category="book">
+      <span class="card-tag">Illustration de livre</span>
+      <img src="/asset/illustrations/livre-vers.jpg" alt="Illustration de livre Ver des Sables">
+      <div class="card-info">
+        <h2 class="card-title">Ver des Sables — Page de livre</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/sweet_fantasy_004.jpg" alt="Léviathan des Océans">
+      <div class="card-info">
+        <h2 class="card-title">Léviathan des Océans</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/sweet_fantasy-001.jpg" alt="Potion au Chaudron">
+      <div class="card-info">
+        <h2 class="card-title">Potion au Chaudron</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/444.png" alt="Mante Dissimulée">
+      <div class="card-info">
+        <h2 class="card-title">Mante Dissimulée</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/sweet_fantasy-002.jpg" alt="Terrarium aux Nénuphars">
+      <div class="card-info">
+        <h2 class="card-title">Terrarium aux Nénuphars</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/sweet_fantasy-006.jpg" alt="Bassin de la Grenouille Rouge">
+      <div class="card-info">
+        <h2 class="card-title">Bassin de la Grenouille Rouge</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/sweet_fantasy-007.jpg" alt="Gobelin - Ça en valait la peine">
+      <div class="card-info">
+        <h2 class="card-title">Gobelin - Ça en valait la peine</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/digital/dark_fantasy-001(2).jpg" alt="L'Éveil du Titan">
+      <div class="card-info">
+        <h2 class="card-title">L'Éveil du Titan</h2>
+      </div>
+    </div>
+
+    <div class="card" data-category="digital">
+      <span class="card-tag">Illustration</span>
+      <img src="/asset/illustrations/dark_fantasy-002.jpg" alt="Créature des Ombres">
+      <div class="card-info">
+        <h2 class="card-title">Rôdeur des Ombres</h2>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modale d'agrandissement -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" alt="">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 XVS Design. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Système Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox .close');
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const title = card.querySelector('.card-title');
+        
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.innerText = title.innerText;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+
+    // Système de Filtre
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
         });
       });
-    </script>
+    });
+  </script>
+
 </body>
 </html>
