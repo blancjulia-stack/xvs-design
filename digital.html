@@ -33,6 +33,32 @@
       text-align: center;
     }
 
+    /* Menu de navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent-color);
+      background-color: var(--card-bg);
+      border-color: #282838;
+    }
+
     h1 {
       color: var(--accent-color);
       font-size: 2.2rem;
@@ -256,6 +282,14 @@
 <body>
 
   <header>
+    <nav>
+      <a href="digital.html" class="active">Digital Art</a>
+      <a href="fan-art.html">Fan Art</a>
+      <a href="entrainement.html">Entraînement</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
     <h1>XVS Design</h1>
     <p class="subtitle">Freelance Digital Illustrator</p>
     <p class="contact-email">
@@ -276,7 +310,7 @@
         <ul>
           <li>Role-Playing Games</li>
           <li>Trading Card Games</li>
-          <li>Book Covers</li>
+          <li>Book Page Illustrations</li>
         </ul>
       </div>
     </div>
@@ -286,13 +320,12 @@
   <div class="filter-container">
     <button class="filter-btn active" data-filter="all">All Work</button>
     <button class="filter-btn" data-filter="card">Card Mockups</button>
-    <button class="filter-btn" data-filter="book">Book Covers</button>
+    <button class="filter-btn" data-filter="book">Book Page Illustrations</button>
     <button class="filter-btn" data-filter="digital">Digital Artworks</button>
   </div>
 
   <main class="portfolio-grid">
-    <!-- MOCKUPS : TRADING CARDS -->
-     <div class="card" data-category="digital">
+    <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
       <img src="asset/digital/test-.jpg" alt="Orc Shaman">
       <div class="card-info">
@@ -306,16 +339,15 @@
         <h2 class="card-title">TCG Card Set</h2>
       </div>
     </div>
-      <div class="card" data-category="book">
-      <span class="card-tag">Book Cover</span>
-      <img src="asset/illustrations/livre-mix.jpg" alt="Book Covers Collection">
+    <div class="card" data-category="book">
+      <span class="card-tag">Book Illustration</span>
+      <img src="asset/illustrations/livre-mix.jpg" alt="Book Page Illustrations Collection">
       <div class="card-info">
-        <h2 class="card-title">Book Covers Showcase</h2>
+        <h2 class="card-title">Book Page Showcase</h2>
       </div>
     </div>
 
-    <!-- food -->
- <div class="card" data-category="digital">
+    <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
       <img src="asset/digital/food.jpg" alt="Let's eat!">
       <div class="card-info">
@@ -330,23 +362,14 @@
       </div>
     </div>
 
-   
-
-    
-
- 
-
-    <!-- MOCKUPS : BOOK COVERS -->
-  
-     <!-- bearS -->
- <div class="card" data-category="digital">
+    <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
       <img src="asset/digital/bear.jpg" alt="Armored Bear Mount">
       <div class="card-info">
         <h2 class="card-title">Armored Bear Mount</h2>
       </div>
     </div>
-     <div class="card" data-category="card">
+    <div class="card" data-category="card">
       <span class="card-tag">Card Mockup</span>
       <img src="asset/illustrations/carte-ours.jpg" alt="Armored Bear TCG Card">
       <div class="card-info">
@@ -354,16 +377,14 @@
       </div>
     </div>
     <div class="card" data-category="book">
-      <span class="card-tag">Book Cover</span>
-      <img src="asset/illustrations/livre ours.jpg" alt="Armored Bear Book Cover">
+      <span class="card-tag">Book Illustration</span>
+      <img src="asset/illustrations/livre ours.jpg" alt="Armored Bear Book Illustration">
       <div class="card-info">
-        <h2 class="card-title">Armored Bear — Novel Cover</h2>
+        <h2 class="card-title">Armored Bear — Book Page</h2>
       </div>
     </div>
 
- <!-- satyr -->
-    
-  <div class="card" data-category="digital">
+    <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
       <img src="asset/digital/sweet_fantasy_003.jpg" alt="The Gilded Satyr">
       <div class="card-info">
@@ -371,14 +392,14 @@
       </div>
     </div>
     <div class="card" data-category="book">
-      <span class="card-tag">Book Cover</span>
-      <img src="asset/illustrations/livre-satyr.jpg" alt="The Gilded Satyr Book Cover">
+      <span class="card-tag">Book Illustration</span>
+      <img src="asset/illustrations/livre-satyr.jpg" alt="The Gilded Satyr Book Illustration">
       <div class="card-info">
-        <h2 class="card-title">The Gilded Satyr — Novel Cover</h2>
+        <h2 class="card-title">The Gilded Satyr — Book Page</h2>
       </div>
     </div>
-    <!--serpent-->
-<div class="card" data-category="digital">
+
+    <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
       <img src="asset/digital/serpent.jpg" alt="Giant Coiled Serpent">
       <div class="card-info">
@@ -393,58 +414,42 @@
       </div>
     </div>
     <div class="card" data-category="book">
-      <span class="card-tag">Book Cover</span>
-      <img src="asset/illustrations/livre-serpent.jpg" alt="Serpent Book Cover">
+      <span class="card-tag">Book Illustration</span>
+      <img src="asset/illustrations/livre-serpent.jpg" alt="Serpent Book Illustration">
       <div class="card-info">
-        <h2 class="card-title">Giant Serpent — Novel Cover</h2>
+        <h2 class="card-title">Giant Serpent — Book Page</h2>
       </div>
     </div>
 
     <div class="card" data-category="book">
-      <span class="card-tag">Book Cover</span>
-      <img src="asset/illustrations/livre-shoebill.jpg" alt="Shoebill Book Cover">
+      <span class="card-tag">Book Illustration</span>
+      <img src="asset/illustrations/livre-shoebill.jpg" alt="Shoebill Book Illustration">
       <div class="card-info">
-        <h2 class="card-title">Shoebill Guardian — Novel Cover</h2>
+        <h2 class="card-title">Shoebill Guardian — Book Page</h2>
       </div>
     </div>
-<!-- worms -->
-     <div class="card" data-category="digital">
+
+    <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
       <img src="asset/digital/vers.jpg" alt="Sandworm">
       <div class="card-info">
         <h2 class="card-title">Sandworm</h2>
       </div>
     </div>
-       <div class="card" data-category="card">
+    <div class="card" data-category="card">
       <span class="card-tag">Card Mockup</span>
       <img src="asset/illustrations/carte-vers.jpg" alt="Sandworm TCG Card">
       <div class="card-info">
         <h2 class="card-title">Sandworm — Card Mockup</h2>
       </div>
     </div>
-
     <div class="card" data-category="book">
-      <span class="card-tag">Book Cover</span>
-      <img src="asset/illustrations/livre-vers.jpg" alt="Sandworm Book Cover">
+      <span class="card-tag">Book Illustration</span>
+      <img src="asset/illustrations/livre-vers.jpg" alt="Sandworm Book Illustration">
       <div class="card-info">
-        <h2 class="card-title">Sandworm — Novel Cover</h2>
+        <h2 class="card-title">Sandworm — Book Page</h2>
       </div>
     </div>
-
-    <!-- DIGITAL ARTWORKS -->
-   
-
-    
-
-   
-
-   
-
-
-
-    
-
-   
 
     <div class="card" data-category="digital">
       <span class="card-tag">Illustration</span>
