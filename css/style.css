@@ -164,7 +164,11 @@
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
-
+/* Empêche le rognage tout en gardant le format 2x2 de la carte */
+.card[data-category="digital"].contain-fit img {
+  object-fit: contain;
+  padding: 10px;
+}
     .card.hide {
       display: none;
     }
