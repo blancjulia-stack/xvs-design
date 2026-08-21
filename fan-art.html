@@ -98,10 +98,13 @@
         </section>
     </main>
 
-    <!-- Lightbox Modal avec bouton Retour -->
+    <!-- Lightbox Modal avec bouton Retour et Loupe Zoom -->
     <div id="lightbox" class="lightbox">
         <button class="btn-back" id="btn-back">&larr; Retour</button>
-        <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
+        <div class="lightbox-img-container" id="lightbox-container">
+            <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
+            <div id="zoom-lens" class="zoom-lens"></div>
+        </div>
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
@@ -114,6 +117,10 @@
       const lightboxImg = document.getElementById('lightbox-img');
       const lightboxCaption = document.getElementById('lightbox-caption');
       const backBtn = document.getElementById('btn-back');
+      const container = document.getElementById('lightbox-container');
+      const lens = document.getElementById('zoom-lens');
+
+      const ZOOM_LEVEL = 2.5;
 
       // Ouverture Lightbox
       document.querySelectorAll('.card').forEach(card => {
@@ -133,6 +140,7 @@
       const closeLightbox = () => {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
+        lens.style.display = 'none';
       };
 
       backBtn.addEventListener('click', closeLightbox);
@@ -147,6 +155,39 @@
         if (e.key === 'Escape' && lightbox.style.display === 'flex') {
           closeLightbox();
         }
+      });
+
+      // Gestion du carré de zoom
+      container.addEventListener('mousemove', (e) => {
+        const rect = lightboxImg.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+          lens.style.display = 'none';
+          return;
+        }
+
+        lens.style.display = 'block';
+
+        const lensSize = lens.offsetWidth;
+        let lensX = e.clientX - container.getBoundingClientRect().left - (lensSize / 2);
+        let lensY = e.clientY - container.getBoundingClientRect().top - (lensSize / 2);
+
+        lens.style.left = `${lensX}px`;
+        lens.style.top = `${lensY}px`;
+
+        lens.style.backgroundImage = `url("${lightboxImg.src}")`;
+        lens.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
+
+        const bgX = (x * ZOOM_LEVEL) - (lensSize / 2);
+        const bgY = (y * ZOOM_LEVEL) - (lensSize / 2);
+        lens.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        lens.style.display = 'none';
       });
     </script>
 </body>
