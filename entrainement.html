@@ -6,56 +6,83 @@
     <meta name="description" content="Training, sketches, animal studies, landscapes, and art direction briefs by XVS Design.">
     <title>Training & Sketches | XVS Design</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7Q9HM3F5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JVK4541R7F');
+    </script>
     <style>
-        /* Styles pour la lightbox avec panneau de zoom latéral */
+      /* Styles pour la lightbox avec panneau de zoom latéral (75% / 25%) */
+      .lightbox-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 90vw;
+        height: 80vh;
+        max-width: 1400px;
+      }
+
+      .lightbox-img-container {
+        position: relative;
+        width: 75%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: crosshair;
+      }
+
+      .lightbox-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      /* Cadre mobile sur l'image */
+      .zoom-lens {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border: 2px solid var(--accent-color, #ff4444);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        pointer-events: none;
+        display: none;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Panneau de zoom à côté (25% de la largeur) */
+      .zoom-panel {
+        width: 25%;
+        height: 100%;
+        max-height: 500px;
+        border: 2px solid var(--accent-color, #ff4444);
+        border-radius: 8px;
+        background-repeat: no-repeat;
+        background-color: #111;
+        display: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Adaptabilité mobile */
+      @media (max-width: 800px) {
         .lightbox-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            width: 90vw;
-            height: 80vh;
-            max-width: 1400px;
+          flex-direction: column;
         }
-
         .lightbox-img-container {
-            position: relative;
-            width: 75%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: crosshair;
+          width: 100%;
+          height: 60%;
         }
-
-        .lightbox-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .zoom-lens {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border: 2px solid var(--accent-color, #ff4444);
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            pointer-events: none;
-            display: none;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
         .zoom-panel {
-            width: 25%;
-            height: 100%;
-            max-height: 500px;
-            border: 2px solid var(--accent-color, #ff4444);
-            border-radius: 8px;
-            background-repeat: no-repeat;
-            background-color: #111;
-            display: none;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+          width: 100%;
+          height: 30%;
         }
+      }
     </style>
 </head>
 <body>
@@ -75,15 +102,145 @@
     </header>
 
     <main>
+        <!-- Grille Portfolio avec les classes unifiées du CSS -->
         <section class="portfolio-grid">
-            <!-- (Tes cards restent ici, inchangées) -->
-            <div class="card"><span class="card-tag">Brief</span><img src="asset/entrainement/DA-001.jpg" alt="Brief"><div class="card-info"><div class="card-title">Brief Study I</div></div></div>
-            <div class="card"><span class="card-tag">Brief</span><img src="asset/entrainement/DA-002.jpg" alt="Brief"><div class="card-info"><div class="card-title">Brief Study II</div></div></div>
-            <!-- ... ajoute les autres cards ici ... -->
+
+            <!-- Art Direction Briefs -->
+            <div class="card">
+                <span class="card-tag">Brief</span>
+                <img src="asset/entrainement/DA-001.jpg" alt="Art Direction Brief 001">
+                <div class="card-info">
+                    <div class="card-title">Brief Study I</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Brief</span>
+                <img src="asset/entrainement/DA-002.jpg" alt="Art Direction Brief 002">
+                <div class="card-info">
+                    <div class="card-title">Brief Study II</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Brief</span>
+                <img src="asset/digital/shoebill-breil.png" alt="Shoebill Brief">
+                <div class="card-info">
+                    <div class="card-title">Shoebill Brief</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Brief</span>
+                <img src="asset/digital/bear-breif.png" alt="Bear Brief">
+                <div class="card-info">
+                    <div class="card-title">Bear Brief</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Brief</span>
+                <img src="asset/digital/mante-breif.png" alt="Mantis Brief">
+                <div class="card-info">
+                    <div class="card-title">Mantis Brief</div>
+                </div>
+            </div>
+
+            <!-- Landscapes & Anatomy -->
+            <div class="card">
+                <span class="card-tag">Landscape</span>
+                <img src="asset/entrainement/paysage-001.jpg" alt="Landscape Study 001">
+                <div class="card-info">
+                    <div class="card-title">Landscape Study I</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Landscape</span>
+                <img src="asset/entrainement/paysage-002.jpg" alt="Landscape Study 002">
+                <div class="card-info">
+                    <div class="card-title">Landscape Study II</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Landscape</span>
+                <img src="asset/entrainement/paysage-003.jpg" alt="Landscape Study 003">
+                <div class="card-info">
+                    <div class="card-title">Landscape Study III</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Anatomy</span>
+                <img src="asset/entrainement/personnage-001.jpg" alt="Character Anatomy Study 001">
+                <div class="card-info">
+                    <div class="card-title">Character Study I</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Anatomy</span>
+                <img src="asset/digital/fantasy-001.jpg" alt="Character Anatomy Study 002">
+                <div class="card-info">
+                    <div class="card-title">Character Study II</div>
+                </div>
+            </div>
+
+            <!-- Animal Studies -->
+            <div class="card">
+                <span class="card-tag">Animal</span>
+                <img src="asset/entrainement/animal-001.jpg" alt="Animal Study 001">
+                <div class="card-info">
+                    <div class="card-title">Animal Study I</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Animal</span>
+                <img src="asset/entrainement/animal-002.jpg" alt="Animal Study 002">
+                <div class="card-info">
+                    <div class="card-title">Animal Study II</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Animal</span>
+                <img src="asset/entrainement/animal-003.jpg" alt="Animal Study 003">
+                <div class="card-info">
+                    <div class="card-title">Animal Study III</div>
+                </div>
+            </div>
+
+            <!-- Still Life -->
+            <div class="card">
+                <span class="card-tag">Still Life</span>
+                <img src="asset/digital/unnamed.png" alt="Material Study">
+                <div class="card-info">
+                    <div class="card-title">Material Study</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Still Life</span>
+                <img src="asset/entrainement/nature_morte-001.jpg" alt="Still Life 001">
+                <div class="card-info">
+                    <div class="card-title">Still Life I</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Still Life</span>
+                <img src="asset/entrainement/nature_morte-002.jpg" alt="Still Life 002">
+                <div class="card-info">
+                    <div class="card-title">Still Life II</div>
+                </div>
+            </div>
+
         </section>
     </main>
 
-    <!-- Lightbox Modifiée -->
+    <!-- Lightbox Modal avec panneau de zoom 75% / 25% -->
     <div id="lightbox" class="lightbox">
         <button class="btn-back" id="btn-back">&larr; Retour</button>
         <div class="lightbox-wrapper">
@@ -96,6 +253,10 @@
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
+    <footer>
+        <p>&copy; 2026 XVS Design — All rights reserved.</p>
+    </footer>
+
     <script>
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
@@ -107,19 +268,21 @@
 
       const ZOOM_LEVEL = 4; // Facteur de grossissement
 
-      // Ouverture
+      // Ouverture Lightbox
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
           const img = card.querySelector('img');
           const title = card.querySelector('.card-title');
+          
           lightbox.style.display = 'flex';
           lightboxImg.src = img.src;
-          lightboxCaption.innerText = title.innerText;
+          lightboxImg.alt = img.alt;
+          lightboxCaption.innerText = title ? title.innerText : '';
           document.body.style.overflow = 'hidden';
         });
       });
 
-      // Fermeture
+      // Fermeture via le bouton retour
       const closeLightbox = () => {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -128,13 +291,23 @@
       };
 
       backBtn.addEventListener('click', closeLightbox);
+
       lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) closeLightbox();
+        if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
+          closeLightbox();
+        }
       });
 
-      // Script Zoom Latéral
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+          closeLightbox();
+        }
+      });
+
+      // Gestion du survol pour la loupe et le panneau de zoom latéral
       container.addEventListener('mousemove', (e) => {
         const rect = lightboxImg.getBoundingClientRect();
+
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
@@ -148,8 +321,13 @@
         zoomPanel.style.display = 'block';
 
         const lensWidth = lens.offsetWidth;
-        lens.style.left = `${e.clientX - container.getBoundingClientRect().left - (lensWidth / 2)}px`;
-        lens.style.top = `${e.clientY - container.getBoundingClientRect().top - (lens.offsetHeight / 2)}px`;
+        const lensHeight = lens.offsetHeight;
+
+        let lensX = e.clientX - container.getBoundingClientRect().left - (lensWidth / 2);
+        let lensY = e.clientY - container.getBoundingClientRect().top - (lensHeight / 2);
+
+        lens.style.left = `${lensX}px`;
+        lens.style.top = `${lensY}px`;
 
         zoomPanel.style.backgroundImage = `url("${lightboxImg.src}")`;
         zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
