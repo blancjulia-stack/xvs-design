@@ -16,6 +16,74 @@
 
       gtag('config', 'G-JVK4541R7F');
     </script>
+    <style>
+      /* Styles pour la lightbox avec panneau de zoom latéral (75% / 25%) */
+      .lightbox-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 90vw;
+        height: 80vh;
+        max-width: 1400px;
+      }
+
+      .lightbox-img-container {
+        position: relative;
+        width: 75%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: crosshair;
+      }
+
+      .lightbox-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      /* Cadre mobile sur l'image */
+      .zoom-lens {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border: 2px solid var(--accent-color, #ff4444);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        pointer-events: none;
+        display: none;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Panneau de zoom à côté (25% de la largeur) */
+      .zoom-panel {
+        width: 25%;
+        height: 100%;
+        max-height: 500px;
+        border: 2px solid var(--accent-color, #ff4444);
+        border-radius: 8px;
+        background-repeat: no-repeat;
+        background-color: #111;
+        display: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Adaptabilité mobile */
+      @media (max-width: 800px) {
+        .lightbox-wrapper {
+          flex-direction: column;
+        }
+        .lightbox-img-container {
+          width: 100%;
+          height: 60%;
+        }
+        .zoom-panel {
+          width: 100%;
+          height: 30%;
+        }
+      }
+    </style>
 </head>
 <body>
 
@@ -98,12 +166,15 @@
         </section>
     </main>
 
-    <!-- Lightbox Modal avec bouton Retour et Loupe Zoom -->
+    <!-- Lightbox Modal avec panneau de zoom 75% / 25% -->
     <div id="lightbox" class="lightbox">
         <button class="btn-back" id="btn-back">&larr; Retour</button>
-        <div class="lightbox-img-container" id="lightbox-container">
-            <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
-            <div id="zoom-lens" class="zoom-lens"></div>
+        <div class="lightbox-wrapper">
+            <div class="lightbox-img-container" id="lightbox-container">
+                <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
+                <div id="zoom-lens" class="zoom-lens"></div>
+            </div>
+            <div id="zoom-panel" class="zoom-panel"></div>
         </div>
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
@@ -119,8 +190,9 @@
       const backBtn = document.getElementById('btn-back');
       const container = document.getElementById('lightbox-container');
       const lens = document.getElementById('zoom-lens');
+      const zoomPanel = document.getElementById('zoom-panel');
 
-      const ZOOM_LEVEL = 2.5;
+      const ZOOM_LEVEL = 4; // Facteur de grossissement
 
       // Ouverture Lightbox
       document.querySelectorAll('.card').forEach(card => {
@@ -131,7 +203,7 @@
           lightbox.style.display = 'flex';
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt;
-          lightboxCaption.innerText = title.innerText;
+          lightboxCaption.innerText = title ? title.innerText : '';
           document.body.style.overflow = 'hidden';
         });
       });
@@ -141,12 +213,13 @@
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
         lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
       };
 
       backBtn.addEventListener('click', closeLightbox);
 
       lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
           closeLightbox();
         }
       });
@@ -157,7 +230,7 @@
         }
       });
 
-      // Gestion du carré de zoom
+      // Gestion du survol pour la loupe et le panneau de zoom latéral
       container.addEventListener('mousemove', (e) => {
         const rect = lightboxImg.getBoundingClientRect();
 
@@ -166,28 +239,33 @@
 
         if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
           lens.style.display = 'none';
+          zoomPanel.style.display = 'none';
           return;
         }
 
         lens.style.display = 'block';
+        zoomPanel.style.display = 'block';
 
-        const lensSize = lens.offsetWidth;
-        let lensX = e.clientX - container.getBoundingClientRect().left - (lensSize / 2);
-        let lensY = e.clientY - container.getBoundingClientRect().top - (lensSize / 2);
+        const lensWidth = lens.offsetWidth;
+        const lensHeight = lens.offsetHeight;
+
+        let lensX = e.clientX - container.getBoundingClientRect().left - (lensWidth / 2);
+        let lensY = e.clientY - container.getBoundingClientRect().top - (lensHeight / 2);
 
         lens.style.left = `${lensX}px`;
         lens.style.top = `${lensY}px`;
 
-        lens.style.backgroundImage = `url("${lightboxImg.src}")`;
-        lens.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
+        zoomPanel.style.backgroundImage = `url("${lightboxImg.src}")`;
+        zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
 
-        const bgX = (x * ZOOM_LEVEL) - (lensSize / 2);
-        const bgY = (y * ZOOM_LEVEL) - (lensSize / 2);
-        lens.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+        const bgX = (x * ZOOM_LEVEL) - (zoomPanel.offsetWidth / 2);
+        const bgY = (y * ZOOM_LEVEL) - (zoomPanel.offsetHeight / 2);
+        zoomPanel.style.backgroundPosition = `-${bgX}px -${bgY}px`;
       });
 
       container.addEventListener('mouseleave', () => {
         lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
       });
     </script>
 </body>
