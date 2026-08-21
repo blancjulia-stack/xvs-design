@@ -22,21 +22,19 @@
     <header>
         <nav>
             <a href="index.html">Home</a>
-            <a href="digital.html" class="active">Portfolio</a>
-            <a href="fan-art.html" class="active">Fan Art</a>
+            <a href="digital.html">Portfolio</a>
+            <a href="fan-art.html">Fan Art</a>
+            <a href="entrainement.html" class="active">Training</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-           
         </nav>
 
         <h1>Training & Sketches</h1>
         <p class="subtitle">Studies, Animal Anatomy, Landscapes & Art Direction Briefs</p>
-        
-        
     </header>
 
     <main>
-        <!-- Grille Masonry avec les classes unifiées du CSS -->
+        <!-- Grille Portfolio avec les classes unifiées du CSS -->
         <section class="portfolio-grid">
 
             <!-- Art Direction Briefs -->
@@ -174,9 +172,9 @@
         </section>
     </main>
 
-    <!-- Lightbox Modal configurée selon la classe CSS .lightbox -->
+    <!-- Lightbox Modal avec bouton Retour -->
     <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
+        <button class="btn-back" id="btn-back">&larr; Retour</button>
         <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
@@ -185,6 +183,45 @@
         <p>&copy; 2026 XVS Design — All rights reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const backBtn = document.getElementById('btn-back');
+
+      // Ouverture Lightbox
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+          const img = card.querySelector('img');
+          const title = card.querySelector('.card-title');
+          
+          lightbox.style.display = 'flex';
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightboxCaption.innerText = title.innerText;
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Fermeture via le bouton retour
+      const closeLightbox = () => {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      };
+
+      backBtn.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+          closeLightbox();
+        }
+      });
+    </script>
 </body>
 </html>
