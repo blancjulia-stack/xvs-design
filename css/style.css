@@ -275,14 +275,21 @@ h1 {
 }
 
 /* Bouton Retour à bordure rouge très visible */
+/* Bouton Retour sous l'image */
 .lightbox .btn-back {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  z-index: 10001;
-  display: flex;
+  /* On retire le positionnement absolu */
+  position: relative;
+  top: auto;
+  left: auto;
+  
+  /* Placement et alignement */
+  margin-top: 20px;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  
+  /* Apparence */
   background: rgba(15, 15, 20, 0.85);
   color: #ffffff;
   border: 2px solid #ef4444; /* Bordure rouge */
@@ -295,6 +302,11 @@ h1 {
   transition: all 0.2s ease;
 }
 
+.lightbox .btn-back:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.8);
+}
 .lightbox .btn-back:hover {
   background: #ef4444;
   color: #ffffff;
