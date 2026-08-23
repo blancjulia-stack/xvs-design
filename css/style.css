@@ -136,17 +136,19 @@ nav a:hover {
   z-index: 2;
 }
 
-/* Lightbox Modal */
+/* ===================================================
+   LIGHTBOX MODALE (SUPERPOSITION PAR-DESSUS LA PAGE)
+   =================================================== */
 .lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(15, 23, 42, 0.92);
+  display: none; /* Masquée par défaut, passe en flex via JS */
+  position: fixed !important; /* Force le placement par-dessus tout le site */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.92); /* Fond sombre semi-transparent */
   backdrop-filter: blur(8px);
-  z-index: 10000;
+  z-index: 99999 !important; /* Passe devant le header, la nav et les cartes */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -212,6 +214,7 @@ nav a:hover {
   text-align: center;
 }
 
+/* Bouton Retour bien centré au premier plan */
 .lightbox .btn-back {
   background: #ffffff;
   color: var(--text-main);
@@ -224,6 +227,7 @@ nav a:hover {
   margin-top: 16px;
   box-shadow: 0 4px 15px var(--accent-glow);
   transition: all 0.2s ease;
+  z-index: 100001;
 }
 
 .lightbox .btn-back:hover {
