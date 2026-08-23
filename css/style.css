@@ -45,7 +45,10 @@ header {
   padding: 30px 20px 10px;
   background: transparent;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 nav {
   display: flex;
   justify-content: center;
@@ -75,6 +78,7 @@ nav a:hover {
   border-color: #7c3aed;
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
 }
+
 /* ===================================================
    BOUTON E-MAIL & CTA
    =================================================== */
