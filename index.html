@@ -6,6 +6,7 @@
     <meta name="description" content="Fantasy illustrator specializing in TCG cards, book covers, dark fantasy and environment art. Available for freelance commissions.">
     <title>Home | XVS Design</title>
     <link rel="stylesheet" href="css/style.css">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7Q9HM3F5"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
@@ -24,10 +25,9 @@
             <a href="index.html" class="active">Home</a>
             <a href="digital.html">Digital Art</a>
             <a href="fan-art.html">Fan Art</a>
-            <a href="entrainement.html">training</a>
+            <a href="entrainement.html">Training</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-           
         </nav>
         
         <h1>XVS Design</h1>
@@ -35,63 +35,81 @@
         
         <div class="contact-email">
             <p>Hi, I am a freelance illustrator creating deep, detailed, and vibrant character concepts and book covers.</p>
-            <br>
             <h1><a href="digital.html">Enter Full Portfolio &rarr;</a></h1>
         </div>
     </header>
 
     <main>
-        <header>
-            <p class="subtitle">Quick Overview</p>
-           
-        </header>
+        <section class="overview-header">
+            <h2 class="subtitle">Quick Overview</h2>
+        </section>
 
-        <!-- Grille Portfolio Masonry alignée sur le CSS -->
+        <!-- Grille Portfolio avec tailles différenciées -->
         <section class="portfolio-grid">
             
-            <!-- Featured Item -->
-            
-            <div class="card">
-               <span class="card-tag">Digital</span>
+            <!-- FEATURED DIGITAL (GRANDS FORMATS) -->
+            <div class="card illustration" data-category="digital">
+                <span class="card-tag">Digital</span>
                 <img src="asset/digital/this-way.jpg" alt="Featured Dark Fantasy Artwork">
-                <img src="asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001">
-                <img src="asset/digital/sweet_fantasy-001.jpg" alt="Sweet Fantasy 001">
+                <div class="card-info">
+                    <div class="card-title">This Way</div>
+                </div>
             </div>
 
-          
-            
-            
+            <div class="card illustration" data-category="digital">
+                <span class="card-tag">Digital</span>
+                <img src="asset/digital/dark_fantasy-001 (2).jpg" alt="Dark Fantasy 001">
+                <div class="card-info">
+                    <div class="card-title">Dark Fantasy Concept</div>
+                </div>
+            </div>
 
-            <!-- Fan Art -->
-            <div class="card" >
+            <!-- FAN ARTS (FORMATS COMPACTS) -->
+            <div class="card" data-category="fan-art">
                 <span class="card-tag">Fan Art</span>
                 <img src="asset/fan-art/image.jpg" alt="Fan Art 001">
+                <div class="card-info">
+                    <div class="card-title">Fan Art Artwork</div>
+                </div>
+            </div>
+
+            <div class="card" data-category="fan-art">
+                <span class="card-tag">Fan Art</span>
                 <img src="asset/fan-art/imageffdfsdf.jpg" alt="Fan Art 002">
-                <img src="asset/fan-art/imageooooo.jpg" alt="Fan Art 003">
+                <div class="card-info">
+                    <div class="card-title">Character Study</div>
+                </div>
             </div>
 
-          
-
-           
-
-            <!-- Training & Sketches -->
-            
-            <div class="card" >
+            <!-- TRAINING & SKETCHES (FORMATS COMPACTS SUR FOND TEINTÉ) -->
+            <div class="card" data-category="training">
                 <span class="card-tag">Training</span>
-                <img src="asset/digital/mante-breif.png" alt="Landscape 002">
-                 <img src="asset/entrainement/animal-001.jpg" alt="Animal Study 001"> 
-                <img src="asset/entrainement/nature_morte-001.jpg" alt="Still Life 001">
+                <img src="asset/digital/mante-breif.png" alt="Landscape Study">
+                <div class="card-info">
+                    <div class="card-title">Environment Brief</div>
+                </div>
             </div>
-           
 
-            
+            <div class="card" data-category="training">
+                <span class="card-tag">Training</span>
+                <img src="asset/entrainement/animal-001.jpg" alt="Animal Study 001">
+                <div class="card-info">
+                    <div class="card-title">Animal Anatomy Study</div>
+                </div>
+            </div>
 
-            
+            <div class="card" data-category="training">
+                <span class="card-tag">Training</span>
+                <img src="asset/entrainement/nature_morte-001.jpg" alt="Still Life 001">
+                <div class="card-info">
+                    <div class="card-title">Still Life Practice</div>
+                </div>
+            </div>
 
         </section>
     </main>
 
-    <!-- Modal Lightbox configurée dans le CSS -->
+    <!-- Modal Lightbox -->
     <div id="lightbox" class="lightbox">
         <span class="close">&times;</span>
         <img class="lightbox-img" id="lightbox-img" alt="Enlarged view">
