@@ -257,90 +257,107 @@
         <p>&copy; 2026 XVS Design — All rights reserved.</p>
     </footer>
 
-    <script>
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const lightboxCaption = document.getElementById('lightbox-caption');
-      const backBtn = document.getElementById('btn-back');
-      const container = document.getElementById('lightbox-container');
-      const lens = document.getElementById('zoom-lens');
-      const zoomPanel = document.getElementById('zoom-panel');
+   <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const backBtn = document.getElementById('btn-back');
+    const container = document.getElementById('lightbox-container');
+    const lens = document.getElementById('zoom-lens');
+    const zoomPanel = document.getElementById('zoom-panel');
 
-      const ZOOM_LEVEL = 4; // Facteur de grossissement
+    const ZOOM_LEVEL = 4; // Facteur de grossissement
 
-      // Ouverture Lightbox
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', () => {
-          const img = card.querySelector('img');
-          const title = card.querySelector('.card-title');
-          
-          lightbox.style.display = 'flex';
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt;
-          lightboxCaption.innerText = title ? title.innerText : '';
-          document.body.style.overflow = 'hidden';
-        });
+    // Variable pour éviter les boucles lors de la fermeture
+    let isLightboxOpen = false;
+
+    // Fermeture propre de la Lightbox
+    const closeLightbox = (fromPopState = false) => {
+      if (!isLightboxOpen) return;
+      
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      lens.style.display = 'none';
+      zoomPanel.style.display = 'none';
+      isLightboxOpen = false;
+
+      // Si la fermeture ne vient pas du bouton retour navigateur, on retire l'état de l'historique
+      if (!fromPopState && window.location.hash === '#lightbox') {
+        history.back();
+      }
+    };
+
+    // Ouverture Lightbox
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const title = card.querySelector('.card-title');
+        
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.innerText = title ? title.innerText : '';
+        document.body.style.overflow = 'hidden';
+        isLightboxOpen = true;
+
+        // Ajout d'une entrée dans l'historique du navigateur
+        history.pushState({ lightboxOpen: true }, '', '#lightbox');
       });
+    });
 
-      // Fermeture via le bouton retour
-      const closeLightbox = () => {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
+    // Écouteur pour le bouton retour de la souris / navigateur
+    window.addEventListener('popstate', () => {
+      if (isLightboxOpen) {
+        closeLightbox(true);
+      }
+    });
+
+    // Fermeture via le bouton retour manuel
+    backBtn.addEventListener('click', () => closeLightbox(false));
+
+    // Fermeture au clic en dehors de l'image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
+        closeLightbox(false);
+      }
+    });
+
+    // Fermeture avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isLightboxOpen) {
+        closeLightbox(false);
+      }
+    });
+
+    // Gestion du survol pour la loupe et le panneau de zoom latéral
+    container.addEventListener('mousemove', (e) => {
+      const rect = lightboxImg.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
         lens.style.display = 'none';
         zoomPanel.style.display = 'none';
-      };
+        return;
+      }
 
-      backBtn.addEventListener('click', closeLightbox);
+      lens.style.display = 'block';
+      zoomPanel.style.display = 'block';
 
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
-          closeLightbox();
-        }
-      });
+      const lensWidth = lens.offsetWidth;
+      const lensHeight = lens.offsetHeight;
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-          closeLightbox();
-        }
-      });
+      let lensX = e.clientX - container.getBoundingClientRect().left - (lensWidth / 2);
+      let lensY = e.clientY - container.getBoundingClientRect().top - (lensHeight / 2);
 
-      // Gestion du survol pour la loupe et le panneau de zoom latéral
-      container.addEventListener('mousemove', (e) => {
-        const rect = lightboxImg.getBoundingClientRect();
+      lens.style.left = `${lensX}px`;
+      lens.style.top = `${lensY}px`;
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+      zoomPanel.style.backgroundImage = `url("${lightboxImg.src}")`;
+      zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
 
-        if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
-          lens.style.display = 'none';
-          zoomPanel.style.display = 'none';
-          return;
-        }
-
-        lens.style.display = 'block';
-        zoomPanel.style.display = 'block';
-
-        const lensWidth = lens.offsetWidth;
-        const lensHeight = lens.offsetHeight;
-
-        let lensX = e.clientX - container.getBoundingClientRect().left - (lensWidth / 2);
-        let lensY = e.clientY - container.getBoundingClientRect().top - (lensHeight / 2);
-
-        lens.style.left = `${lensX}px`;
-        lens.style.top = `${lensY}px`;
-
-        zoomPanel.style.backgroundImage = `url("${lightboxImg.src}")`;
-        zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
-
-        const bgX = (x * ZOOM_LEVEL) - (zoomPanel.offsetWidth / 2);
-        const bgY = (y * ZOOM_LEVEL) - (zoomPanel.offsetHeight / 2);
-        zoomPanel.style.backgroundPosition = `-${bgX}px -${bgY}px`;
-      });
-
-      container.addEventListener('mouseleave', () => {
-        lens.style.display = 'none';
-        zoomPanel.style.display = 'none';
-      });
-    </script>
+      const bgX = (x * ZOOM_LEVEL) - (zoomPanel.offsetWidth / 2);
+      const bgY = (y
 </body>
 </html>
