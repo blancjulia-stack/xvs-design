@@ -26,120 +26,167 @@ body {
   overflow-x: hidden; /* Empêche le scroll horizontal parasite */
 }
 
-/* En-tête Moderne (Fix Sticky) */
+/* ===================================================
+   1. SERVICES & EN-TÊTE (SPECIALITIES & FOR)
+   =================================================== */
 header {
   text-align: center;
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #e2e8f0;
+  padding: 40px 20px 20px;
 }
 
-header h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 10px 0 8px 0;
-  background: linear-gradient(135deg, #0f172a 0%, #7c3aed 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.services-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 30px auto 20px;
+  max-width: 800px;
+  text-align: center;
 }
 
-header .subtitle {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  font-weight: 600;
+.services-column h3 {
+  font-size: 1.2rem;
+  color: #7c3aed;
+  margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 1px;
 }
 
-/* Navigation */
-nav {
-  margin-bottom: 15px;
+.services-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin: 0 4px;
-  transition: all 0.2s ease;
+.services-column li {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 6px;
 }
 
-nav a:hover {
-  color: var(--accent-color);
-  background: rgba(124, 58, 237, 0.08);
+.services-column h4 {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 15px;
 }
 
 /* ===================================================
-   GRILLE LARGE & IMAGES ENTIÈRES (SANS ROGNAGE)
+   2. BOUTONS DE FILTRES (.filter-container)
    =================================================== */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
 
-/* Grille qui prend quasiment toute la largeur de l'écran */
+.filter-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+.filter-btn.active {
+  background: #7c3aed;
+  color: #ffffff;
+  border-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+/* ===================================================
+   3. GRILLE DE PORTFOLIO (PLEINE LARGEUR & TAILLES)
+   =================================================== */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Cartes plus grandes */
-  gap: 32px;
-  padding: 40px 2vw;
-  max-width: 95vw; /* Occupe toute la largeur */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 20px 2vw;
+  max-width: 95vw;
   margin: 0 auto;
 }
 
-/* Style de la carte */
+/* Base de toutes les cartes */
 .card {
-  position: relative;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid #e2e8f0;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.hide {
+  display: none !important;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 30px -10px rgba(124, 58, 237, 0.2);
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.15);
 }
 
-/* Zone d'image : Pas de rognage + fond sombre pour remplir les bords */
-.card-img-wrapper {
-  background-color: #0f172a; /* Fond neutre pour ajuster les ratios */
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* IMAGES : Pas de rognage */
 .card img {
   width: 100%;
   height: auto;
-  max-height: 650px; /* Laisse de la hauteur aux illustrations */
-  object-fit: contain; /* L'IMAGE N'EST PLUS JAMAIS ROGNÉE */
+  object-fit: contain;
   display: block;
+  background-color: #0f172a; /* Fond neutre si le ratio varie */
 }
 
-/* Adaptation automatique selon la catégorie */
-.card[data-category="illustration"] img {
-  max-height: 750px; /* Les illustrations prennent beaucoup plus de hauteur */
+/* TAILLES : Les illustrations sont 2x plus grandes que le reste */
+.card.illustration {
+  grid-column: span 2; /* S'étend sur 2 colonnes */
 }
 
-.card[data-category="mockup"] img {
-  max-height: 450px; /* Les cartes/mockups restent compacts */
+.card.illustration img {
+  max-height: 700px; /* Grande hauteur pour apprécier les détails */
 }
 
-/* Titre et infos sous la carte */
+.card.mockup, 
+.card.book {
+  grid-column: span 1;
+}
+
+.card.mockup img,
+.card.book img {
+  max-height: 380px; /* Plus compact pour les cartes et livres */
+}
+
 .card-info {
-  padding: 16px 20px;
+  padding: 14px 18px;
   background: #ffffff;
 }
 
 .card-title {
+  font-size: 1rem;
   font-weight: 700;
-  font-size: 1.1rem;
   color: #0f172a;
+}
+
+/* Adaptabilité mobile */
+@media (max-width: 768px) {
+  .card.illustration {
+    grid-column: span 1;
+  }
+  .services-container {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 /* ===================================================
