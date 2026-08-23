@@ -1,6 +1,10 @@
 /* ===================================================
    PALETTE & STYLE MODERNE - FIX SCROLL & LIGHTBOX
    =================================================== */
+/* Obligatoire pour masquer les cartes filtrées */
+.card.hide {
+  display: none !important;
+}
 :root {
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
