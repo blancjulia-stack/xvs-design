@@ -1,9 +1,11 @@
 :root {
-  --bg-color: #0d0d11;
-  --card-bg: #16161e;
-  --text-color: #e0e0e0;
-  --accent-color: #d4af37;
-  --text-muted: #a0a0b0;
+  --bg-main: #fdfbf7;          /* Fond principal crème doux */
+  --bg-card: #ffffff;          /* Cartes sur fond blanc pur */
+  --text-main: #1e293b;        /* Bleu anthracite très sombre (lisible et pro) */
+  --text-muted: #64748b;       /* Gris-bleu doux pour sous-titres */
+  --accent-color: #d97706;     /* Doré ambré chaleureux */
+  --accent-hover: #b45309;     /* Doré plus soutenu au survol */
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
 }
 
 * {
