@@ -223,6 +223,35 @@ nav a:hover {
   }
 }
 /* ===================================================
+   STYLE SPÉCIFIQUE DES CARTE ET BOOK MOCKUPS
+   =================================================== */
+
+/* Conteneur de l'image pour les mockups (Fond violet transparent + centrage) */
+.card:not(.illustration):not([data-category="digital"]):not([data-category="illustration"]) {
+  background-color: rgba(124, 58, 237, 0.08); /* Violet translucide */
+}
+
+/* Centrage parfait de l'image dans le cadre */
+.card:not(.illustration):not([data-category="digital"]):not([data-category="illustration"]) img {
+  max-height: 380px;
+  object-fit: contain;
+  margin: auto;          /* Centre l'image verticalement et horizontalement */
+  padding: 16px;         /* Laisse respirer le fond violet autour du mockup */
+  box-sizing: border-box;
+}
+
+/* Effet au survol des mockups */
+.card:not(.illustration):not([data-category="digital"]):not([data-category="illustration"]):hover {
+  background-color: rgba(124, 58, 237, 0.14); /* Violet légèrement plus soutenu au survol */
+}
+
+/* Garde les bandeaux de titre du bas sur fond blanc pur pour la lisibilité */
+.card-info {
+  padding: 14px 18px;
+  background: #ffffff;
+  border-top: 1px solid rgba(124, 58, 237, 0.1);
+}
+/* ===================================================
    LIGHTBOX MODALE (SUPERPOSITION PAR-DESSUS LA PAGE)
    =================================================== */
 .lightbox {
