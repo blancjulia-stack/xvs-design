@@ -1,43 +1,43 @@
 /* ===================================================
-   PALETTE & STYLE MODERNE / NEO-DIGITAL (COMPLET)
+   PALETTE & STYLE MODERNE - FIX SCROLL & LIGHTBOX
    =================================================== */
 :root {
-  --bg-main: #f8fafc;           /* Slate ultra clair / moderne */
+  --bg-main: #f8fafc;
   --bg-card: #ffffff;
-  --text-main: #0f172a;         /* Anthracite profond */
-  --text-muted: #64748b;        /* Slate intermédiaire */
-  
-  /* Accent Néon / Créatif (Violet Électrique) */
-  --accent-color: #7c3aed;      
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent-color: #7c3aed;
   --accent-glow: rgba(124, 58, 237, 0.35);
-  
-  --radius-card: 16px;          /* Arrondis modernes */
+  --radius-card: 16px;
+}
+
+/* Correction clé pour autoriser le scroll */
+html {
+  overflow-y: scroll;
 }
 
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden; /* Empêche le scroll horizontal parasite */
 }
 
-/* En-tête Moderne & Épuré */
+/* En-tête Moderne (Fix Sticky) */
 header {
   text-align: center;
   padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px); /* Effet verre dépoli */
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 header h1 {
   font-size: 2.8rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
   margin: 10px 0 8px 0;
   background: linear-gradient(135deg, #0f172a 0%, #7c3aed 100%);
   -webkit-background-clip: text;
@@ -52,7 +52,7 @@ header .subtitle {
   letter-spacing: 0.08em;
 }
 
-/* Navigation Style "Pill" */
+/* Navigation */
 nav {
   margin-bottom: 15px;
 }
@@ -72,7 +72,7 @@ nav a:hover {
   background: rgba(124, 58, 237, 0.08);
 }
 
-/* Grille et Cartes Modernes */
+/* Grille Portfolio */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -88,27 +88,27 @@ nav a:hover {
   border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid #e2e8f0;
-  cursor: pointer; /* Indique clairement que c'est cliquable */
+  cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   border-color: var(--accent-color);
-  box-shadow: 0 20px 25px -5px var(--accent-glow);
+  box-shadow: 0 15px 25px -5px var(--accent-glow);
 }
 
 .card img {
   width: 100%;
-  height: 280px; /* Hauteur fixe pour aligner la grille */
+  height: 280px;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .card:hover img {
-  transform: scale(1.05); /* Effet zoom moderne au survol */
+  transform: scale(1.04);
 }
 
 .card-info {
@@ -121,7 +121,6 @@ nav a:hover {
   color: var(--text-main);
 }
 
-/* Badges Néon */
 .card-tag {
   position: absolute;
   top: 12px;
@@ -132,18 +131,14 @@ nav a:hover {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 6px 14px;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
   z-index: 2;
 }
 
-/* ===================================================
-   LIGHTBOX MODALE CENTRÉE (POUR LE CLIC & ZOOM)
-   =================================================== */
+/* Lightbox Modal */
 .lightbox {
-  display: none; /* Masquée par défaut, gérée en JS (display: flex) */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -217,7 +212,6 @@ nav a:hover {
   text-align: center;
 }
 
-/* Bouton Retour Centré sous l'image */
 .lightbox .btn-back {
   background: #ffffff;
   color: var(--text-main);
@@ -235,8 +229,7 @@ nav a:hover {
 .lightbox .btn-back:hover {
   background: var(--accent-color);
   color: #ffffff;
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px var(--accent-glow);
+  transform: scale(1.03);
 }
 
 footer {
