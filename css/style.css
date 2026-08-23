@@ -1,342 +1,142 @@
+/* ===================================================
+   PALETTE & STYLE MODERNE / NEO-DIGITAL
+   =================================================== */
 :root {
-  --bg-main: #fdfbf7;          /* Fond principal crème doux */
-  --bg-card: #ffffff;          /* Cartes sur fond blanc pur */
-  --text-main: #1e293b;        /* Bleu anthracite très sombre (lisible et pro) */
-  --text-muted: #64748b;       /* Gris-bleu doux pour sous-titres */
-  --accent-color: #d97706;     /* Doré ambré chaleureux */
-  --accent-hover: #b45309;     /* Doré plus soutenu au survol */
-  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --bg-main: #f8fafc;           /* Slate ultra clair / moderne */
+  --bg-card: #ffffff;
+  --text-main: #0f172a;         /* Anthracite profond */
+  --text-muted: #64748b;        /* Slate intermédiaire */
+  
+  /* Accent Néon / Créatif (Violet Électrique) */
+  --accent-color: #7c3aed;      
+  --accent-glow: rgba(124, 58, 237, 0.35);
+  
+  --radius-card: 16px;          /* Arrondis modernes */
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  padding: 2rem 1rem;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
+/* En-tête Moderne & Épuré */
 header {
-  max-width: 1000px;
-  margin: 0 auto 2.5rem auto;
   text-align: center;
+  padding: 60px 20px 40px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px); /* Effet verre dépoli */
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* Menu de navigation */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+header .subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Navigation Style "Pill" */
 nav a {
-  color: var(--text-color);
+  color: var(--text-muted);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.4rem 1rem;
+  font-weight: 600;
+  padding: 8px 16px;
   border-radius: 20px;
-  border: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
-nav a:hover, nav a.active {
+nav a:hover {
   color: var(--accent-color);
-  background-color: var(--card-bg);
-  border-color: #282838;
+  background: rgba(124, 58, 237, 0.08);
 }
 
-h1 {
-  color: var(--accent-color);
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-
-.contact-email {
-  margin-bottom: 1.5rem;
-}
-
-.contact-email a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-size: 1.05rem;
-  font-weight: 500;
-  transition: opacity 0.2s ease;
-}
-
-.contact-email a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-.services-container {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  background-color: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #282838;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.services-column h3 {
-  color: var(--accent-color);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-.services-column ul {
-  list-style: none;
-  text-align: left;
-}
-
-.services-column li::before {
-  content: "• ";
-  color: var(--accent-color);
-}
-
-/* Filtres */
-.filter-container {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  max-width: 1400px;
-  margin: 0 auto 2rem auto;
-}
-
-.filter-btn {
-  background-color: var(--card-bg);
-  color: var(--text-color);
-  border: 1px solid #282838;
-  padding: 0.5rem 1.2rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.filter-btn:hover, .filter-btn.active {
-  background-color: var(--accent-color);
-  color: #000;
-  border-color: var(--accent-color);
-  font-weight: 600;
-}
-
-/* Grille Portfolio */
+/* Grille et Cartes Modernes */
 .portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 40px;
   max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-auto-rows: 280px;
-  grid-auto-flow: dense;
-  gap: 1.5rem;
-  padding: 1rem 0;
 }
 
-/* Structure de la carte */
 .card {
   position: relative;
-  background-color: var(--card-bg);
-  border-radius: 8px;
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
   overflow: hidden;
-  border: 1px solid #242432;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.card.hide {
-  display: none !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
   border-color: var(--accent-color);
+  box-shadow: 0 20px 25px -5px var(--accent-glow);
 }
 
-/* Images standard */
 .card img {
   width: 100%;
-  height: calc(100% - 65px);
-  object-fit: contain;
-  display: block;
-  padding: 5px 5px 0 5px;
-}
-
-/* Cartes Digital Art : Format 2x2 */
-.card[data-category="digital"] {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.card[data-category="digital"] img {
+  height: 100%;
   object-fit: cover;
-  padding: 0;
+  transition: transform 0.5s ease;
 }
 
-/* Exception pour éviter le rognage */
-.card[data-category="digital"].contain-fit img {
-  object-fit: contain;
-  padding: 10px;
+.card:hover img {
+  transform: scale(1.05); /* Effet zoom moderne au survol */
 }
 
-/* Zone d'information sous la carte */
-.card-info {
-  padding: 0.6rem 0.8rem;
-  background: #13131a;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: auto;
-  border-top: 1px solid #1e1e2d;
-}
-
-.card-title {
-  font-size: 0.95rem;
-  color: #fff;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card[data-category="digital"] .card-title {
-  font-size: 1.1rem;
-}
-
+/* Badges Néon */
 .card-tag {
-  position: static;
-  display: inline-block;
-  align-self: flex-start;
-  background-color: rgba(13, 13, 17, 0.85);
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  inset: 0;
-  background-color: rgba(5, 5, 8, 0.95);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(8px);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.lightbox-img {
-  max-width: 95vw;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-}
-
-.lightbox-caption {
-  margin-top: 1rem;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-align: center;
-}
-
-/* Bouton Retour à bordure rouge très visible */
-/* Bouton Retour sous l'image */
-.lightbox .btn-back {
-  /* On retire le positionnement absolu */
-  position: relative;
-  top: auto;
-  left: auto;
-  
-  /* Placement et alignement */
-  margin-top: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  
-  /* Apparence */
-  background: rgba(15, 15, 20, 0.85);
   color: #ffffff;
-  border: 2px solid #ef4444; /* Bordure rouge */
-  padding: 8px 18px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+/* Bouton Retour Lightbox Moderne */
+.lightbox .btn-back {
+  background: var(--text-main);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
 }
 
 .lightbox .btn-back:hover {
-  background: #ef4444;
-  color: #ffffff;
-  box-shadow: 0 0 18px rgba(239, 68, 68, 0.8);
-}
-.lightbox .btn-back:hover {
-  background: #ef4444;
-  color: #ffffff;
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
-  transform: translateY(-2px);
-}
-
-footer {
-  text-align: center;
-  margin-top: 4rem;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* Mobile & Tablettes */
-@media (max-width: 600px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 320px;
-  }
-  .card[data-category="digital"] {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  .lightbox .btn-back {
-    top: 15px;
-    left: 15px;
-    padding: 6px 14px;
-    font-size: 0.85rem;
-  }
+  background: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px var(--accent-glow);
 }
