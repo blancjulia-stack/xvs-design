@@ -106,18 +106,20 @@ header {
 }
 
 /* ===================================================
-   3. GRILLE DE PORTFOLIO (PLEINE LARGEUR & TAILLES)
+   GRILLE FLEXIBLE : GRANDES ILLUSTRATIONS / PETITS MOCKUPS
    =================================================== */
+
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* Grille à 4 colonnes flexibles */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 24px;
   padding: 20px 2vw;
-  max-width: 95vw;
+  max-width: 98vw; /* Prend toute la largeur de l'écran */
   margin: 0 auto;
 }
 
-/* Base de toutes les cartes */
+/* Style de base de toutes les cartes */
 .card {
   background: #ffffff;
   border-radius: 16px;
@@ -128,10 +130,6 @@ header {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-.card.hide {
-  display: none !important;
 }
 
 .card:hover {
@@ -145,39 +143,58 @@ header {
   height: auto;
   object-fit: contain;
   display: block;
-  background-color: #0f172a; /* Fond neutre si le ratio varie */
 }
 
-/* TAILLES : Les illustrations sont 2x plus grandes que le reste */
-.card.illustration {
-  grid-column: span 2; /* S'étend sur 2 colonnes */
-}
+/* ===================================================
+   TAILLES DIFFÉRENCIÉES
+   =================================================== */
 
-.card.illustration img {
-  max-height: 700px; /* Grande hauteur pour apprécier les détails */
-}
-
-.card.mockup, 
-.card.book {
+/* 1. TOUTES LES CARTE ET PAGES DE LIVRES (PETITES : 1 COLONNE) */
+.card {
   grid-column: span 1;
 }
 
-.card.mockup img,
-.card.book img {
-  max-height: 380px; /* Plus compact pour les cartes et livres */
+.card img {
+  max-height: 350px; /* Taille compacte pour les mockups TCG */
+}
+
+/* 2. LES ILLUSTRATIONS (GRANDES : 2 COLONNES + HAUTEUR DOUBLÉE) */
+/* Cible les cartes qui ont la classe .illustration OU le data-category="digital" */
+.card.illustration,
+.card[data-category="digital"],
+.card[data-category="illustration"] {
+  grid-column: span 2 !important; /* Occupe 2 colonnes de la grille */
+}
+
+.card.illustration img,
+.card[data-category="digital"] img,
+.card[data-category="illustration"] img {
+  max-height: 700px !important; /* L'illustration devient 2x plus grande */
 }
 
 .card-info {
-  padding: 14px 18px;
+  padding: 16px;
   background: #ffffff;
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #0f172a;
+  margin-bottom: 4px;
 }
 
+/* Adaptation écran mobile */
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  .card.illustration,
+  .card[data-category="digital"],
+  .card[data-category="illustration"] {
+    grid-column: span 1 !important;
+  }
+}
 /* Adaptabilité mobile */
 @media (max-width: 768px) {
   .card.illustration {
