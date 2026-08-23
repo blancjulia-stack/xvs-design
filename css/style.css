@@ -1,5 +1,5 @@
 /* ===================================================
-   PALETTE & STYLE MODERNE / NEO-DIGITAL
+   PALETTE & STYLE MODERNE / NEO-DIGITAL (COMPLET)
    =================================================== */
 :root {
   --bg-main: #f8fafc;           /* Slate ultra clair / moderne */
@@ -19,12 +19,13 @@ body {
   color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
+  padding: 0;
 }
 
 /* En-tête Moderne & Épuré */
 header {
   text-align: center;
-  padding: 60px 20px 40px;
+  padding: 40px 20px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px); /* Effet verre dépoli */
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
@@ -34,10 +35,10 @@ header {
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin: 0 0 8px 0;
+  margin: 10px 0 8px 0;
   background: linear-gradient(135deg, #0f172a 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,19 +46,24 @@ header h1 {
 
 header .subtitle {
   color: var(--text-muted);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 /* Navigation Style "Pill" */
+nav {
+  margin-bottom: 15px;
+}
+
 nav a {
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 20px;
+  margin: 0 4px;
   transition: all 0.2s ease;
 }
 
@@ -69,10 +75,10 @@ nav a:hover {
 /* Grille et Cartes Modernes */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
-  padding: 40px;
-  max-width: 1400px;
+  padding: 40px 20px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -82,6 +88,7 @@ nav a:hover {
   border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid #e2e8f0;
+  cursor: pointer; /* Indique clairement que c'est cliquable */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -94,13 +101,24 @@ nav a:hover {
 
 .card img {
   width: 100%;
-  height: 100%;
+  height: 280px; /* Hauteur fixe pour aligner la grille */
   object-fit: cover;
+  display: block;
   transition: transform 0.5s ease;
 }
 
 .card:hover img {
   transform: scale(1.05); /* Effet zoom moderne au survol */
+}
+
+.card-info {
+  padding: 16px;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-main);
 }
 
 /* Badges Néon */
@@ -121,22 +139,111 @@ nav a:hover {
   z-index: 2;
 }
 
-/* Bouton Retour Lightbox Moderne */
-.lightbox .btn-back {
-  background: var(--text-main);
+/* ===================================================
+   LIGHTBOX MODALE CENTRÉE (POUR LE CLIC & ZOOM)
+   =================================================== */
+.lightbox {
+  display: none; /* Masquée par défaut, gérée en JS (display: flex) */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.lightbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 90vw;
+  height: 75vh;
+  max-width: 1300px;
+}
+
+.lightbox-img-container {
+  position: relative;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.zoom-lens {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  pointer-events: none;
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.zoom-panel {
+  width: 25%;
+  height: 100%;
+  max-height: 480px;
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-color: #0f172a;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
   color: #ffffff;
-  border: none;
-  padding: 12px 28px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Bouton Retour Centré sous l'image */
+.lightbox .btn-back {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 2px solid var(--accent-color);
+  padding: 10px 26px;
+  font-size: 0.95rem;
   font-weight: 700;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  margin-top: 16px;
+  box-shadow: 0 4px 15px var(--accent-glow);
   transition: all 0.2s ease;
 }
 
 .lightbox .btn-back:hover {
   background: var(--accent-color);
+  color: #ffffff;
   transform: scale(1.05);
   box-shadow: 0 10px 25px var(--accent-glow);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 40px;
 }
