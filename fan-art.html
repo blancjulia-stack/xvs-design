@@ -183,7 +183,7 @@
         <p>&copy; 2026 XVS Design — All rights reserved.</p>
     </footer>
 
-    <script>
+   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -194,24 +194,18 @@
 
     const ZOOM_LEVEL = 4; // Facteur de grossissement
 
-    // Variable pour éviter les boucles lors de la fermeture
-    let isLightboxOpen = false;
-
-    // Fermeture propre de la Lightbox
-    const closeLightbox = (fromPopState = false) => {
-      if (!isLightboxOpen) return;
-      
+    // Fonction de fermeture centralisée
+    function closeLightbox() {
       lightbox.style.display = 'none';
       document.body.style.overflow = 'auto';
       lens.style.display = 'none';
       zoomPanel.style.display = 'none';
-      isLightboxOpen = false;
 
-      // Si la fermeture ne vient pas du bouton retour navigateur, on retire l'état de l'historique
-      if (!fromPopState && window.location.hash === '#lightbox') {
+      // Nettoie le hashtag de l'URL si présent sans recharger la page
+      if (window.location.hash === '#lightbox') {
         history.back();
       }
-    };
+    }
 
     // Ouverture Lightbox
     document.querySelectorAll('.card').forEach(card => {
@@ -224,34 +218,36 @@
         lightboxImg.alt = img.alt;
         lightboxCaption.innerText = title ? title.innerText : '';
         document.body.style.overflow = 'hidden';
-        isLightboxOpen = true;
 
-        // Ajout d'une entrée dans l'historique du navigateur
+        // Enregistre l'ouverture dans l'historique du navigateur
         history.pushState({ lightboxOpen: true }, '', '#lightbox');
       });
     });
 
-    // Écouteur pour le bouton retour de la souris / navigateur
+    // Gestion du bouton Retour de la souris ou du navigateur
     window.addEventListener('popstate', () => {
-      if (isLightboxOpen) {
-        closeLightbox(true);
+      if (lightbox.style.display === 'flex') {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
       }
     });
 
-    // Fermeture via le bouton retour manuel
-    backBtn.addEventListener('click', () => closeLightbox(false));
+    // Fermeture via le bouton retour sur la page
+    backBtn.addEventListener('click', closeLightbox);
 
     // Fermeture au clic en dehors de l'image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
-        closeLightbox(false);
+        closeLightbox();
       }
     });
 
     // Fermeture avec la touche Échap
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isLightboxOpen) {
-        closeLightbox(false);
+      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        closeLightbox();
       }
     });
 
@@ -284,6 +280,35 @@
       zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
 
       const bgX = (x * ZOOM_LEVEL) - (zoomPanel.offsetWidth / 2);
-      const bgY = (y
+      const bgY = (y * ZOOM_LEVEL) - (zoomPanel.offsetHeight / 2);
+      zoomPanel.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      lens.style.display = 'none';
+      zoomPanel.style.display = 'none';
+    });
+
+    // Système de Filtre
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+</script>
 </body>
 </html>
