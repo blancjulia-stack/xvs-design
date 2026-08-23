@@ -90,6 +90,8 @@ nav a:hover {
 .contact-email {
   display: flex;
   flex-direction: column;
+   background-color:#7c3aed;
+  border-radius: 10px;
   align-items: center;
   gap: 18px;
   margin-top: 20px;
