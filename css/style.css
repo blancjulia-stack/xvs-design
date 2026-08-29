@@ -1020,3 +1020,34 @@ footer {
     padding: 12px 22px;
   }
 }
+/* ===================================================
+   12.1 CONTACT PAGE FORM
+   =================================================== */
+
+.contact-container {
+  width: 100%;
+  max-width: 850px; /* Élargit le conteneur principal */
+  margin: 30px auto 50px;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+/* Grille sur 2 colonnes pour les champs Nom et Email sur PC */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+@media (max-width: 650px) {
+  .contact-container {
+    padding: 20px;
+  }
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
