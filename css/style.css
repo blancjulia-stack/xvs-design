@@ -1160,3 +1160,33 @@ footer {
     align-self: flex-start;
   }
 }
+/* Fond du formulaire et des cartes avec le violet translucide */
+.commission-accordion-card,
+.contact-form,
+.form-container,
+form {
+  background: rgba(124, 58, 237, 0.08) !important; /* Violet translucide */
+  border: 1px solid rgba(124, 58, 237, 0.25) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+/* Style des champs de saisie (input, textarea) pour un rendu cohérent */
+form input,
+form textarea,
+form select {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3) !important;
+  color: #ffffff !important; /* Ajuste la couleur du texte selon ton thème */
+  border-radius: 8px;
+  padding: 12px;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #7c3aed !important;
+  outline: none;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+}
