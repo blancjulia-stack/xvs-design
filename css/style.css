@@ -1192,17 +1192,16 @@ form textarea:focus {
 }
 .accordion-sample-image {
   width: 100%;
-  max-width: 320px; /* Limite la largeur du bloc */
-  margin: 0 auto 1.5rem auto; /* Centre l'image et ajoute une marge en bas */
-  border-radius: 12px;
-  overflow: hidden;
+  max-width: 320px; /* Taille maximale de la vignette */
+  margin: 0 auto 1.5rem auto;
 }
 
 .accordion-sample-image img {
   width: 100%;
-  height: 200px; /* Hauteur fixe pour un format vignette propre */
-  object-fit: cover; /* Recadre proprement l'image sans la déformer */
+  height: auto;
+  max-height: 250px; /* Limite la hauteur sans couper */
+  object-fit: contain; /* Affiche l'image entière sans la croper */
   display: block;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid rgba(124, 58, 237, 0.2);
 }
