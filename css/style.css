@@ -1,21 +1,35 @@
 /* ===================================================
-   PALETTE & STYLE MODERNE - FIX SCROLL & LIGHTBOX
+   XVS DESIGN — STYLE.CSS
+   Portfolio + Lightbox + Commissions
    =================================================== */
-/* Obligatoire pour masquer les cartes filtrées */
-.card.hide {
-  display: none !important;
-}
+
+
+/* ===================================================
+   1. VARIABLES
+   =================================================== */
+
 :root {
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
+
   --text-main: #0f172a;
   --text-muted: #64748b;
+
   --accent-color: #7c3aed;
+  --accent-dark: #6d28d9;
   --accent-glow: rgba(124, 58, 237, 0.35);
+
+  --border-color: #e2e8f0;
+  --nav-border: #cbd5e1;
+
   --radius-card: 16px;
 }
 
-/* Correction clé pour autoriser le scroll */
+
+/* ===================================================
+   2. RESET & GLOBAL
+   =================================================== */
+
 html {
   overflow-y: scroll;
 }
@@ -23,257 +37,404 @@ html {
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+
   margin: 0;
   padding: 0;
+
   min-height: 100vh;
-  overflow-x: hidden; /* Empêche le scroll horizontal parasite */
+
+  overflow-x: hidden;
 }
-/* Centrage global du conteneur principal */
+
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ===================================================
+   3. HEADER
+   =================================================== */
+
+header {
+  text-align: center;
+
+  padding: 30px 20px 10px;
+
+  background: transparent;
 }
 
 .overview-header {
   text-align: center;
   margin-bottom: 20px;
 }
+
+
 /* ===================================================
-   1. NAVIGATION & LIENS D'EN-TÊTE (BIEN VISIBLES)
+   4. NAVIGATION
    =================================================== */
-header {
-  text-align: center;
-  padding: 30px 20px 10px;
-  background: transparent;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
+
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
+
   gap: 12px;
+
   margin-bottom: 25px;
+
   flex-wrap: wrap;
 }
 
-/* Liens du menu bien lisibles et contrastés */
 nav a {
-  color: #0f172a;               /* Couleur sombre bien visible */
+  color: #0f172a;
+
   background: #ffffff;
-  border: 1.5px solid #cbd5e1;
-  text-decoration: none;
+
+  border: 1.5px solid var(--nav-border);
+
   font-weight: 700;
   font-size: 0.95rem;
+
   padding: 8px 18px;
+
   border-radius: 25px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
 nav a:hover {
   color: #ffffff;
-  background: #7c3aed;          /* Violet au survol */
-  border-color: #7c3aed;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+
+  background: var(--accent-color);
+
+  border-color: var(--accent-color);
+
+  box-shadow:
+    0 4px 12px rgba(124, 58, 237, 0.3);
 }
 
-/* ===================================================
-   BOUTON E-MAIL & CTA
-   =================================================== */
 
 /* ===================================================
-   E-MAIL EN GRAND SUR FOND VIOLET (HERO)
+   5. EMAIL & CTA
    =================================================== */
 
 .contact-email {
   display: flex;
   flex-direction: column;
-   background-color:#7c3aed;
-  border-radius: 10px;
   align-items: center;
+
   gap: 18px;
+
   margin-top: 20px;
-    color: #ffffff;
-    font-size: 1.25rem;
+
+  background-color: var(--accent-color);
+
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  font-size: 1.25rem;
 }
 
-/* Badge e-mail très visible */
 .email-badge-hero {
   display: inline-flex;
   align-items: center;
+
   gap: 12px;
-  background-color: #7c3aed;            /* Fond violet plein */
-  color: #ffffff !important;             /* Texte blanc pur */
-  padding: 14px 32px;                   /* Plus grand et bien espacé */
-  border-radius: 50px;                  /* Bords très arrondis (pill design) */
-  font-weight: 800;                     /* Écriture grasse */
-  font-size: 1.25rem;                   /* Taille de texte imposante */
+
+  background-color: var(--accent-color);
+
+  color: #ffffff !important;
+
+  padding: 14px 32px;
+
+  border-radius: 50px;
+
+  font-weight: 800;
+  font-size: 1.25rem;
+
   text-decoration: none;
-  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35); /* Ombre portée violette */
-  transition: all 0.25 ease;
+
+  box-shadow:
+    0 8px 20px rgba(124, 58, 237, 0.35);
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
   border: 2px solid transparent;
 }
 
 .email-badge-hero:hover {
-  background-color: #6d28d9;            /* Violet un peu plus foncé au survol */
-  transform: translateY(-3px) scale(1.02); /* Légère élévation au survol */
-  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.45);
+  background-color: var(--accent-dark);
+
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 25px rgba(124, 58, 237, 0.45);
+
   border-color: #ffffff;
 }
 
 .email-badge-hero svg {
-  stroke: #ffffff;                     /* Icône enveloppe en blanc */
+  stroke: #ffffff;
 }
 
-/* Bouton Enter Full Portfolio */
 .cta-button {
   display: inline-block;
-  color: #0f172a;
+
+  color: var(--text-main);
+
   font-weight: 800;
   font-size: 1.1rem;
+
   text-decoration: none;
+
   margin-top: 8px;
+
   transition: color 0.2s ease;
 }
 
 .cta-button:hover {
-  color: #7c3aed;
+  color: var(--accent-color);
 }
 
+
 /* ===================================================
-   2. BLOC SERVICES (SPECIALITIES & FOR)
+   6. SERVICES
    =================================================== */
+
 .services-container {
   display: flex;
   justify-content: center;
+
   gap: 50px;
+
   margin: 20px auto 30px;
+
   max-width: 700px;
+
   text-align: center;
 }
 
 .services-column h3 {
   font-size: 1.1rem;
-  color: #7c3aed;
+
+  color: var(--accent-color);
+
   margin-bottom: 10px;
+
   text-transform: uppercase;
+
   letter-spacing: 1px;
+
   font-weight: 800;
 }
 
 .services-column ul {
   list-style: none;
+
   padding: 0;
   margin: 0;
 }
 
 .services-column li {
   font-size: 0.95rem;
+
   color: #334155;
+
   font-weight: 500;
+
   margin-bottom: 4px;
 }
 
 .services-column h4 {
   font-size: 0.85rem;
-  color: #64748b;
+
+  color: var(--text-muted);
+
   font-style: italic;
+
   margin-top: 12px;
+
   font-weight: 600;
 }
 
+
 /* ===================================================
-   3. BOUTONS DE FILTRES (.filter-container)
+   7. PORTFOLIO FILTERS
    =================================================== */
+
 .filter-container {
   display: flex;
   justify-content: center;
+
   flex-wrap: wrap;
+
   gap: 10px;
+
   margin: 20px 0 35px;
 }
 
 .filter-btn {
   background: #ffffff;
-  border: 1.5px solid #cbd5e1;
+
+  border: 1.5px solid var(--nav-border);
+
   color: #1e293b;
+
   padding: 8px 22px;
+
   border-radius: 20px;
+
   font-weight: 700;
   font-size: 0.9rem;
+
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .filter-btn:hover {
-  border-color: #7c3aed;
-  color: #7c3aed;
+  border-color: var(--accent-color);
+
+  color: var(--accent-color);
 }
 
 .filter-btn.active {
-  background: #7c3aed;
+  background: var(--accent-color);
+
   color: #ffffff;
-  border-color: #7c3aed;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+
+  border-color: var(--accent-color);
+
+  box-shadow:
+    0 4px 14px rgba(124, 58, 237, 0.35);
 }
 
+
 /* ===================================================
-   4. GRILLE PORTFOLIO (TAILLES & AUCUN ROGNAGE)
+   8. PORTFOLIO GRID
    =================================================== */
+
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de base */
+
+  grid-template-columns: repeat(4, 1fr);
+
   gap: 24px;
+
   padding: 10px 2vw 40px;
+
   max-width: 98vw;
+
   margin: 0 auto;
-   justify-content: center; /* Centre les éléments de la grille */
-  justify-items: center;  /* Centre chaque carte dans sa cellule */
+
+  justify-content: center;
+
+  justify-items: center;
 }
+
+
+/* ===================================================
+   9. PORTFOLIO CARDS
+   =================================================== */
 
 .card {
   background: #ffffff;
-  border-radius: 16px;
+
+  border-radius: var(--radius-card);
+
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+
+  border: 1px solid var(--border-color);
+
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
   display: flex;
   flex-direction: column;
-  grid-column: span 1; /* Taille par défaut : 1 colonne */
-   align-items: center;     /* Centre l'image et le bloc info */
+
+  grid-column: span 1;
+
+  align-items: center;
   justify-content: center;
-  text-align: center;      /* Centre les titres et textes sous l'image */
+
+  text-align: center;
 }
+
+.card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 12px 24px rgba(124, 58, 237, 0.18);
 }
+
+
+/* Cartes filtrées */
 
 .card.hide {
   display: none !important;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.18);
-}
 
-/* Image complète sans découpe */
+/* Images */
+
 .card img {
   width: 100%;
+
   height: auto;
-  max-height: 360px; /* Cartes TCG et Livres compacts */
+
+  max-height: 360px;
+
   object-fit: contain;
-   margin: 0 auto;
+
+  margin: 0 auto;
+
   display: block;
 }
 
-/* ILLUSTRATIONS GRAND FORMAT (2 COLONNES) */
+
+/* Illustrations grand format */
+
 .card.illustration,
 .card[data-category="digital"],
 .card[data-category="illustration"] {
@@ -283,168 +444,579 @@ nav a:hover {
 .card.illustration img,
 .card[data-category="digital"] img,
 .card[data-category="illustration"] img {
-  max-height: 720px !important; /* Image 2x plus grande */
+  max-height: 720px !important;
 }
 
+
+/* Informations des cartes */
+
 .card-info {
+  width: 100%;
+
   padding: 14px 18px;
+
   background: #ffffff;
+
+  border-top:
+    1px solid rgba(124, 58, 237, 0.1);
+
+  box-sizing: border-box;
 }
 
 .card-title {
   font-size: 1rem;
+
   font-weight: 700;
-  color: #0f172a;
+
+  color: var(--text-main);
 }
 
-@media (max-width: 900px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-  .card.illustration,
-  .card[data-category="digital"],
-  .card[data-category="illustration"] {
-    grid-column: span 1 !important;
-  }
-  .services-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
+
 /* ===================================================
-   STYLE SPÉCIFIQUE DES CARTE ET BOOK MOCKUPS
+   10. CARD & BOOK MOCKUPS
    =================================================== */
 
-/* Conteneur de l'image pour les mockups (Fond violet transparent + centrage) */
 .card:not(.illustration):not([data-category="digital"]):not([data-category="illustration"]) {
-  background-color: rgba(124, 58, 237, 0.08); /* Violet translucide */
+  background-color:
+    rgba(124, 58, 237, 0.08);
 }
 
-/* Centrage parfait de l'image dans le cadre */
 .card:not(.illustration):not([data-category="digital"]):not([data-category="illustration"]) img {
   max-height: 380px;
+
   object-fit: contain;
-  margin: auto;          /* Centre l'image verticalement et horizontalement */
-  padding: 16px;         /* Laisse respirer le fond violet autour du mockup */
+
+  margin: auto;
+
+  padding: 16px;
+
   box-sizing: border-box;
 }
 
-/* Effet au survol des mockups */
 .card:not(.illustration):not([data-category="digital"]):not([data-category="illustration"]):hover {
-  background-color: rgba(124, 58, 237, 0.14); /* Violet légèrement plus soutenu au survol */
+  background-color:
+    rgba(124, 58, 237, 0.14);
 }
 
-/* Garde les bandeaux de titre du bas sur fond blanc pur pour la lisibilité */
-.card-info {
-  padding: 14px 18px;
-  background: #ffffff;
-  border-top: 1px solid rgba(124, 58, 237, 0.1);
-}
+
 /* ===================================================
-   LIGHTBOX MODALE (SUPERPOSITION PAR-DESSUS LA PAGE)
+   11. LIGHTBOX
    =================================================== */
+
 .lightbox {
-  display: none; /* Masquée par défaut, passe en flex via JS */
-  position: fixed !important; /* Force le placement par-dessus tout le site */
+  display: none;
+
+  position: fixed !important;
+
   top: 0 !important;
   left: 0 !important;
+
   width: 100vw !important;
   height: 100vh !important;
-  background: rgba(15, 23, 42, 0.92); /* Fond sombre semi-transparent */
+
+  background:
+    rgba(15, 23, 42, 0.92);
+
   backdrop-filter: blur(8px);
-  z-index: 99999 !important; /* Passe devant le header, la nav et les cartes */
+
+  z-index: 99999 !important;
+
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
+
   padding: 20px;
+
   box-sizing: border-box;
 }
+
+
+/* Conteneur principal */
 
 .lightbox-wrapper {
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 20px;
+
   width: 90vw;
   height: 75vh;
+
   max-width: 1300px;
 }
 
+
+/* Image */
+
 .lightbox-img-container {
   position: relative;
+
   width: 75%;
   height: 100%;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   cursor: crosshair;
 }
 
 .lightbox-img {
   max-width: 100%;
   max-height: 100%;
+
   object-fit: contain;
+
   border-radius: 8px;
 }
 
+
+/* Zoom */
+
 .zoom-lens {
   position: absolute;
+
   width: 120px;
   height: 120px;
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  border:
+    2px solid var(--accent-color);
+
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.5);
+
   pointer-events: none;
+
   display: none;
-  background: rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.1);
 }
 
 .zoom-panel {
   width: 25%;
   height: 100%;
+
   max-height: 480px;
-  border: 2px solid var(--accent-color);
+
+  border:
+    2px solid var(--accent-color);
+
   border-radius: 12px;
+
   background-repeat: no-repeat;
+
   background-color: #0f172a;
+
   display: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.5);
 }
+
+
+/* Texte Lightbox */
 
 .lightbox-caption {
   color: #ffffff;
+
   font-size: 1.1rem;
+
   font-weight: 600;
+
   margin-top: 12px;
+
   text-align: center;
 }
 
-/* Bouton Retour bien centré au premier plan */
+
+/* Bouton retour */
+
 .lightbox .btn-back {
   background: #ffffff;
+
   color: var(--text-main);
-  border: 2px solid var(--accent-color);
+
+  border:
+    2px solid var(--accent-color);
+
   padding: 10px 26px;
+
   font-size: 0.95rem;
+
   font-weight: 700;
+
   border-radius: 30px;
+
   cursor: pointer;
+
   margin-top: 16px;
-  box-shadow: 0 4px 15px var(--accent-glow);
-  transition: all 0.2s ease;
+
+  box-shadow:
+    0 4px 15px var(--accent-glow);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
   z-index: 100001;
 }
 
 .lightbox .btn-back:hover {
   background: var(--accent-color);
+
   color: #ffffff;
+
   transform: scale(1.03);
 }
 
+
+/* ===================================================
+   12. COMMISSIONS PAGE
+   =================================================== */
+
+.commission-page {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 30px 20px 60px;
+
+  box-sizing: border-box;
+}
+
+
+/* Hero */
+
+.commission-hero {
+  text-align: center;
+
+  max-width: 800px;
+
+  margin: 0 auto 60px;
+}
+
+.commission-hero h2 {
+  font-size: 2.4rem;
+
+  margin-bottom: 18px;
+
+  color: var(--text-main);
+}
+
+.commission-hero p {
+  color: var(--text-muted);
+
+  font-size: 1.1rem;
+
+  line-height: 1.7;
+
+  margin: 8px 0;
+}
+
+.commission-hero .email-badge-hero {
+  margin-top: 25px;
+}
+
+
+/* Sections */
+
+.commission-section {
+  width: 100%;
+
+  text-align: center;
+
+  margin: 50px auto;
+}
+
+.commission-section h2,
+.commission-request h2,
+.commission-cta h2 {
+  font-size: 1.8rem;
+
+  margin-bottom: 30px;
+
+  color: var(--text-main);
+}
+
+
+/* Cartes Commission */
+
+.commission-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+
+  margin: 50px 0;
+}
+
+.commission-card {
+  background: var(--bg-card);
+
+  border:
+    1px solid var(--border-color);
+
+  border-radius: var(--radius-card);
+
+  padding: 28px;
+
+  text-align: center;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.commission-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 24px rgba(124, 58, 237, 0.18);
+}
+
+.commission-card h3 {
+  color: var(--accent-color);
+
+  margin-top: 0;
+  margin-bottom: 14px;
+
+  font-size: 1.2rem;
+}
+
+.commission-card p {
+  color: var(--text-muted);
+
+  line-height: 1.7;
+}
+
+
+/* Process */
+
+.process-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.process-step {
+  background: var(--bg-card);
+
+  border:
+    1px solid var(--border-color);
+
+  border-radius: var(--radius-card);
+
+  padding: 25px 18px;
+
+  text-align: center;
+}
+
+.process-step span {
+  display: block;
+
+  color: var(--accent-color);
+
+  font-size: 1.8rem;
+
+  font-weight: 800;
+
+  margin-bottom: 12px;
+}
+
+.process-step h3 {
+  font-size: 1rem;
+
+  margin: 8px 0 12px;
+}
+
+.process-step p {
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+}
+
+
+/* Informations de demande */
+
+.commission-request {
+  max-width: 750px;
+
+  margin: 60px auto;
+
+  padding: 30px;
+
+  background:
+    rgba(124, 58, 237, 0.06);
+
+  border:
+    1px solid rgba(124, 58, 237, 0.15);
+
+  border-radius: var(--radius-card);
+
+  box-sizing: border-box;
+}
+
+.commission-request h2 {
+  text-align: center;
+}
+
+.commission-request p {
+  color: var(--text-muted);
+
+  line-height: 1.7;
+}
+
+.commission-request ul {
+  color: var(--text-main);
+
+  line-height: 2;
+}
+
+
+/* CTA final */
+
+.commission-cta {
+  text-align: center;
+
+  margin: 70px auto 30px;
+
+  padding: 45px 25px;
+
+  background: #ffffff;
+
+  border:
+    1px solid var(--border-color);
+
+  border-radius: var(--radius-card);
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.commission-cta p {
+  max-width: 650px;
+
+  margin: 0 auto 25px;
+
+  color: var(--text-muted);
+
+  line-height: 1.7;
+}
+
+
+/* ===================================================
+   13. FOOTER
+   =================================================== */
+
 footer {
   text-align: center;
+
   padding: 30px;
+
   color: var(--text-muted);
+
   font-size: 0.9rem;
-  border-top: 1px solid #e2e8f0;
+
+  border-top:
+    1px solid var(--border-color);
+
   margin-top: 40px;
+}
+
+
+/* ===================================================
+   14. TABLET
+   =================================================== */
+
+@media (max-width: 900px) {
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card.illustration,
+  .card[data-category="digital"],
+  .card[data-category="illustration"] {
+    grid-column: span 1 !important;
+  }
+
+  .services-container {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .commission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .commission-hero h2 {
+    font-size: 2rem;
+  }
+}
+
+
+/* ===================================================
+   15. MOBILE
+   =================================================== */
+
+@media (max-width: 600px) {
+
+  nav {
+    gap: 8px;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+
+    padding: 7px 13px;
+  }
+
+  .portfolio-grid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .commission-page {
+    padding: 20px 15px 40px;
+  }
+
+  .commission-hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .commission-card,
+  .commission-request {
+    padding: 22px;
+  }
+
+  .email-badge-hero {
+    font-size: 1rem;
+
+    padding: 12px 22px;
+  }
 }
