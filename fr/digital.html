@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+content="Illustratrice fantasy freelance spécialisée dans les créatures, monstres, décors, cartes TCG, illustrations de JDR et de livres fantasy.">
+
+<meta name="keywords"
+content="illustratrice fantasy, illustratrice freelance, artiste TCG, artiste JDR, créatrice de créatures, artiste monstres, art fantasy, illustratrice de livres">
+
+<meta name="author" content="XVS Design">
+  <title>XVS Design — Illustratrice numérique freelance</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Styles pour la lightbox avec panneau de zoom latéral */
+    .lightbox-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 90vw;
+      height: 80vh;
+      max-width: 1400px;
+    }
+
+    .lightbox-img-container {
+      position: relative;
+      width: 75%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: crosshair;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Cadre mobile sur l'image */
+    .zoom-lens {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 2px solid var(--accent-color, #ff4444);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      pointer-events: none;
+      display: none;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Panneau de zoom à côté (25% de la largeur) */
+    .zoom-panel {
+      width: 25%;
+      height: 100%;
+      max-height: 500px;
+      border: 2px solid var(--accent-color, #ff4444);
+      border-radius: 8px;
+      background-repeat: no-repeat;
+      background-color: #111;
+      display: none;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Adaptabilité mobile */
+    @media (max-width: 800px) {
+      .lightbox-wrapper {
+        flex-direction: column;
+      }
+      .lightbox-img-container {
+        width: 100%;
+        height: 60%;
+      }
+      .zoom-panel {
+        width: 100%;
+        height: 30%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="active">Accueil</a>
+      <a href="fan-art.html">Fan Art</a>
+      <a href="entrainement.html">Entraînement</a>
+      <a href="about.html">À propos</a>
+      <a href="commissions.html">Commandes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <h1>XVS Design</h1>
+    <p class="subtitle">Illustratrice numérique freelance</p>
+  <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Me soutenir sur Ko-fi', '#72a4f2', 'A5S425QX90');kofiwidget2.draw();</script> 
+    <div class="contact-email">
+      <a href="mailto:blanc.julia@gmail.com" class="email-button">
+        ✉ blanc.julia@gmail.com
+      </a>
+    </div>
+    
+    <div class="services-container">
+      <div class="services-column">
+        <h3>Spécialités</h3>
+        <ul>
+          <li>Créatures fantasy</li>
+          <li>Monstres</li>
+          <li>Décors & Environnements</li>
+        </ul>
+      </div>
+      <div class="services-column">
+        <h3>Pour</h3>
+        <ul>
+          <li>Jeux de rôle (JDR)</li>
+          <li>Jeux de cartes (TCG)</li>
+          <li>Illustrations de livres</li>
+        </ul>
+        
+      </div>
+    </div>
+    <h4>Cliquez sur les images pour un aperçu détaillé</h4>
+      <p class="portfolio-disclaimer">
+  <strong>Avertissement :</strong> Les maquettes de cartes TCG et de pages de livres présentées sur cette page sont des simulations visuelles créées pour illustrer l'intégration des œuvres. Elles sont uniquement destinées à la présentation du portfolio et ne représentent pas de produits publiés.
+</p>
+  </header>
+
+  <!-- Filtres par catégorie -->
+  <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">Tous les travaux</button>
+    <button class="filter-btn" data-filter="card">Maquettes de cartes</button>
+    <button class="filter-btn" data-filter="book">Pages de livres</button>
+    <button class="filter-btn" data-filter="digital">Art numérique</button>
+  </div>
+
+  <main class="portfolio-grid">
+    
+    <div class="card illustration" data-category="digital">
+      <img src="asset/digital/test-.jpg" alt="Chaman Orc">
+      <div class="card-info">
+        <h2 class="card-title">Chaman Orc : étude Magali Villeneuve + Ogre de WOW</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/carte-mix-en.jpg" alt="Collection de cartes TCG">
+      <div class="card-info">
+        <h2 class="card-title">Set de cartes TCG : étude Magali Villeneuve + Ogre de WOW</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre-mix.jpg" alt="Collection d'illustrations de livres">
+      <div class="card-info">
+        <h2 class="card-title">Aperçu de pages de livre</h2>
+        <span class="card-tag">Illustration de livre : étude Magali Villeneuve + Ogre de WOW</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/bear.jpg" alt="Ours de monture armuré">
+      <div class="card-info">
+        <h2 class="card-title">Ours de monture armuré</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/carte-ours.jpg" alt="Carte TCG Ours armuré">
+      <div class="card-info">
+        <h2 class="card-title">Ours armuré — Maquette de carte</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre ours.jpg" alt="Illustration de livre Ours armuré">
+      <div class="card-info">
+        <h2 class="card-title">Ours armuré — Page de livre</h2>
+        <span class="card-tag">Illustration de livre</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/serpent.jpg" alt="Serpent géant enroulé">
+      <div class="card-info">
+        <h2 class="card-title">Serpent géant enroulé</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/carte-serpent.jpg" alt="Carte TCG Serpent géant">
+      <div class="card-info">
+        <h2 class="card-title">Serpent géant — Maquette de carte</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre-serpent.jpg" alt="Illustration de livre Serpent">
+      <div class="card-info">
+        <h2 class="card-title">Serpent géant — Page de livre</h2>
+        <span class="card-tag">Illustration de livre</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/shoebill.jpeg" alt="Gardien Bec-en-sabot">
+      <div class="card-info">
+        <h2 class="card-title">Gardien Bec-en-sabot</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/cart-shoebill.jpg" alt="Gardien Bec-en-sabot">
+      <div class="card-info">
+        <h2 class="card-title">Gardien Bec-en-sabot — Maquette de carte</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre-shoebill.jpg" alt="Illustration de livre Bec-en-sabot">
+      <div class="card-info">
+        <h2 class="card-title">Gardien Bec-en-sabot — Page de livre</h2>
+        <span class="card-tag">Illustration de livre</span>
+      </div>
+    </div>
+
+    <!-- ================= MANTE (TRIPLET COMPLET) ================= -->
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/444.png" alt="Mante dissimulée">
+      <div class="card-info">
+        <h2 class="card-title">Mante dissimulée</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/carte-mante.jpg" alt="Carte TCG Mante dissimulée">
+      <div class="card-info">
+        <h2 class="card-title">Mante dissimulée — Maquette de carte</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre-mante.png" alt="Illustration de livre Mante dissimulée">
+      <div class="card-info">
+        <h2 class="card-title">Mante dissimulée — Page de livre</h2>
+        <span class="card-tag">Illustration de livre</span>
+      </div>
+    </div>
+
+    <!-- ================= VER DES SABLES (TRIPLET COMPLET) ================= -->
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/vers.jpg" alt="Ver des sables">
+      <div class="card-info">
+        <h2 class="card-title">Ver des sables</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/carte-vers.jpg" alt="Carte TCG Ver des sables">
+      <div class="card-info">
+        <h2 class="card-title">Ver des sables — Maquette de carte</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre-vers.jpg" alt="Illustration de livre Ver des sables">
+      <div class="card-info">
+        <h2 class="card-title">Ver des sables — Page de livre</h2>
+        <span class="card-tag">Illustration de livre</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/food.jpg" alt="À table !">
+      <div class="card-info">
+        <h2 class="card-title">À table !</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="card">
+      <img src="/asset/illustrations/carte-food-en.jpg" alt="Carte TCG À table !">
+      <div class="card-info">
+        <h2 class="card-title">À table ! — Maquette de carte</h2>
+        <span class="card-tag">Maquette de carte</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/sweet_fantasy_003.jpg" alt="Le Satyre doré">
+      <div class="card-info">
+        <h2 class="card-title">Le Satyre doré</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+    
+    <div class="card" data-category="book">
+      <img src="/asset/illustrations/livre-satyr.jpg" alt="Illustration de livre Le Satyre doré">
+      <div class="card-info">
+        <h2 class="card-title">Le Satyre doré — Page de livre</h2>
+        <span class="card-tag">Illustration de livre</span>
+      </div>
+    </div>
+
+    <div class="card illustration contain-fit" data-category="digital">
+      <img src="/asset/digital/loup-garou.jpg" alt="Loup-garou">
+      <div class="card-info">
+        <h2 class="card-title">Loup-garou</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/sweet_fantasy_004.jpg" alt="Léviathan des océans">
+      <div class="card-info">
+        <h2 class="card-title">Léviathan des océans</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/sweet_fantasy-001.jpg" alt="Chaudron bouillonant">
+      <div class="card-info">
+        <h2 class="card-title">Chaudron bouillonant</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/sweet_fantasy-002.jpg" alt="Terrarium au Nénuphar">
+      <div class="card-info">
+        <h2 class="card-title">Terrarium au Nénuphar</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/sweet_fantasy-006.jpg" alt="Bassin aux grenouilles rouges">
+      <div class="card-info">
+        <h2 class="card-title">Bassin aux grenouilles rouges</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/julia-blanchard-gnome.jpg" alt="Goblinoïde — Ça en valait la peine">
+      <div class="card-info">
+        <h2 class="card-title">Goblinoïde — Ça en valait la peine</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/dark_fantasy-001 (2).jpg" alt="L'Éveil du Titan">
+      <div class="card-info">
+        <h2 class="card-title">L'Éveil du Titan</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+
+    <div class="card illustration" data-category="digital">
+      <img src="/asset/digital/this-way.jpg" alt="Créature des ombres">
+      <div class="card-info">
+        <h2 class="card-title">Rôdeur des ombres</h2>
+        <span class="card-tag">Illustration LOGICIEL : Procreate</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal avec panneau de zoom 75% / 25% -->
+  <div id="lightbox" class="lightbox">
+    <button class="btn-back" id="btn-back">&larr; Retour</button>
+    <div class="lightbox-wrapper">
+      <div class="lightbox-img-container" id="lightbox-container">
+        <img class="lightbox-img" id="lightbox-img" alt="Vue agrandie">
+        <div id="zoom-lens" class="zoom-lens"></div>
+      </div>
+      <div id="zoom-panel" class="zoom-panel"></div>
+    </div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 XVS Design. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const backBtn = document.getElementById('btn-back');
+    const container = document.getElementById('lightbox-container');
+    const lens = document.getElementById('zoom-lens');
+    const zoomPanel = document.getElementById('zoom-panel');
+
+    const ZOOM_LEVEL = 4;
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      lens.style.display = 'none';
+      zoomPanel.style.display = 'none';
+
+      if (window.location.hash === '#lightbox') {
+        history.back();
+      }
+    }
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const title = card.querySelector('.card-title');
+        
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.innerText = title ? title.innerText : '';
+        document.body.style.overflow = 'hidden';
+
+        history.pushState({ lightboxOpen: true }, '', '#lightbox');
+      });
+    });
+
+    window.addEventListener('popstate', () => {
+      if (lightbox.style.display === 'flex') {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
+      }
+    });
+
+    backBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        closeLightbox();
+      }
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = lightboxImg.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+        lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
+        return;
+      }
+
+      lens.style.display = 'block';
+      zoomPanel.style.display = 'block';
+
+      const lensWidth = lens.offsetWidth;
+      const lensHeight = lens.offsetHeight;
+
+      let lensX = e.clientX - container.getBoundingClientRect().left - (lensWidth / 2);
+      let lensY = e.clientY - container.getBoundingClientRect().top - (lensHeight / 2);
+
+      lens.style.left = `${lensX}px`;
+      lens.style.top = `${lensY}px`;
+
+      zoomPanel.style.backgroundImage = `url("${lightboxImg.src}")`;
+      zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
+
+      const bgX = (x * ZOOM_LEVEL) - (zoomPanel.offsetWidth / 2);
+      const bgY = (y * ZOOM_LEVEL) - (zoomPanel.offsetHeight / 2);
+      zoomPanel.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      lens.style.display = 'none';
+      zoomPanel.style.display = 'none';
+    });
+
+    // Système de Filtre corrigé
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
