@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Illustratrice fantasy freelance spécialisée dans les créatures, les monstres, les décors, les illustrations pour TCG, JDR et livres de fantasy.">
+
+    <meta name="keywords" content="illustratrice fantasy, artiste freelance, artiste TCG, artiste JDR, artiste créature, illustratrice de monstres, art fantasy, illustratrice de livres">
+
+    <meta name="author" content="XVS Design">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie de Fan Art présentant des réinterprétations de personnages, des univers cultes et des hommages visuels épiques par XVS Design.">
+    <title>Fan Art | XVS Design</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7Q9HM3F5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JVK4541R7F');
+    </script>
+    <style>
+      /* Styles pour la lightbox avec panneau de zoom latéral (75% / 25%) */
+      .lightbox-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 90vw;
+        height: 80vh;
+        max-width: 1400px;
+      }
+
+      .lightbox-img-container {
+        position: relative;
+        width: 75%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: crosshair;
+      }
+
+      .lightbox-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      /* Cadre mobile sur l'image */
+      .zoom-lens {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border: 2px solid var(--accent-color, #ff4444);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        pointer-events: none;
+        display: none;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Panneau de zoom à côté (25% de la largeur) */
+      .zoom-panel {
+        width: 25%;
+        height: 100%;
+        max-height: 500px;
+        border: 2px solid var(--accent-color, #ff4444);
+        border-radius: 8px;
+        background-repeat: no-repeat;
+        background-color: #111;
+        display: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Adaptabilité mobile */
+      @media (max-width: 800px) {
+        .lightbox-wrapper {
+          flex-direction: column;
+        }
+        .lightbox-img-container {
+          width: 100%;
+          height: 60%;
+        }
+        .zoom-panel {
+          width: 100%;
+          height: 30%;
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav> 
+            <a href="index.html">Accueil</a>
+            <a href="digital.html">Portfolio</a>
+            <a href="entrainement.html">Entraînement</a>
+            <a href="about.html">À propos</a>
+            <a href="commissions.html">Commandes</a>
+            <a href="contact.html">Contact</a>
+            <a href=/index.html">EN</a>
+        </nav>
+
+        <h1>Fan Art</h1>
+        <p class="subtitle">Réinterprétations, Univers Cultes & Hommages Visuels</p>
+         <div class="contact-email">
+  
+    
+    <!-- E-mail mis en avant -->
+    <a href="mailto:blanc.julia@gmail.com" class="email-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      blanc.julia@gmail.com
+    </a>
+
+    
+</div>
+    </header>
+
+    <main>
+        <!-- Grille Portfolio avec la classe .portfolio-grid du CSS -->
+        <section class="portfolio-grid">
+
+            <!-- Catégorie: Héros & Personnages -->
+            <div class="card">
+                <span class="card-tag">Héros</span>
+                <img src="/asset/fan-art/image.jpg" alt="Fan Art - Portrait">
+                <div class="card-info">
+                    <div class="card-title">Un gars célèbre</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Héros</span>
+                <img src="/asset/fan-art/imageffdfsdf.jpg" alt="Fan Art - Illustration">
+                <div class="card-info">
+                    <div class="card-title">Machine à toile</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Héros</span>
+                <img src="/asset/fan-art/imageooooo.jpg" alt="Fan Art - Scène">
+                <div class="card-info">
+                    <div class="card-title">Mangeur de fruits</div>
+                </div>
+            </div>
+
+            <!-- Catégorie: Univers Cultes -->
+            <div class="card">
+                <span class="card-tag">Univers</span>
+                <img src="/asset/fan-art/imageooou.jpg" alt="Fan Art - Concept">
+                <div class="card-info">
+                    <div class="card-title">Un gars toujours en vert</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Univers</span>
+                <img src="/asset/fan-art/imagertsry.jpg" alt="Fan Art - Recherche">
+                <div class="card-info">
+                    <div class="card-title">Quelqu'un qui aime les couteaux</div>
+                </div>
+            </div>
+
+            <!-- Catégorie: Illustrations Épiques -->
+            <div class="card">
+                <span class="card-tag">Épique</span>
+                <img src="/asset/fan-art/ooo.jpg" alt="Fan Art Épique I">
+                <div class="card-info">
+                    <div class="card-title">Le même gars célèbre</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Épique</span>
+                <img src="/asset/fan-art/pppp.jpg" alt="Fan Art Épique II">
+                <div class="card-info">
+                    <div class="card-title">Le troll</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Lightbox Modal avec panneau de zoom 75% / 25% -->
+    <div id="lightbox" class="lightbox">
+        <button class="btn-back" id="btn-back">&larr; Retour</button>
+        <div class="lightbox-wrapper">
+            <div class="lightbox-img-container" id="lightbox-container">
+                <img class="lightbox-img" id="lightbox-img" alt="Vue agrandie">
+                <div id="zoom-lens" class="zoom-lens"></div>
+            </div>
+            <div id="zoom-panel" class="zoom-panel"></div>
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 XVS Design — Tous droits réservés.</p>
+    </footer>
+
+   <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const backBtn = document.getElementById('btn-back');
+    const container = document.getElementById('lightbox-container');
+    const lens = document.getElementById('zoom-lens');
+    const zoomPanel = document.getElementById('zoom-panel');
+
+    const ZOOM_LEVEL = 4; // Facteur de grossissement
+
+    // Fonction de fermeture centralisée
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      lens.style.display = 'none';
+      zoomPanel.style.display = 'none';
+
+      // Nettoie le hashtag de l'URL si présent sans recharger la page
+      if (window.location.hash === '#lightbox') {
+        history.back();
+      }
+    }
+
+    // Ouverture Lightbox
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const title = card.querySelector('.card-title');
+        
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.innerText = title ? title.innerText : '';
+        document.body.style.overflow = 'hidden';
+
+        // Enregistre l'ouverture dans l'historique du navigateur
+        history.pushState({ lightboxOpen: true }, '', '#lightbox');
+      });
+    });
+
+    // Gestion du bouton Retour de la souris ou du navigateur
+    window.addEventListener('popstate', () => {
+      if (lightbox.style.display === 'flex') {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
+      }
+    });
+
+    // Fermeture via le bouton retour sur la page
+    backBtn.addEventListener('click', closeLightbox);
+
+    // Fermeture au clic en dehors de l'image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-wrapper')) {
+        closeLightbox();
+      }
+    });
+
+    // Fermeture avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        closeLightbox();
+      }
+    });
+
+    // Gestion du survol pour la loupe et le panneau de zoom latéral
+    container.addEventListener('mousemove', (e) => {
+      const rect = lightboxImg.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+        lens.style.display = 'none';
+        zoomPanel.style.display = 'none';
+        return;
+      }
+
+      lens.style.display = 'block';
+      zoomPanel.style.display = 'block';
+
+      const lensWidth = lens.offsetWidth;
+      const lensHeight = lens.offsetHeight;
+
+      let lensX = e.clientX - container.getBoundingClientRect().left - (lensWidth / 2);
+      let lensY = e.clientY - container.getBoundingClientRect().top - (lensHeight / 2);
+
+      lens.style.left = `${lensX}px`;
+      lens.style.top = `${lensY}px`;
+
+      zoomPanel.style.backgroundImage = `url("${lightboxImg.src}")`;
+      zoomPanel.style.backgroundSize = `${rect.width * ZOOM_LEVEL}px ${rect.height * ZOOM_LEVEL}px`;
+
+      const bgX = (x * ZOOM_LEVEL) - (zoomPanel.offsetWidth / 2);
+      const bgY = (y * ZOOM_LEVEL) - (zoomPanel.offsetHeight / 2);
+      zoomPanel.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      lens.style.display = 'none';
+      zoomPanel.style.display = 'none';
+    });
+
+    // Système de Filtre
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+</script>
+</body>
+</html>
