@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez XVS Design pour des commandes en freelance, illustrations de couvertures de livres, cartes TCG et concepts de dark fantasy.">
+    <title>Contact | XVS Design</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV7Q9HM3F5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVK4541R7F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JVK4541R7F');
+    </script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="digital.html">Portfolio</a>
+            <a href="about.html">À propos</a>
+            <a href="commissions.html">Commandes</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="/index.html" class="active">EN</a>
+        </nav>
+        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Me soutenir sur Ko-fi', '#72a4f2', 'A5S425QX90');kofiwidget2.draw();</script> 
+        <h1>XVS Design</h1>
+        <p class="subtitle">Travaillons ensemble !</p>
+        
+        <div class="contact-email">
+            <p style="color: var(--text-color); font-size: 0.95rem;">
+                Vous avez un projet en tête, besoin d'une commande ou simplement envie de dire bonjour ? Envoyez-moi un message ci-dessous !
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Formulaire inséré dans le conteneur stylisé du CSS -->
+        <section class="contact-container">
+            <form action="https://formspree.io/f/xpqvrdbg" method="POST" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="name" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="email" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="subject" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Type de projet</label>
+                    <select id="subject" name="subject" style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;">
+                        <option value="TCG-card game">Illustration TCG / Jeu de cartes</option>
+                        <option value="book-cover">Illustration de couverture de livre</option>
+                        <option value="dark-fantasy">Concept / Scène Dark Fantasy</option>
+                        <option value="landscape">Illustration de décor & paysage</option>
+                        <option value="other">Autre projet créatif</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; flex-direction: column; text-align: left; gap: 0.4rem;">
+                    <label for="message" style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Parlez-moi de vos idées de projet, du calendrier et de votre budget..." required style="background: #0d0d11; color: var(--text-color); border: 1px solid #282838; padding: 0.75rem 1rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="Nouveau message depuis XVS Design">
+                <input type="hidden" name="_next" value="https://xvs-design.fr/contact.html?success=true">
+
+                <button type="submit" class="filter-btn active" style="margin-top: 0.5rem; width: 100%; font-size: 1rem; padding: 0.75rem; border-radius: 6px; cursor: pointer;">
+                    Envoyer le message
+                </button>
+            </form>
+
+            <!-- Réseaux Sociaux & Contact Direct -->
+            <div style="margin-top: 2.5rem; text-align: center; border-top: 1px solid #282838; padding-top: 1.5rem;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Ou contactez-moi directement :</p>
+                <div class="contact-email" style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0;">
+                    <a href="https://www.instagram.com/xv_s_design/" target="_blank">Instagram</a>
+                    <a href="https://x.com/BlancJulia" target="_blank">X / Twitter</a>
+                    <a href="https://www.artstation.com/juliablanchard9" target="_blank">ArtStation</a>
+                    <a href="mailto:blanc.julia@gmail.com">E-mail direct</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 XVS Design — Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
