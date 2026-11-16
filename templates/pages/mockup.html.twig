@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mock up{% endblock %}
+
+{% block body %}
+    <style>
+       
+        /* Style pour harmoniser la taille des images et éviter les décalages */
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+
+    <div class="gallery-wrapper">
+        <aside class="category-filters ">
+          
+
+
+
+
+            <p class="fantasy   d-inline p-2"> <a href="{{ path('mockup.cat', { mockup: 'card' }) }}">Carte TCG</a></p> 
+            <p class="darkFantasy  d-inline p-2"> <a href="{{ path('mockup.cat', { mockup: 'jdr' }) }}">Pages livre JDR</a></p> 
+            <p class="sweetFantasy  d-inline p-2"> <a href="{{ path('mockup.cat', { mockup: 'book' }) }}">Couvertures de livres</p>
+            
+        </aside>
+    </div>
+
+    <!-- Affichage dynamique des images de la base de données -->
+     <div class="fx-0793-root">
+            <div class="spb-scene">
+                <div class="spb-beam" aria-hidden="true"><div class="spb-beam-fill"></div><div class="spb-beam-dot"></div></div>
+                
+                <div class="spb-scroll">
+                    <div class="spb-block">
+               <div class="row row-cols-2 row-cols-lg-3 g-3 portfolio-grid justify-content-center">
+            {% for image in mockUp %}
+                <div class="col">
+                    <article class="portfolio-card-bodys {{ image.getborder() }}">
+                        <img src="{{ asset(image.getChemin()) }}"
+                             class="portfolio-img"
+                             alt="{{ image.getCategory.categorie() }} : {{ image.getLegende() }}">
+                        <div class="portfolio-card-body">
+                            <p class="card-text">{{ image.getLegende() }}</p>
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+
+                    </div> {# fin spb-block #}
+                </div> {# fin spb-scroll #}
+            </div> {# fin spb-scene #}
+        </div> {# fin fx-0793-root #}
+
+
+  
+
+   
+
+{% endblock %}

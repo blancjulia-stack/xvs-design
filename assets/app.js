@@ -7,4 +7,14 @@ import './stimulus_bootstrap.js';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+ (function () {
+            var scene = document.querySelector('.spb-scene');
+            if (!scene) return;
+            function update() {
+                var max = document.documentElement.scrollHeight - window.innerHeight;
+                scene.style.setProperty('--spb-p', max > 0 ? Math.min(1, window.scrollY / max) : 0);
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();

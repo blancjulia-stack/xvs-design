@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration — Catégories{% endblock %}
+
+{% block body %}
+<div class="container text-light my-4">
+    <h1 class="h3 mb-3">Gérer les catégories</h1>
+
+    {% include 'partials/flash.html.twig' %}
+
+    <div class="mb-4 d-flex flex-wrap gap-2">
+        <a href="{{ path('admin.edit') }}" class="btn btn-outline-light btn-sm">← Administration</a>
+        <a href="{{ path('admin.souscategory.show') }}" class="btn btn-outline-light btn-sm">Gérer les sous-catégories</a>
+    </div>
+
+    <h2 class="h5">Ajouter une catégorie</h2>
+    {{ form_start(form, {'attr': {'class': 'row g-2 align-items-end mb-4'}}) }}
+        <div class="col-12 text-danger small">{{ form_errors(form) }}</div>
+        <div class="col-12 col-md-6">
+            {{ form_label(form.categorie, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.categorie, {'attr': {'class': 'form-control' ~ (form.categorie.vars.valid ? '' : ' is-invalid')}}) }}
+            {% for error in form.categorie.vars.errors %}
+                <div class="text-danger small">{{ error.message }}</div>
+            {% endfor %}
+        </div>
+        <div class="col-auto">
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
+    {{ form_end(form) }}
+
+    <h2 class="h5">Catégories existantes ({{ categories|length }})</h2>
+    <table class="table table-dark table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th class="text-center">Images</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.categorie }}</td>
+                <td class="text-center">{{ categorie.portfolios|length }}</td>
+                <td class="text-end">
+                    <a href="{{ path('category.edit', {id: categorie.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
+                    <form action="{{ path('category.delete', {id: categorie.id}) }}" method="post" class="d-inline">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete-category-' ~ categorie.id) }}">
+                        <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Supprimer la catégorie « {{ categorie.categorie|e('js') }} » ?');">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="3" class="text-center">Aucune catégorie pour le moment.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="small text-secondary">Une catégorie encore utilisée par des images ne peut pas être supprimée.</p>
+</div>
+{% endblock %}

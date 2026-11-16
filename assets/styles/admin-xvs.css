@@ -1,0 +1,464 @@
+
+/* =========================================
+   ADMINISTRATION XVS DESIGN
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.admin-dashboard {
+    width: min(1500px, 94%);
+    margin: 0 auto;
+    padding: 45px 0 80px;
+    color: #252525;
+}
+
+/* =========================================
+   EN-TÊTE
+========================================= */
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 35px;
+    margin-bottom: 35px;
+    background: #202127;
+    color: #fff;
+    border-radius: 14px;
+}
+
+.admin-eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    color: #c5a77b;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+}
+
+.admin-header p {
+    margin: 10px 0 0;
+    color: #c4c4c8;
+}
+
+/* =========================================
+   BOUTON PRINCIPAL
+========================================= */
+
+.btn-admin-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 22px;
+    background: #c5a77b;
+    color: #202127;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 7px;
+    transition: 0.2s ease;
+}
+
+.btn-admin-primary:hover {
+    background: #dec49e;
+    color: #202127;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.admin-section {
+    margin-bottom: 42px;
+}
+
+.admin-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.admin-section-heading h2 {
+    margin: 0 0 6px;
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+.admin-section-heading p {
+    margin: 0;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   NAVIGATION DU PORTFOLIO
+========================================= */
+
+.admin-navigation {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.admin-nav-card,
+.admin-management-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    color: #252525;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.admin-nav-card:hover,
+.admin-management-card:hover {
+    border-color: #c5a77b;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transform: translateY(-3px);
+}
+
+.admin-nav-card strong,
+.admin-management-card strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.98rem;
+}
+
+.admin-nav-card small,
+.admin-management-card small {
+    display: block;
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.admin-nav-icon,
+.admin-management-icon {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: #f3eee6;
+    color: #94744c;
+    border-radius: 9px;
+    font-size: 1.4rem;
+}
+
+/* =========================================
+   GESTION DES CATÉGORIES
+========================================= */
+
+.admin-management-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.admin-management-card {
+    padding: 22px;
+}
+
+.admin-management-card > span:nth-child(2) {
+    flex: 1;
+}
+
+.admin-arrow {
+    font-size: 1.5rem;
+    color: #b09268;
+}
+
+/* =========================================
+   GALERIE DES ILLUSTRATIONS
+========================================= */
+
+.admin-count {
+    padding: 8px 14px;
+    background: #f3eee6;
+    color: #806344;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Grille : 4 images par ligne */
+
+.admin-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Carte */
+
+.admin-artwork-card {
+    min-width: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.admin-artwork-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* Zone image */
+
+.admin-artwork-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: #17151d;
+}
+
+/* Image : conserve les proportions */
+
+.admin-artwork-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.admin-artwork-card:hover .admin-artwork-image img {
+    transform: scale(1.03);
+}
+
+/* Catégorie affichée sur l'image */
+
+.admin-artwork-category {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    background: rgba(32, 33, 39, 0.88);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.75rem;
+}
+
+/* Informations de l'illustration */
+
+.admin-artwork-content {
+    padding: 15px;
+}
+
+.admin-artwork-content h3 {
+    min-height: 42px;
+    margin: 0 0 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   BOUTONS MODIFIER / SUPPRIMER
+========================================= */
+
+.admin-artwork-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-artwork-actions form {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-artwork-actions a,
+.admin-artwork-actions button {
+    display: block;
+    width: 100%;
+    padding: 9px 7px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-admin-edit {
+    background: #eee8df;
+    color: #6d5537;
+}
+
+.btn-admin-edit:hover {
+    background: #dfd1bd;
+    color: #4d3c28;
+}
+
+.btn-admin-delete {
+    background: #f8e8e8;
+    color: #a23c3c;
+}
+
+.btn-admin-delete:hover {
+    background: #f0d0d0;
+    color: #7c2525;
+}
+
+/* =========================================
+   GALERIE VIDE
+========================================= */
+
+.admin-empty {
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+    background: #fafafa;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin-empty p {
+    color: #777;
+}
+
+/* =========================================
+   MESSAGES FLASH
+========================================= */
+
+.admin-flashes {
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   ANCIENNES CLASSES ADMIN
+========================================= */
+
+.example-wrapper {
+    padding: 25px;
+}
+
+.portfolio-card-admin {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #17151d;
+    border: 1px solid #393342;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.portfolio-img-admin {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #0d0c11;
+    border-radius: 5px;
+}
+
+.card-text-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+}
+
+.card-text-admin .btn {
+    width: 100%;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+/* Petits ordinateurs */
+
+@media (max-width: 1100px) {
+    .admin-navigation {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .portfolio-img-admin {
+        height: 160px;
+    }
+}
+
+/* Tablettes et mobiles */
+
+@media (max-width: 700px) {
+    .admin-dashboard {
+        width: 92%;
+        padding-top: 25px;
+    }
+
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .admin-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .admin-artwork-image {
+        height: 190px;
+    }
+
+    .admin-management-links {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-img-admin {
+        height: 130px;
+    }
+}
+
+/* Petits téléphones */
+
+@media (max-width: 450px) {
+    .admin-navigation,
+    .admin-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-artwork-image {
+        height: 260px;
+    }
+
+    .admin-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-artwork-actions {
+        flex-direction: column;
+    }
+}

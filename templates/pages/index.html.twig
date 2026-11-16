@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}XVS Design — Julia Blanchard, Fantasy Illustrator{% endblock %}
+
+{% block body %}
+    {% set artworks = Images|default([]) %}
+    {% set featured = artworks|slice(0, 4) %}
+    {% set hero = artworks|length > 4 ? artworks[4] : null %}
+   
+    <div class="gallery-wrapper">
+        
+        <!-- Filtres de catégories -->
+        <aside class="category-filters">
+            <p class="border-fantasy">
+                <a href="{{ path('category.show', { category: 'fantasy' }) }}">Fantasy</a>
+            </p>
+            <p class="border-dark-fantasy">
+                <a href="{{ path('category.show', { category: 'dark-fantasy' }) }}">Dark Fantasy</a>
+            </p>
+            <p class="border-sweet-fantasy">
+                <a href="{{ path('category.show', { category: 'sweet-fantasy' }) }}">Sweet Fantasy</a>
+            </p>
+            <p class="border-ink">
+                <a href="{{ path('category.show', { category: 'ink' }) }}">Encrage</a>
+            </p>
+            <p class="border-all">
+                <a href="{{ path('app_home') }}">Tout voir</a>
+            </p>
+        </aside>
+
+        <!-- Grille d'illustrations -->
+        <div class="fx-0793-root">
+            <div class="spb-scene">
+                <div class="spb-beam" aria-hidden="true"><div class="spb-beam-fill"></div><div class="spb-beam-dot"></div></div>
+                
+                <div class="spb-scroll">
+                    <div class="spb-block">
+                        <div class="row row-cols-2 row-cols-lg-3 g-3 portfolio-grid justify-content-center">
+                            {% for image in artworks %}
+                                <div class="col">
+                                    <article class="portfolio-card-bodys {{ image.getborder() }}">
+                                        <img
+                                            src="{{ asset(image.getChemin()) }}"
+                                            class="portfolio-img"
+                                            alt="{{ image.getCategory.categorie() }} : {{ image.getLegende() }}"
+                                        >
+                                    <p class="card-text">
+    {{ image.getCategory.categorie() }}
+    {% if image.getSousCategories|length > 0 %}
+        :
+        {% for sousCategorie in image.getSousCategories %}
+            {{ sousCategorie.type }}{{ loop.last ? '' : ', ' }}
+        {% endfor %}
+    {% endif %}
+</p>
+                                    </article>
+                                </div>
+                            {% else %}
+                                <p class="xvs-empty-gallery">Aucune illustration dans cette catégorie pour le moment.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration | XVS Design{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/admin-xvs.css') }}">
+    <style>
+        /* Modifier et Supprimer : deux boutons de même largeur, côte à côte, sans dépasser de la carte */
+        .admin-artwork-actions { display: flex; gap: .5rem; flex-wrap: nowrap; }
+        .admin-artwork-actions > a,
+        .admin-artwork-actions > form { flex: 1 1 0 !important; min-width: 0 !important; margin: 0; }
+        .admin-artwork-actions .btn-admin-edit,
+        .admin-artwork-actions .btn-admin-delete { display: block; width: 100% !important; box-sizing: border-box; text-align: center; }
+        /* Titres de section lisibles sur le fond sombre */
+        .admin-section-heading h2 { color: #f3eee6; }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+{% set titres = { non: 'Images', card: 'Mock-ups Card', jdr: 'Mock-ups JDR', book: 'Couvertures' } %}
+
+<div class="admin-dashboard">
+
+    {# En-tête #}
+    <header class="admin-header">
+        <div>
+            <span class="admin-eyebrow">XVS DESIGN</span>
+            <h1>Administration</h1>
+            <p>Gérez votre portfolio et vos créations.</p>
+        </div>
+
+        <a href="{{ path('insert.edit') }}" class="btn-admin-primary">
+            + Ajouter une image
+        </a>
+    </header>
+
+    {# Messages flash #}
+    <div class="admin-flashes">
+        {% include 'partials/flash.html.twig' %}
+    </div>
+
+    {# Navigation des contenus #}
+    <section class="admin-section">
+        <div class="admin-section-heading">
+            <div>
+                <h2>Gestion du portfolio</h2>
+                <p>Accédez rapidement aux différentes catégories de contenus.</p>
+            </div>
+        </div>
+
+        <div class="admin-navigation">
+
+            <a href="{{ path('admin.edit') }}"
+               class="admin-nav-card">
+                <span class="admin-nav-icon">▧</span>
+                <span>
+                    <strong>Images</strong>
+                    <small>Illustrations du portfolio</small>
+                </span>
+            </a>
+
+            <a href="{{ path('admin.mockup.show', { mockUp: 'card' }) }}"
+               class="admin-nav-card">
+                <span class="admin-nav-icon">▣</span>
+                <span>
+                    <strong>Mock-ups Card</strong>
+                    <small>Présentations de cartes</small>
+                </span>
+            </a>
+
+            <a href="{{ path('admin.mockup.show', { mockUp: 'jdr' }) }}"
+               class="admin-nav-card">
+                <span class="admin-nav-icon">▤</span>
+                <span>
+                    <strong>Mock-ups JDR</strong>
+                    <small>Illustrations de jeu de rôle</small>
+                </span>
+            </a>
+
+            <a href="{{ path('admin.mockup.show', { mockUp: 'book' }) }}"
+               class="admin-nav-card">
+                <span class="admin-nav-icon">▥</span>
+                <span>
+                    <strong>Couvertures</strong>
+                    <small>Mock-ups de livres</small>
+                </span>
+            </a>
+
+        </div>
+    </section>
+
+    {# Gestion des catégories #}
+    <section class="admin-section">
+        <div class="admin-section-heading">
+            <div>
+                <h2>Organisation du contenu</h2>
+                <p>Gérez les catégories utilisées pour classer vos illustrations.</p>
+            </div>
+        </div>
+
+        <div class="admin-management-links">
+            <a href="{{ path('admin.category.show') }}" class="admin-management-card">
+                <span class="admin-management-icon">▦</span>
+                <span>
+                    <strong>Catégories</strong>
+                    <small>Créer, modifier et supprimer des catégories</small>
+                </span>
+                <span class="admin-arrow">→</span>
+            </a>
+
+            <a href="{{ path('admin.souscategory.show') }}" class="admin-management-card">
+                <span class="admin-management-icon">☷</span>
+                <span>
+                    <strong>Sous-catégories</strong>
+                    <small>Gérer les sous-catégories du portfolio</small>
+                </span>
+                <span class="admin-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    {# Galerie des images #}
+    <section class="admin-section">
+
+        <div class="admin-section-heading admin-gallery-heading">
+            <div>
+                <h2>{{ mockup is defined ? (titres[mockup]|default('Mock-ups : ' ~ mockup)) : 'Mes illustrations' }}</h2>
+                <p>Consultez et gérez les images enregistrées dans votre portfolio.</p>
+            </div>
+
+            <span class="admin-count">
+                {{ Images|length }} image(s)
+            </span>
+        </div>
+
+        <div class="admin-gallery">
+
+            {% for image in Images %}
+
+                <article class="admin-artwork-card {{ image.getBorder() }}">
+
+                    <div class="admin-artwork-image">
+                        <img
+                            src="{{ asset(image.getChemin()) }}"
+                            alt="{{ image.getCategory().categorie() }} : {{ image.getLegende() }}"
+                        >
+
+                        <span class="admin-artwork-category">
+                            {{ image.getCategory().categorie() }}
+                        </span>
+                    </div>
+
+                    <div class="admin-artwork-content">
+
+                        <h3>{{ image.getLegende() }}</h3>
+
+                        <div class="admin-artwork-actions">
+
+                            <a
+                                href="{{ path('update.edit', { name: image.getNomImage() }) }}"
+                                class="btn-admin-edit"
+                            >
+                                Modifier
+                            </a>
+
+                            <form
+                                action="{{ path('delete.edit', { name: image.getNomImage() }) }}"
+                                method="post"
+                                onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette image ?');"
+                            >
+                                <input type="hidden" name="_method" value="DELETE">
+
+                                <button type="submit" class="btn-admin-delete">
+                                    Supprimer
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </article>
+
+            {% else %}
+
+                <div class="admin-empty">
+                    <h3>Aucune illustration</h3>
+                    <p>Votre galerie est vide pour le moment.</p>
+                    <a href="{{ path('insert.edit') }}" class="btn-admin-primary">
+                        Ajouter une première image
+                    </a>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

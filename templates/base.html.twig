@@ -4,21 +4,78 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        >
+        <meta name="description" content="Fantasy freelance illustrator specializing in creatures, monsters, environments, TCG card artwork, RPG illustrations and fantasy book illustrations.">
+        <meta name="keywords" content="fantasy illustrator, freelance illustrator, TCG artist, RPG artist, creature artist, monster artist, fantasy art, book illustrator">
+        <meta name="author" content="XVS Design">
+
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+            
         {% endblock %}
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+            <link rel="stylesheet" href="{{ asset('css/xvs-dark-gothic.css') }}">
+            <script src="{{ asset('js/lightbox-zoom.js') }}" defer></script>
+    <style>
+                /* Administration : pas de bloc de présentation, contenu pleine largeur */
+                .xvs-home--admin { display: block; }
+                .xvs-home--admin .xvs-content { width: 100%; max-width: none; margin: 0; }
+            </style>
+</head>
+    <body class="bg-dark">
+        {% set isAdmin = app.request.pathinfo starts with '/admin' %}
 
-        {% set frankenphp_hot_reload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
-        {% if frankenphp_hot_reload %}
-        <meta name="frankenphp-hot-reload:url" content="{{ frankenphp_hot_reload }}">
-        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
-        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
-        {% endif %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+        <!-- HEADER MINIMAL — la composition éditoriale est dans la page d'accueil -->
+        <header class="xvs-topbar">
+            <a class="xvs-wordmark" href="{{ path('app_home') }}">XVS <span>DESIGN</span></a>
+            <nav class="xvs-topnav" aria-label="Navigation principale">
+                <a href="{{ path('app_home') }}">Galerie</a>
+                <a href="{{ path('mockUp.show') }}">Mockups</a>
+                <a href="{{ path('contact') }}">Contact</a>
+                <a class="xvs-admin-link" href="{{ path('admin.edit') }}">Administration</a>
+            </nav>
+        </header>
+
+        <!-- LAYOUT : intro à gauche (sur toutes les pages), contenu à droite -->
+        <div class="xvs-home{{ isAdmin ? ' xvs-home--admin' : '' }}">
+            {% if not isAdmin %}
+            <aside class="xvs-intro">
+                <span class="xvs-kicker"> Illustratrice freelance</span>
+                <h1>JULIA<br>BLANCHARD</h1>
+                <p class="xvs-role">Illustratrice freelance</p>
+
+                <div class="xvs-rule"></div>
+
+                <div class="xvs-intro-copy">
+                    <p><strong>Bienvenue dans mon univers.</strong></p>
+                    <p>Je suis illustratrice spécialisée dans la création de créatures, monstres, personnages, artefacts et environnements fantastiques.</p>
+                    <p>Je réalise des illustrations pour les jeux de cartes <span class="xvs-kicker">(TCG)</span>, les jeux de rôle<span class="xvs-kicker"> (JDR)</span> et les<span class="xvs-kicker"> couvertures de livres</span>.</p>
+                </div>
+
+                <a class="xvs-contact-cta" href="{{ path('contact') }}">DEMANDER DES INFORMATIONS</a>
+
+                <div class="xvs-socials">
+                    <a href="https://www.instagram.com/xv_s_design/" target="_blank" rel="noopener">INSTAGRAM</a>
+                    <a href="https://www.artstation.com/juliablanchard9" target="_blank" rel="noopener">ARTSTATION</a>
+                </div>
+            </aside>
+            {% endif %}
+
+            <!-- CONTENU DE LA PAGE -->
+            <main class="xvs-content">
+                {% block body %}{% endblock %}
+            </main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
